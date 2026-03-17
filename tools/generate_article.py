@@ -733,9 +733,9 @@ def build_article_page(slug: str, article_html: str, keyword_data: dict, pub_dat
 
     /* Images */
     .article-main-img {{ margin: 0 0 32px; border-radius: 18px; overflow: hidden; }}
-    .article-main-img img {{ width: 100%; object-fit: cover; }}
+    .article-main-img img {{ width: 100%; height: auto; display: block; }}
     .article-step-img {{ margin: 16px 0 24px; border-radius: 14px; overflow: hidden; }}
-    .article-step-img img {{ width: 100%; object-fit: cover; }}
+    .article-step-img img {{ width: 100%; height: auto; display: block; }}
     .img-placeholder {{
       border-radius: 18px; background: linear-gradient(135deg, #FECDC5, #FFD8B0);
       display: flex; align-items: center; justify-content: center;
