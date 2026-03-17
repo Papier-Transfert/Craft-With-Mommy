@@ -26,6 +26,12 @@ try:
 except ImportError:
     _PILLOW_AVAILABLE = False
 
+try:
+    from amazon_paapi import AmazonApi
+    _AMAZON_PAAPI_AVAILABLE = True
+except ImportError:
+    _AMAZON_PAAPI_AVAILABLE = False
+
 # ---------------------------------------------------------------------------
 # Config
 # ---------------------------------------------------------------------------
@@ -1440,6 +1446,133 @@ def git_commit_and_push(slug: str, pub_date: str) -> None:
 
 
 # ---------------------------------------------------------------------------
+# Step 3b — Resolve Amazon affiliate link placeholders
+# ---------------------------------------------------------------------------
+
+_AMAZON_LINK_RE = re.compile(
+    r'<a\b([^>]*?)href="\[AMAZON_LINK_([a-z_]+)\]"([^>]*?)>(.*?)</a>',
+    re.IGNORECASE | re.DOTALL,
+)
+
+_CRAFT_WORDS = {
+    "paint", "brush", "glue", "scissors", "paper", "foam", "felt", "yarn",
+    "craft", "art", "marker", "crayon", "sticker", "ribbon", "tape", "stamp",
+}
+
+
+def _placeholder_key_to_query(key: str) -> str:
+    """Convert a snake_case placeholder key to an Amazon search query."""
+    words = key.replace("_", " ")
+    if any(w in words.split() for w in _CRAFT_WORDS):
+        return f"{words} kids"
+    return f"{words} kids craft"
+
+
+def search_amazon_product(query: str, amazon_api, associate_tag: str) -> dict | None:
+    """Search Amazon PA API for a product matching query.
+
+    Returns {"asin": ..., "url": ..., "title": ...} or None.
+    Never raises — all errors are caught and logged as warnings.
+    """
+    try:
+        results = amazon_api.search_items(
+            keywords=query,
+            search_index="Toys",
+            item_count=5,
+        )
+        if not results or not results.items_result or not results.items_result.items:
+            log.warning(f"Amazon search: no results for '{query}'")
+            return None
+
+        for item in results.items_result.items:
+            try:
+                reviews = item.customer_reviews
+                if reviews is None:
+                    continue
+                count = getattr(reviews, "count", 0) or 0
+                rating = float(getattr(reviews, "star_rating", {}).display_value or 0)
+                if count < 50 or rating < 4.0:
+                    continue
+                asin = item.asin
+                url = f"https://www.amazon.com/dp/{asin}?tag={associate_tag}"
+                title = (item.item_info.title.display_value
+                         if item.item_info and item.item_info.title else query)
+                log.info(f"Amazon product found: '{title}' (ASIN={asin}, {count} reviews, {rating}★)")
+                return {"asin": asin, "url": url, "title": title}
+            except Exception:
+                continue
+
+        log.warning(f"Amazon search: no product with ≥50 reviews & ≥4.0★ for '{query}'")
+        return None
+    except Exception as exc:
+        log.warning(f"Amazon PA API call failed for '{query}': {exc}")
+        return None
+
+
+def resolve_amazon_links(article_html: str) -> str:
+    """Replace [AMAZON_LINK_*] placeholders with real affiliate links.
+
+    Fallback cascade (in priority order):
+      1. Library not installed        → href="#"
+      2. Credentials not configured   → Amazon search URL fallback
+      3. Product found (≥50 rev, ≥4★) → Real dp/ affiliate link
+      4. No qualifying product found  → Strip <a>, keep plain text
+      5. API call fails               → Strip <a>, keep plain text
+    """
+    associate_tag = os.environ.get("AMAZON_ASSOCIATE_TAG", "").strip()
+    access_key = os.environ.get("AMAZON_ACCESS_KEY", "").strip()
+    secret_key = os.environ.get("AMAZON_SECRET_KEY", "").strip()
+
+    if not _AMAZON_PAAPI_AVAILABLE:
+        log.warning("python-amazon-paapi not installed — Amazon links set to '#'")
+
+        def _noop_replace(m):
+            pre, _key, post, text = m.group(1), m.group(2), m.group(3), m.group(4)
+            return f'<a{pre}href="#"{post}>{text}</a>'
+
+        return _AMAZON_LINK_RE.sub(_noop_replace, article_html)
+
+    credentials_ok = bool(associate_tag and access_key and secret_key)
+    if not credentials_ok:
+        log.warning("Amazon credentials not configured — using search URL fallback")
+
+    amazon_api = None
+    if credentials_ok:
+        try:
+            amazon_api = AmazonApi(
+                access_key, secret_key, associate_tag,
+                country="US", throttling=0.5,
+            )
+        except Exception as exc:
+            log.warning(f"Could not initialise AmazonApi: {exc}")
+            amazon_api = None
+
+    # Cache: one API call per unique slug
+    cache: dict[str, dict | None] = {}
+
+    def _replace(m: re.Match) -> str:
+        pre, key, post, text = m.group(1), m.group(2), m.group(3), m.group(4)
+
+        if not credentials_ok:
+            query = _placeholder_key_to_query(key)
+            safe_q = requests.utils.quote(query, safe="")
+            search_url = f"https://www.amazon.com/s?k={safe_q}&tag={associate_tag or 'craftmommy-20'}"
+            return f'<a{pre}href="{search_url}"{post}>{text}</a>'
+
+        if key not in cache:
+            query = _placeholder_key_to_query(key)
+            cache[key] = search_amazon_product(query, amazon_api, associate_tag)
+
+        product = cache[key]
+        if product:
+            return f'<a{pre}href="{product["url"]}"{post}>{text}</a>'
+        # No qualifying product — strip <a>, keep plain text
+        return text
+
+    return _AMAZON_LINK_RE.sub(_replace, article_html)
+
+
+# ---------------------------------------------------------------------------
 # Main pipeline
 # ---------------------------------------------------------------------------
 
@@ -1471,6 +1604,9 @@ def main():
     except Exception as exc:
         log.error(f"Aborting: article generation failed — {exc}")
         sys.exit(1)
+
+    # Step 3b: Resolve Amazon affiliate links
+    article_html = resolve_amazon_links(article_html)
 
     # Step 4: Generate images (SEO filenames + landscape 4:3 + compression)
     image_paths = generate_images(
