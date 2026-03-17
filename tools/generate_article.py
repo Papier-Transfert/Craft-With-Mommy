@@ -708,7 +708,7 @@ def build_article_page(slug: str, article_html: str, keyword_data: dict, pub_dat
     .breadcrumb-list li:not(:last-child)::after {{ content: "›"; margin-left: 8px; }}
 
     /* Article hero */
-    .article-hero {{ padding: 32px 0 24px; background: #FDFBF7; }}
+    .article-hero {{ padding: 32px 0 30px; background: #FDFBF7; }}
     .article-meta-badges {{ display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }}
     .badge {{
       display: inline-flex; align-items: center; gap: 6px;
@@ -721,7 +721,7 @@ def build_article_page(slug: str, article_html: str, keyword_data: dict, pub_dat
     .article-pub-date {{ font-size: 0.82rem; color: #bbb; }}
 
     /* Article layout */
-    .article-layout {{ max-width: 780px; margin: 0 auto; padding: 24px 24px 80px; }}
+    .article-layout {{ max-width: 780px; margin: 0 auto; padding: 30px 24px 80px; }}
     .article-layout h2 {{ font-size: 1.45rem; font-weight: 800; color: #333; margin: 44px 0 16px; }}
     .article-layout h3 {{ font-size: 1.15rem; font-weight: 700; color: #333; margin: 28px 0 10px; }}
     .article-layout p {{ margin-bottom: 18px; font-size: 1rem; line-height: 1.75; color: #444; }}
