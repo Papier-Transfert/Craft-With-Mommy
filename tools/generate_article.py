@@ -303,28 +303,49 @@ Article title: {title}
 Category: {category} | Age range: {age_range} | Time: {time_min} min | Messiness: {messiness}
 
 Write a complete, engaging article of ~1500 words in HTML format. The article must:
+
 1. Start with a warm, relatable intro paragraph (2–3 sentences, no heading)
-2. Include an affiliate product recommendation box right after the intro:
-   <div class="affiliate-box">
-     <p>🛒 <strong>Grab what you need:</strong> <a href="[AMAZON_AFFILIATE_LINK_1]" rel="nofollow sponsored" target="_blank">Best craft supplies for this project on Amazon</a></p>
-   </div>
-3. Use this exact section structure with these HTML headings:
+
+2. Use this exact section structure with these HTML headings:
    - <h2>Why Kids Love This Craft</h2> (2 short paragraphs, benefits)
-   - <h2>What You'll Need</h2> (bulleted <ul> list of 5–8 materials)
+
+   - <h2>What You'll Need</h2>
+     This is the most important section for practical value. Write a detailed <ul> list of EVERY material and tool needed.
+     Rules for this section:
+     a) Be SPECIFIC — mention exact colors, sizes, quantities when they matter.
+        Examples: "6 paper plates (standard 9-inch size)", "washable red and black tempera paint",
+        "a medium round paintbrush (#8)", "a low-temp glue gun", "12 googly eyes (10mm)"
+     b) For every item that can realistically be purchased on Amazon, wrap the item name in an affiliate link:
+        <a href="[AMAZON_LINK_item_slug]" rel="nofollow sponsored" target="_blank">item name</a>
+        where item_slug is a short lowercase hyphenated identifier for that item.
+        Examples:
+          <a href="[AMAZON_LINK_paper_plates]" rel="nofollow sponsored" target="_blank">standard 9-inch paper plates</a>
+          <a href="[AMAZON_LINK_washable_tempera_paint]" rel="nofollow sponsored" target="_blank">washable red and black tempera paint</a>
+          <a href="[AMAZON_LINK_googly_eyes]" rel="nofollow sponsored" target="_blank">10mm googly eyes</a>
+          <a href="[AMAZON_LINK_round_paintbrush]" rel="nofollow sponsored" target="_blank">medium round paintbrush</a>
+          <a href="[AMAZON_LINK_glue_stick]" rel="nofollow sponsored" target="_blank">glue stick</a>
+     c) Items that do NOT need an affiliate link: things every household has (tap water, a table, paper towels, etc.)
+     d) Aim for 6–10 items total. Every item must be on its own <li>.
+
    - <h2>Step-by-Step Instructions</h2> (5 numbered steps, each with <h3>Step X: [name]</h3>, a paragraph, and an image placeholder: [STEP_IMAGE_PLACEHOLDER_1] through [STEP_IMAGE_PLACEHOLDER_5])
+
    - <h2>Tips for Success</h2> (3–4 bullet tips for age-appropriate adaptations)
+
    - <h2>Variations to Try</h2> (2–3 creative variations, 1 short paragraph each)
+
    - {internal_links_instruction}
+
    - <h2>Final Thoughts</h2> (1 warm closing paragraph with a call to action to share on Pinterest)
 
-4. Naturally include the primary keyword "{keyword}" at least 4 times
-5. Include at least 2 of these variant keywords: {variants}
-6. Place [MAIN_IMAGE_PLACEHOLDER] as the very first element (before the intro)
-7. Use only these HTML tags: p, ul, ol, li, h2, h3, strong, em, a, div
-8. Keep the tone warm, encouraging, and conversational — like a best friend who crafts
-9. Do NOT include <html>, <head>, <body>, or any document-level tags
-10. Do NOT include the article title as an h1 (it's added by the template)
-11. IMPORTANT: Do NOT invent any internal links. Only use the exact URLs provided above.
+3. Naturally include the primary keyword "{keyword}" at least 4 times
+4. Include at least 2 of these variant keywords: {variants}
+5. Place [MAIN_IMAGE_PLACEHOLDER] as the very first element (before the intro)
+6. Use only these HTML tags: p, ul, ol, li, h2, h3, strong, em, a, div
+7. Keep the tone warm, encouraging, and conversational — like a best friend who crafts
+8. Do NOT include <html>, <head>, <body>, or any document-level tags
+9. Do NOT include the article title as an h1 (it's added by the template)
+10. IMPORTANT: Do NOT invent any internal links. Only use the exact URLs provided above.
+11. IMPORTANT: Do NOT use generic affiliate links. Each Amazon link must target the specific item it wraps.
 
 Return only the HTML content, no explanation."""
 
