@@ -744,13 +744,6 @@ def build_article_page(slug: str, article_html: str, keyword_data: dict, pub_dat
     .img-placeholder--main {{ height: 380px; margin-bottom: 32px; }}
     .img-placeholder--step {{ height: 220px; margin: 16px 0 24px; border-radius: 14px; font-size: 2rem; }}
 
-    /* Affiliate box */
-    .affiliate-box {{
-      background: #FDFBF7; border: 1px solid #F0ECE7; border-radius: 14px;
-      padding: 18px 22px; margin: 24px 0;
-    }}
-    .affiliate-box p {{ margin: 0; font-size: 0.95rem; }}
-
     /* Newsletter */
     .newsletter {{ padding: 72px 0; background: linear-gradient(150deg, #FDFBF7 0%, #FEF0EC 100%); }}
     .newsletter-inner {{ text-align: center; max-width: 540px; margin: 0 auto; }}
