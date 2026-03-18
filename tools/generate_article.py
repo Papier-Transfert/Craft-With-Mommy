@@ -1443,7 +1443,7 @@ def git_commit_and_push(slug: str, pub_date: str) -> None:
 # ---------------------------------------------------------------------------
 
 _AMAZON_LINK_RE = re.compile(
-    r'<a\b([^>]*?)href="\[AMAZON_LINK_([a-z_]+)\]"([^>]*?)>(.*?)</a>',
+    r'<a\b([^>]*?)href="\[AMAZON_LINK_([a-z0-9_-]+)\]"([^>]*?)>(.*?)</a>',
     re.IGNORECASE | re.DOTALL,
 )
 
@@ -1454,11 +1454,13 @@ _CRAFT_WORDS = {
 
 
 def _placeholder_key_to_query(key: str) -> str:
-    """Convert a snake_case placeholder key to an Amazon search query."""
-    words = key.replace("_", " ")
-    if any(w in words.split() for w in _CRAFT_WORDS):
-        return f"{words} kids"
-    return f"{words} kids craft"
+    """Convert a placeholder key (snake_case or hyphenated) to an Amazon search query."""
+    words = key.replace("_", " ").replace("-", " ")
+    word_list = words.split()
+    # Append "kids" only if not already present and no craft word found
+    if "kids" not in word_list:
+        words = f"{words} kids"
+    return words
 
 
 def search_amazon_product(query: str, amazon_api, associate_tag: str) -> dict | None:
