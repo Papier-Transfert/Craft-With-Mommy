@@ -40,6 +40,7 @@ TOOLS_DIR = BASE_DIR / "tools"
 BLOG_DIR = BASE_DIR / "blog"
 IMAGES_DIR = BLOG_DIR / "images"
 PUBLISHED_KEYWORDS_FILE = TOOLS_DIR / "published_keywords.json"
+KEYWORDS_QUEUE_FILE = TOOLS_DIR / "keywords_queue.json"
 BLOG_INDEX_FILE = BLOG_DIR / "index.html"
 HOME_INDEX_FILE = BASE_DIR / "index.html"
 
@@ -128,6 +129,36 @@ def load_published_keywords() -> list:
         except Exception:
             pass
     return []
+
+
+def load_keywords_queue() -> list:
+    if KEYWORDS_QUEUE_FILE.exists():
+        try:
+            return json.loads(KEYWORDS_QUEUE_FILE.read_text())
+        except Exception:
+            pass
+    return []
+
+
+def next_keyword_from_queue(used_keywords: list) -> dict | None:
+    """Return the first unused queue entry whose keyword hasn't been published yet."""
+    queue = load_keywords_queue()
+    used_lower = {k.lower() for k in used_keywords}
+    for entry in queue:
+        if not entry.get("used", False) and entry["keyword"].lower() not in used_lower:
+            return entry
+    return None
+
+
+def mark_keyword_used(keyword: str) -> None:
+    """Mark a keyword as used in the queue file."""
+    queue = load_keywords_queue()
+    for entry in queue:
+        if entry["keyword"].lower() == keyword.lower():
+            entry["used"] = True
+            break
+    KEYWORDS_QUEUE_FILE.write_text(json.dumps(queue, indent=2, ensure_ascii=False))
+    log.info(f"Marked keyword as used in queue: {keyword}")
 
 
 def save_keyword(keyword_data: dict, slug: str, pub_date: str, main_image_filename: str = "", collection: str = "paper-crafts") -> None:
@@ -303,6 +334,80 @@ Return ONLY valid JSON with this exact structure (no markdown, no explanation):
                 raise
         except Exception as exc:
             log.error(f"Claude keyword selection failed: {exc}")
+            raise
+
+
+# ---------------------------------------------------------------------------
+# Step 2b — Build keyword_data from queue entry + competitor research
+# ---------------------------------------------------------------------------
+
+def build_keyword_data_from_queue(queue_entry: dict, competitor_titles: list) -> dict:
+    """Ask Claude to build title, variants, and step descriptions for a queued keyword.
+
+    The keyword and collection are already fixed (from the queue).
+    Competitor titles are passed for inspiration so Claude can produce a better article.
+    """
+    client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+    keyword = queue_entry["keyword"]
+    collection = queue_entry["collection"]
+    col_name = COLLECTIONS.get(collection, {}).get("name", "Paper Crafts")
+
+    titles_str = "\n".join(f"- {t}" for t in competitor_titles[:60]) if competitor_titles else "(none available)"
+
+    prompt = f"""You are a content strategist for craft-with-mommy.com, a US family craft blog for moms with children ages 2–8.
+
+The primary keyword for the next article is already decided: "{keyword}"
+Collection: {col_name}
+
+Here are recent article titles from competitor craft blogs (for inspiration — do better than these):
+{titles_str}
+
+Your job: generate the article metadata. Rules:
+- The article title must be catchy, include the primary keyword naturally, and be more appealing than competitor titles.
+- age_range and messiness_scale must match the craft difficulty.
+- Produce 5 LSI/variant keywords closely related to "{keyword}".
+- step_descriptions: 5 brief descriptions, one per craft step (used for image generation).
+
+Return ONLY valid JSON (no markdown, no explanation):
+{{
+  "primary_keyword": "{keyword}",
+  "long_tail_variants": ["...", "...", "...", "...", "..."],
+  "article_title": "...",
+  "category": "{col_name}",
+  "age_range": "Ages 2+|Ages 3+|Ages 4+|Ages 5+",
+  "time_minutes": 15,
+  "messiness_scale": "Low|Medium|High",
+  "step_descriptions": [
+    "Brief description of step 1 (for image prompt)",
+    "Brief description of step 2 (for image prompt)",
+    "Brief description of step 3 (for image prompt)",
+    "Brief description of step 4 (for image prompt)",
+    "Brief description of step 5 (for image prompt)"
+  ]
+}}"""
+
+    for attempt in range(2):
+        try:
+            msg = client.messages.create(
+                model="claude-opus-4-6",
+                max_tokens=800,
+                messages=[{"role": "user", "content": prompt}],
+            )
+            raw = msg.content[0].text.strip()
+            raw = re.sub(r"^```(?:json)?\s*", "", raw)
+            raw = re.sub(r"\s*```$", "", raw)
+            data = json.loads(raw)
+            log.info(f"Keyword data built for: {data['primary_keyword']} → {data['article_title']}")
+            return data
+        except json.JSONDecodeError as exc:
+            if attempt == 0:
+                log.warning(f"JSON parse error on attempt {attempt+1}: {exc}. Retrying...")
+                prompt += "\n\nReturn JSON only, no other text."
+            else:
+                log.error(f"JSON parse error on attempt 2: {exc}")
+                raise
+        except Exception as exc:
+            log.error(f"Claude build_keyword_data failed: {exc}")
             raise
 
 
@@ -2023,24 +2128,28 @@ def main():
     published = load_published_keywords()
     used_keywords = [r["keyword"] for r in published]
 
-    # Step 1: Scrape
-    titles = scrape_competitor_titles(COMPETITOR_SITES)
-    log.info(f"Total titles collected: {len(titles)}")
+    # Step 1: Pick next keyword from the curated queue
+    queue_entry = next_keyword_from_queue(used_keywords)
+    if queue_entry is None:
+        log.error("Aborting: no unused keywords left in keywords_queue.json")
+        sys.exit(1)
+    collection = queue_entry["collection"]
+    log.info(f"Next keyword from queue: '{queue_entry['keyword']}' (collection: {collection})")
 
-    # Step 2: Select keyword
+    # Step 2: Scrape competitors for inspiration (not for keyword selection)
+    titles = scrape_competitor_titles(COMPETITOR_SITES)
+    log.info(f"Competitor titles collected for inspiration: {len(titles)}")
+
+    # Step 2b: Build full keyword_data using queue keyword + competitor research
     try:
-        keyword_data = select_keyword_and_variants(titles, used_keywords)
+        keyword_data = build_keyword_data_from_queue(queue_entry, titles)
     except Exception as exc:
-        log.error(f"Aborting: keyword selection failed — {exc}")
+        log.error(f"Aborting: keyword data build failed — {exc}")
         sys.exit(1)
 
     slug = slugify(keyword_data["primary_keyword"])
     pub_date = datetime.today().strftime("%B %d, %Y")
-    log.info(f"Slug: {slug} | Date: {pub_date}")
-
-    # Determine collection early so it's available for build_article_page and save_keyword
-    collection = determine_collection(keyword_data.get("primary_keyword", ""), keyword_data.get("article_title", ""))
-    log.info(f"Article collection: {collection}")
+    log.info(f"Slug: {slug} | Date: {pub_date} | Collection: {collection}")
 
     # Step 3: Generate article (pass published articles for real internal links)
     try:
@@ -2113,8 +2222,9 @@ def main():
     recent_articles_meta.reverse()
     update_homepage_latest_crafts(recent_articles_meta)
 
-    # Step 10: Save keyword record (includes main image filename for future homepage rebuilds)
+    # Step 10: Save keyword record and mark queue entry as used
     save_keyword(keyword_data, slug, pub_date, main_image_filename, collection)
+    mark_keyword_used(queue_entry["keyword"])
 
     # Rebuild all collection pages
     all_articles = load_published_keywords()
