@@ -922,7 +922,7 @@ def build_article_page(slug: str, article_html: str, keyword_data: dict, pub_dat
     .footer-links li {{ margin-bottom: 10px; }}
     .footer-links a {{ font-size: 0.9rem; color: rgba(255,255,255,0.4); transition: color 0.2s; }}
     .footer-links a:hover {{ color: #FECDC5; }}
-    .footer-bottom {{ border-top: 1px solid rgba(255,255,255,0.08); padding-top: 26px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }}
+    .footer-bottom {{ display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }}
     .footer-affiliate {{ font-size: 0.78rem; color: rgba(255,255,255,0.28); text-align: center; padding: 16px 0; border-top: 1px solid rgba(255,255,255,0.07); border-bottom: 1px solid rgba(255,255,255,0.07); margin-bottom: 24px; }}
     .footer-copy {{ font-size: 0.82rem; color: rgba(255,255,255,0.3); }}
     .social-row {{ display: flex; gap: 10px; }}
@@ -1286,7 +1286,7 @@ def build_collection_page(collection_slug: str, all_articles: list) -> str:
     .footer-links li {{ margin-bottom: 10px; }}
     .footer-links a {{ font-size: 0.9rem; color: rgba(255,255,255,0.4); transition: color 0.2s; }}
     .footer-links a:hover {{ color: #FECDC5; }}
-    .footer-bottom {{ border-top: 1px solid rgba(255,255,255,0.08); padding-top: 26px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }}
+    .footer-bottom {{ display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }}
     .footer-affiliate {{ font-size: 0.78rem; color: rgba(255,255,255,0.28); text-align: center; padding: 16px 0; border-top: 1px solid rgba(255,255,255,0.07); border-bottom: 1px solid rgba(255,255,255,0.07); margin-bottom: 24px; }}
     .footer-copy {{ font-size: 0.82rem; color: rgba(255,255,255,0.3); }}
     .social-row {{ display: flex; gap: 10px; }}
@@ -1560,7 +1560,7 @@ BLOG_INDEX_TEMPLATE = """<!DOCTYPE html>
     .footer-links li { margin-bottom: 10px; }
     .footer-links a { font-size: 0.9rem; color: rgba(255,255,255,0.4); transition: color 0.2s; }
     .footer-links a:hover { color: #FECDC5; }
-    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 26px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
     .footer-copy { font-size: 0.82rem; color: rgba(255,255,255,0.3); }
     .social-row { display: flex; gap: 10px; }
     .social-btn { width: 38px; height: 38px; background: rgba(255,255,255,0.07); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.95rem; color: rgba(255,255,255,0.5); transition: background 0.2s, color 0.2s, transform 0.15s; }
