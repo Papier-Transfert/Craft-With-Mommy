@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <link rel="icon" type="image/png" href="brand_assets/craft-with-mommy-favicon-2.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Legal &amp; Disclosures — Craft with Mommy</title>
-  <meta name="description" content="Affiliate disclosure, site owner information, copyright notice, and legal information for Craft with Mommy.">
-  <link rel="canonical" href="https://craft-with-mommy.com/legal.html">
+  <title>About — Craft with Mommy</title>
+  <meta name="description" content="Hi! I'm the mom behind Craft with Mommy. Simple, foolproof crafts for moms and little ones — because the real goal is connection, not perfection.">
+  <link rel="canonical" href="https://craft-with-mommy.com/about.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
@@ -48,23 +48,6 @@
     .mobile-nav-group h5 { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #E8856A; margin-bottom: 12px; }
     .mobile-nav-group a { display: flex; align-items: center; gap: 12px; padding: 11px 14px; border-radius: 12px; font-size: 0.95rem; font-weight: 500; color: #444; transition: background 0.15s; }
     .mobile-nav-group a:hover { background: #FDFBF7; }
-
-    /* Page hero */
-    .page-hero { background: #FDFBF7; padding: 60px 0 48px; border-bottom: 1px solid #F0ECE7; }
-    .page-hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 900; color: #333; margin-bottom: 10px; }
-    .page-hero p { font-size: 0.9rem; color: #aaa; }
-
-    /* Legal content */
-    .legal-layout { max-width: 720px; margin: 0 auto; padding: 56px 24px 96px; }
-    .legal-section { margin-bottom: 48px; }
-    .legal-section h2 { font-size: 1.2rem; font-weight: 800; color: #333; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 2px solid #F0ECE7; }
-    .legal-section p { font-size: 0.97rem; line-height: 1.8; color: #555; margin-bottom: 12px; }
-    .legal-section p:last-child { margin-bottom: 0; }
-    .legal-section a { color: #E8856A; text-decoration: underline; text-underline-offset: 2px; }
-    .legal-section a:hover { color: #C0503A; }
-    .affiliate-highlight { background: #FEF0EC; border-left: 4px solid #E8856A; border-radius: 0 12px 12px 0; padding: 16px 20px; font-weight: 600; color: #444; font-size: 0.97rem; margin-bottom: 14px; }
-
-    /* Footer */
     .footer { background: #2E2B28; color: #fff; padding: 64px 0 32px; }
     .footer-top { display: grid; grid-template-columns: 1.6fr 1fr; gap: 56px; margin-bottom: 40px; }
     .footer-brand-name { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 1.25rem; color: #fff; margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
@@ -78,14 +61,45 @@
     .footer-affiliate { font-size: 0.78rem; color: rgba(255,255,255,0.28); text-align: center; padding: 16px 0; border-top: 1px solid rgba(255,255,255,0.07); border-bottom: 1px solid rgba(255,255,255,0.07); margin-bottom: 24px; }
     .footer-bottom { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
     .footer-copy { font-size: 0.82rem; color: rgba(255,255,255,0.3); }
-    .social-row { display: flex; gap: 10px; }
-    .social-btn { width: 38px; height: 38px; background: rgba(255,255,255,0.07); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.95rem; color: rgba(255,255,255,0.5); transition: background 0.2s, color 0.2s, transform 0.15s; }
-    .social-btn:hover { background: #E8856A; color: #fff; transform: translateY(-2px); }
+
+    /* About page */
+    .about-hero { background: #FDFBF7; padding: 72px 0 64px; border-bottom: 1px solid #F0ECE7; text-align: center; }
+    .about-badge { display: inline-block; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 1.2px; color: #E8856A; background: #FEF0EC; padding: 6px 16px; border-radius: 20px; margin-bottom: 20px; }
+    .about-hero h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; color: #333; margin-bottom: 16px; }
+    .about-hero .subtitle { font-size: 1.1rem; color: #777; max-width: 500px; margin: 0 auto; }
+    .about-story { max-width: 720px; margin: 0 auto; padding: 64px 24px; }
+    .about-story p { font-size: 1rem; line-height: 1.85; color: #555; margin-bottom: 20px; }
+    .about-story p:last-child { margin-bottom: 0; }
+    .about-story .highlight { color: #E8856A; font-weight: 600; }
+    .about-promise { background: #FDFBF7; padding: 72px 0; }
+    .about-promise-title { text-align: center; margin-bottom: 48px; }
+    .about-promise-title h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 900; color: #333; margin-bottom: 10px; }
+    .about-promise-title p { font-size: 0.97rem; color: #888; }
+    .about-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .about-card { background: #fff; border-radius: 20px; padding: 32px 28px; box-shadow: 0 4px 24px rgba(0,0,0,0.06); transition: transform 0.2s, box-shadow 0.2s; }
+    .about-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,0,0,0.1); }
+    .about-card-emoji { font-size: 2rem; margin-bottom: 16px; display: block; }
+    .about-card h3 { font-size: 1.05rem; font-weight: 800; color: #333; margin-bottom: 8px; }
+    .about-card p { font-size: 0.92rem; color: #888; line-height: 1.7; }
+    .about-foryou { max-width: 720px; margin: 0 auto; padding: 64px 24px; }
+    .about-foryou h2 { font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 900; color: #333; margin-bottom: 28px; }
+    .about-foryou ul { list-style: none; padding: 0; }
+    .about-foryou ul li { display: flex; align-items: flex-start; gap: 14px; padding: 14px 0; border-bottom: 1px solid #F0ECE7; font-size: 0.97rem; color: #555; line-height: 1.6; }
+    .about-foryou ul li:last-child { border-bottom: none; }
+    .about-foryou ul li::before { content: '✓'; font-family: 'Nunito', sans-serif; font-weight: 900; color: #E8856A; font-size: 1rem; flex-shrink: 0; margin-top: 2px; }
+    .about-mission-wrap { max-width: 720px; margin: 0 auto; padding: 0 24px 64px; }
+    .about-mission { background: #FEF0EC; border-left: 4px solid #E8856A; border-radius: 0 16px 16px 0; padding: 32px 36px; }
+    .about-mission blockquote { font-size: 1.05rem; font-style: italic; color: #555; line-height: 1.85; }
+    .about-cta { background: #FDFBF7; padding: 80px 24px; text-align: center; border-top: 1px solid #F0ECE7; }
+    .about-cta h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 900; color: #333; margin-bottom: 12px; }
+    .about-cta p { font-size: 1rem; color: #888; margin-bottom: 32px; }
+
     @media (max-width: 640px) {
       .nav { display: none; }
       .hamburger { display: flex; }
       .footer-top { grid-template-columns: 1fr; gap: 28px; }
       .footer-bottom { flex-direction: column; align-items: flex-start; }
+      .about-cards { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -158,50 +172,83 @@
   </div>
 
   <!-- Hero -->
-  <section class="page-hero">
+  <section class="about-hero">
     <div class="container">
-      <h1>Legal &amp; Disclosures</h1>
-      <p>Last updated: March 2026</p>
+      <span class="about-badge">About</span>
+      <h1>The crafts are simple.<br>The memories are forever.</h1>
+      <p class="subtitle">Hi! I'm <strong>Chloé</strong>, the mom behind Craft with Mommy.</p>
     </div>
   </section>
 
-  <!-- Content -->
-  <div class="legal-layout">
-
-    <div class="legal-section">
-      <h2>Affiliate Disclosure</h2>
-      <p class="affiliate-highlight">As an Amazon Associate, we earn from qualifying purchases.</p>
-      <p>Craft With Mommy is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.com.</p>
-      <p>This means some links on this site are affiliate links. If you click one and make a purchase, we earn a small commission — at no extra cost to you.</p>
-    </div>
-
-    <div class="legal-section">
-      <h2>Site Owner</h2>
-      <p>This website is owned and operated by <strong>Delage</strong>, a limited liability company registered in France.</p>
-      <p>📧 Contact: <a href="mailto:contact@papier-transfert.fr">contact@papier-transfert.fr</a></p>
-    </div>
-
-    <div class="legal-section">
-      <h2>Copyright</h2>
-      <p>All content on Craft With Mommy — tutorials, photos, and text — is the property of Delage and protected by copyright law. You're welcome to share our content on Pinterest or social media with a link back to the original post. Republishing full articles without written permission is not allowed.</p>
-    </div>
-
-    <div class="legal-section">
-      <h2>Comments Policy</h2>
-      <p>We love hearing from our community! Comments on this blog are moderated. We reserve the right to remove any comment that is spammy, offensive, or irrelevant. By leaving a comment, you agree that your name and message may be visible publicly on this site.</p>
-    </div>
-
-    <div class="legal-section">
-      <h2>Disclaimer</h2>
-      <p>The craft tutorials on this site are for informational and entertainment purposes only. Always supervise children during craft activities. Craft With Mommy is not responsible for any injury or damage resulting from activities described on this site.</p>
-    </div>
-
-    <div class="legal-section">
-      <h2>Privacy</h2>
-      <p>We collect your email address when you subscribe to our newsletter and may receive basic data from comment submissions. We do not sell your information. For full details, please see our <a href="/privacy.html">Privacy Policy</a>.</p>
-    </div>
-
+  <!-- Story -->
+  <div class="about-story">
+    <p>I used to scroll through Pinterest, save hundreds of craft ideas… and do exactly zero of them.</p>
+    <p>Not because I didn't want to. But because every time I looked at those perfectly staged projects — the glitter, the foam sheets, the 14-step tutorials — I felt a little wave of <span class="highlight">overwhelm</span>. What if it turned into a disaster? What if my kids got frustrated? What if I couldn't pull it off?</p>
+    <p>And so the saved pins piled up, and the crafts stayed undone.</p>
+    <p>Then one afternoon, with nothing but a <span class="highlight">paper plate and some paint</span>, everything changed. My little one pressed their hand into the paint and looked up at me with the biggest grin. We made a mess. We laughed. It was done in twenty minutes — and honestly? It was everything.</p>
+    <p>That's when I realized: <span class="highlight">the point was never the craft. It was the moment.</span></p>
+    <p>So I started this blog for every mom who has a board full of "someday" ideas and just needs someone to say: <em>here, try this one — it's foolproof, I promise.</em></p>
   </div>
+
+  <!-- Promise cards -->
+  <section class="about-promise">
+    <div class="container">
+      <div class="about-promise-title">
+        <h2>What we're all about</h2>
+        <p>Every craft on this site is built around four simple promises.</p>
+      </div>
+      <div class="about-cards">
+        <div class="about-card">
+          <span class="about-card-emoji">🎨</span>
+          <h3>No talent required</h3>
+          <p>Every project is designed so you (and your kids!) can't mess it up.</p>
+        </div>
+        <div class="about-card">
+          <span class="about-card-emoji">⏱</span>
+          <h3>Quick &amp; easy cleanup</h3>
+          <p>From setup to done in under an hour — without dreading the mess.</p>
+        </div>
+        <div class="about-card">
+          <span class="about-card-emoji">👶</span>
+          <h3>Made for little hands</h3>
+          <p>Crafts tested for ages 2–8, with or without fine motor skills.</p>
+        </div>
+        <div class="about-card">
+          <span class="about-card-emoji">💛</span>
+          <h3>Screens off, smiles on</h3>
+          <p>The real goal? A moment of joy, laughter, and connection.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- This is for you if… -->
+  <div class="about-foryou">
+    <h2>This is for you if…</h2>
+    <ul>
+      <li>You want to make memories with your kids, not just keep them busy</li>
+      <li>You've tried complicated crafts and ended up stressed (same!)</li>
+      <li>You don't consider yourself "crafty" at all</li>
+      <li>You want something cute and easy that your kids will actually finish</li>
+      <li>You're ready to put the phone down for 30 minutes of real family time</li>
+    </ul>
+  </div>
+
+  <!-- Mission callout -->
+  <div class="about-mission-wrap">
+    <div class="about-mission">
+      <blockquote>
+        "Crafts are not just a way to keep kids busy. They are a way to create real moments of connection. We're here to make those moments as simple, joyful, and memorable as possible."
+      </blockquote>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <section class="about-cta">
+    <h2>Ready to make your first memory?</h2>
+    <p>Browse our free craft ideas — no experience needed.</p>
+    <a href="/blog/index.html" class="btn">Browse All Crafts</a>
+  </section>
 
   <footer class="footer">
     <div class="container">
@@ -223,7 +270,6 @@
       <div class="footer-affiliate">As an Amazon Associate, we earn from qualifying purchases.</div>
       <div class="footer-bottom">
         <span class="footer-copy">© 2026 Craft with Mommy. Made with ❤️ for moms &amp; kids.</span>
-
       </div>
     </div>
   </footer>

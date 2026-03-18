@@ -952,6 +952,7 @@ def build_article_page(slug: str, article_html: str, keyword_data: dict, pub_dat
           <img src="../brand_assets/Craft with mommy logo.png" alt="Craft with Mommy">
         </a>
         <nav class="nav" aria-label="Main navigation">
+          <a href="/about.html" class="nav-trigger">About</a>
           <div class="nav-item">
             <button class="nav-trigger" aria-haspopup="true" aria-expanded="false">
               Crafts
@@ -1003,6 +1004,10 @@ def build_article_page(slug: str, article_html: str, keyword_data: dict, pub_dat
       <a href="/"><span class="drop-icon">☀️</span> Summer</a>
       <a href="/"><span class="drop-icon">🍂</span> Fall</a>
       <a href="/"><span class="drop-icon">❄️</span> Winter</a>
+    </div>
+    <div class="mobile-nav-group">
+      <h5>About</h5>
+      <a href="/about.html">🌸 About</a>
     </div>
   </div>
 
@@ -1079,6 +1084,7 @@ def build_article_page(slug: str, article_html: str, keyword_data: dict, pub_dat
             <li><a href="/blog/">All Articles</a></li>
             <li><a href="/legal.html">Legal &amp; Disclosures</a></li>
             <li><a href="/privacy.html">Privacy Policy</a></li>
+            <li><a href="/about.html">About</a></li>
           </ul>
         </div>
       </div>
@@ -1305,6 +1311,7 @@ def build_collection_page(collection_slug: str, all_articles: list) -> str:
           <img src="../brand_assets/Craft with mommy logo.png" alt="Craft with Mommy">
         </a>
         <nav class="nav" aria-label="Main navigation">
+          <a href="/about.html" class="nav-trigger">About</a>
           <div class="nav-item">
             <button class="nav-trigger" aria-haspopup="true" aria-expanded="false">
               Crafts
@@ -1350,6 +1357,10 @@ def build_collection_page(collection_slug: str, all_articles: list) -> str:
       <a href="/"><span class="drop-icon">☀️</span> Summer</a>
       <a href="/"><span class="drop-icon">🍂</span> Fall</a>
       <a href="/"><span class="drop-icon">❄️</span> Winter</a>
+    </div>
+    <div class="mobile-nav-group">
+      <h5>About</h5>
+      <a href="/about.html">🌸 About</a>
     </div>
   </div>
 
@@ -1398,6 +1409,7 @@ def build_collection_page(collection_slug: str, all_articles: list) -> str:
             <li><a href="/blog/">All Articles</a></li>
             <li><a href="/legal.html">Legal &amp; Disclosures</a></li>
             <li><a href="/privacy.html">Privacy Policy</a></li>
+            <li><a href="/about.html">About</a></li>
           </ul>
         </div>
       </div>
@@ -1570,6 +1582,7 @@ BLOG_INDEX_TEMPLATE = """<!DOCTYPE html>
           <img src="../brand_assets/Craft with mommy logo.png" alt="Craft with Mommy">
         </a>
         <nav class="nav" aria-label="Main navigation">
+          <a href="/about.html" class="nav-trigger">About</a>
           <div class="nav-item">
             <button class="nav-trigger" aria-haspopup="true" aria-expanded="false">
               Crafts
@@ -1622,6 +1635,10 @@ BLOG_INDEX_TEMPLATE = """<!DOCTYPE html>
       <a href="/"><span class="drop-icon">🍂</span> Fall</a>
       <a href="/"><span class="drop-icon">❄️</span> Winter</a>
     </div>
+    <div class="mobile-nav-group">
+      <h5>About</h5>
+      <a href="/about.html">🌸 About</a>
+    </div>
   </div>
 
   <section class="blog-hero">
@@ -1669,6 +1686,7 @@ BLOG_INDEX_TEMPLATE = """<!DOCTYPE html>
             <li><a href="/blog/">All Articles</a></li>
             <li><a href="/legal.html">Legal &amp; Disclosures</a></li>
             <li><a href="/privacy.html">Privacy Policy</a></li>
+            <li><a href="/about.html">About</a></li>
           </ul>
         </div>
       </div>
