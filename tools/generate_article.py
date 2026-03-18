@@ -1085,11 +1085,7 @@ def build_article_page(slug: str, article_html: str, keyword_data: dict, pub_dat
       <div class="footer-affiliate">As an Amazon Associate, we earn from qualifying purchases.</div>
       <div class="footer-bottom">
         <span class="footer-copy">© 2026 Craft with Mommy. Made with ❤️ for moms &amp; kids.</span>
-        <div class="social-row">
-          <a href="#" class="social-btn" aria-label="Pinterest">📌</a>
-          <a href="#" class="social-btn" aria-label="Instagram">📷</a>
-          <a href="#" class="social-btn" aria-label="Facebook">👍</a>
-        </div>
+
       </div>
     </div>
   </footer>
@@ -1408,11 +1404,7 @@ def build_collection_page(collection_slug: str, all_articles: list) -> str:
       <div class="footer-affiliate">As an Amazon Associate, we earn from qualifying purchases.</div>
       <div class="footer-bottom">
         <span class="footer-copy">© 2026 Craft with Mommy. Made with ❤️ for moms &amp; kids.</span>
-        <div class="social-row">
-          <a href="#" class="social-btn" aria-label="Pinterest">📌</a>
-          <a href="#" class="social-btn" aria-label="Instagram">📷</a>
-          <a href="#" class="social-btn" aria-label="Facebook">👍</a>
-        </div>
+
       </div>
     </div>
   </footer>
@@ -1683,11 +1675,7 @@ BLOG_INDEX_TEMPLATE = """<!DOCTYPE html>
       <div class="footer-affiliate">As an Amazon Associate, we earn from qualifying purchases.</div>
       <div class="footer-bottom">
         <span class="footer-copy">© 2026 Craft with Mommy. Made with ❤️ for moms &amp; kids.</span>
-        <div class="social-row">
-          <a href="#" class="social-btn" aria-label="Pinterest">📌</a>
-          <a href="#" class="social-btn" aria-label="Instagram">📷</a>
-          <a href="#" class="social-btn" aria-label="Facebook">👍</a>
-        </div>
+
       </div>
     </div>
   </footer>
