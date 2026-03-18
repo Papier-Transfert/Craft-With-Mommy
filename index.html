@@ -159,19 +159,24 @@
 
     .dropdown {
       position: absolute;
-      top: calc(100% + 10px);
+      top: 100%;
       left: 0;
-      background: #FFFFFF;
-      border: 1px solid #F0ECE7;
-      border-radius: 18px;
-      padding: 8px;
+      /* padding-top creates the visual gap while keeping hover area connected */
+      padding: 10px 0 0 0;
+      background: transparent;
       min-width: 210px;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.09);
       opacity: 0;
       visibility: hidden;
       transform: translateY(-6px);
       transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
       pointer-events: none;
+    }
+    .dropdown-inner {
+      background: #FFFFFF;
+      border: 1px solid #F0ECE7;
+      border-radius: 18px;
+      padding: 8px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.09);
     }
     .nav-item:hover .dropdown,
     .nav-item:focus-within .dropdown {
@@ -883,12 +888,12 @@
                 <path d="M2.5 4.5L6.5 8.5L10.5 4.5" stroke="#666" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </button>
-            <div class="dropdown" role="menu">
+            <div class="dropdown" role="menu"><div class="dropdown-inner">
               <a href="#" role="menuitem"><span class="drop-icon">✂️</span> Paper Crafts</a>
               <a href="#" role="menuitem"><span class="drop-icon">🍽️</span> Paper Plate Crafts</a>
               <a href="#" role="menuitem"><span class="drop-icon">🖐️</span> Handprint Crafts</a>
               <a href="#" role="menuitem"><span class="drop-icon">♻️</span> Recycled Crafts</a>
-            </div>
+            </div></div>
           </div>
 
           <!-- Seasons dropdown -->
@@ -899,12 +904,12 @@
                 <path d="M2.5 4.5L6.5 8.5L10.5 4.5" stroke="#666" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </button>
-            <div class="dropdown" role="menu">
+            <div class="dropdown" role="menu"><div class="dropdown-inner">
               <a href="#" role="menuitem"><span class="drop-icon">🌸</span> Spring</a>
               <a href="#" role="menuitem"><span class="drop-icon">☀️</span> Summer</a>
               <a href="#" role="menuitem"><span class="drop-icon">🍂</span> Fall</a>
               <a href="#" role="menuitem"><span class="drop-icon">❄️</span> Winter</a>
-            </div>
+            </div></div>
           </div>
 
         </nav>

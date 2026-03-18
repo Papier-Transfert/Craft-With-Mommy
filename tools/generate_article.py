@@ -671,12 +671,14 @@ def build_article_page(slug: str, article_html: str, keyword_data: dict, pub_dat
     .nav-trigger svg {{ transition: transform 0.25s; flex-shrink: 0; }}
     .nav-item:hover .nav-trigger svg {{ transform: rotate(180deg); }}
     .dropdown {{
-      position: absolute; top: calc(100% + 10px); left: 0;
-      background: #FFFFFF; border: 1px solid #F0ECE7; border-radius: 18px;
-      padding: 8px; min-width: 210px;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.09);
+      position: absolute; top: 100%; left: 0;
+      padding: 10px 0 0 0; background: transparent; min-width: 210px;
       opacity: 0; visibility: hidden; transform: translateY(-6px);
       transition: opacity 0.2s, transform 0.2s, visibility 0.2s; pointer-events: none;
+    }}
+    .dropdown-inner {{
+      background: #FFFFFF; border: 1px solid #F0ECE7; border-radius: 18px;
+      padding: 8px; box-shadow: 0 12px 40px rgba(0,0,0,0.09);
     }}
     .nav-item:hover .dropdown, .nav-item:focus-within .dropdown {{
       opacity: 1; visibility: visible; transform: translateY(0); pointer-events: auto;
@@ -804,13 +806,12 @@ def build_article_page(slug: str, article_html: str, keyword_data: dict, pub_dat
                 <path d="M2.5 4.5L6.5 8.5L10.5 4.5" stroke="#666" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </button>
-            <div class="dropdown" role="menu">
-              <a href="/" role="menuitem"><span class="drop-icon">🎨</span> Painting</a>
+            <div class="dropdown" role="menu"><div class="dropdown-inner">
               <a href="/" role="menuitem"><span class="drop-icon">✂️</span> Paper Crafts</a>
-              <a href="/" role="menuitem"><span class="drop-icon">🧵</span> Yarn &amp; Weaving</a>
+              <a href="/" role="menuitem"><span class="drop-icon">🍽️</span> Paper Plate Crafts</a>
+              <a href="/" role="menuitem"><span class="drop-icon">🖐️</span> Handprint Crafts</a>
               <a href="/" role="menuitem"><span class="drop-icon">♻️</span> Recycled Crafts</a>
-              <a href="/" role="menuitem"><span class="drop-icon">🌈</span> Sensory Play</a>
-            </div>
+            </div></div>
           </div>
           <div class="nav-item">
             <button class="nav-trigger" aria-haspopup="true" aria-expanded="false">
@@ -819,12 +820,12 @@ def build_article_page(slug: str, article_html: str, keyword_data: dict, pub_dat
                 <path d="M2.5 4.5L6.5 8.5L10.5 4.5" stroke="#666" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </button>
-            <div class="dropdown" role="menu">
+            <div class="dropdown" role="menu"><div class="dropdown-inner">
               <a href="/" role="menuitem"><span class="drop-icon">🌸</span> Spring</a>
               <a href="/" role="menuitem"><span class="drop-icon">☀️</span> Summer</a>
               <a href="/" role="menuitem"><span class="drop-icon">🍂</span> Fall</a>
               <a href="/" role="menuitem"><span class="drop-icon">❄️</span> Winter</a>
-            </div>
+            </div></div>
           </div>
           <a href="/blog/" class="btn btn-sm" style="margin-left:8px;">All Crafts</a>
         </nav>
@@ -837,12 +838,11 @@ def build_article_page(slug: str, article_html: str, keyword_data: dict, pub_dat
 
   <div class="mobile-nav" id="mobileNav" aria-hidden="true">
     <div class="mobile-nav-group">
-      <h5>Activities</h5>
-      <a href="/"><span class="drop-icon">🎨</span> Painting</a>
+      <h5>Crafts</h5>
       <a href="/"><span class="drop-icon">✂️</span> Paper Crafts</a>
-      <a href="/"><span class="drop-icon">🧵</span> Yarn &amp; Weaving</a>
+      <a href="/"><span class="drop-icon">🍽️</span> Paper Plate Crafts</a>
+      <a href="/"><span class="drop-icon">🖐️</span> Handprint Crafts</a>
       <a href="/"><span class="drop-icon">♻️</span> Recycled Crafts</a>
-      <a href="/"><span class="drop-icon">🌈</span> Sensory Play</a>
     </div>
     <div class="mobile-nav-group">
       <h5>Seasons</h5>
@@ -1035,7 +1035,8 @@ BLOG_INDEX_TEMPLATE = """<!DOCTYPE html>
     .nav-trigger:hover { background: #FDFBF7; color: #E8856A; }
     .nav-trigger svg { transition: transform 0.25s; flex-shrink: 0; }
     .nav-item:hover .nav-trigger svg { transform: rotate(180deg); }
-    .dropdown { position: absolute; top: calc(100% + 10px); left: 0; background: #fff; border: 1px solid #F0ECE7; border-radius: 18px; padding: 8px; min-width: 210px; box-shadow: 0 12px 40px rgba(0,0,0,0.09); opacity: 0; visibility: hidden; transform: translateY(-6px); transition: opacity 0.2s, transform 0.2s, visibility 0.2s; pointer-events: none; }
+    .dropdown { position: absolute; top: 100%; left: 0; padding: 10px 0 0 0; background: transparent; min-width: 210px; opacity: 0; visibility: hidden; transform: translateY(-6px); transition: opacity 0.2s, transform 0.2s, visibility 0.2s; pointer-events: none; }
+    .dropdown-inner { background: #fff; border: 1px solid #F0ECE7; border-radius: 18px; padding: 8px; box-shadow: 0 12px 40px rgba(0,0,0,0.09); }
     .nav-item:hover .dropdown, .nav-item:focus-within .dropdown { opacity: 1; visibility: visible; transform: translateY(0); pointer-events: auto; }
     .dropdown a { display: flex; align-items: center; gap: 11px; padding: 10px 13px; border-radius: 11px; font-size: 0.91rem; font-weight: 500; color: #555; transition: background 0.15s, color 0.15s; }
     .dropdown a:hover { background: #FEF0EC; color: #E8856A; }
@@ -1121,13 +1122,12 @@ BLOG_INDEX_TEMPLATE = """<!DOCTYPE html>
                 <path d="M2.5 4.5L6.5 8.5L10.5 4.5" stroke="#666" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </button>
-            <div class="dropdown" role="menu">
-              <a href="/" role="menuitem"><span class="drop-icon">🎨</span> Painting</a>
+            <div class="dropdown" role="menu"><div class="dropdown-inner">
               <a href="/" role="menuitem"><span class="drop-icon">✂️</span> Paper Crafts</a>
-              <a href="/" role="menuitem"><span class="drop-icon">🧵</span> Yarn &amp; Weaving</a>
+              <a href="/" role="menuitem"><span class="drop-icon">🍽️</span> Paper Plate Crafts</a>
+              <a href="/" role="menuitem"><span class="drop-icon">🖐️</span> Handprint Crafts</a>
               <a href="/" role="menuitem"><span class="drop-icon">♻️</span> Recycled Crafts</a>
-              <a href="/" role="menuitem"><span class="drop-icon">🌈</span> Sensory Play</a>
-            </div>
+            </div></div>
           </div>
           <div class="nav-item">
             <button class="nav-trigger" aria-haspopup="true" aria-expanded="false">
@@ -1136,12 +1136,12 @@ BLOG_INDEX_TEMPLATE = """<!DOCTYPE html>
                 <path d="M2.5 4.5L6.5 8.5L10.5 4.5" stroke="#666" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </button>
-            <div class="dropdown" role="menu">
+            <div class="dropdown" role="menu"><div class="dropdown-inner">
               <a href="/" role="menuitem"><span class="drop-icon">🌸</span> Spring</a>
               <a href="/" role="menuitem"><span class="drop-icon">☀️</span> Summer</a>
               <a href="/" role="menuitem"><span class="drop-icon">🍂</span> Fall</a>
               <a href="/" role="menuitem"><span class="drop-icon">❄️</span> Winter</a>
-            </div>
+            </div></div>
           </div>
           <a href="/blog/" class="btn btn-sm" style="margin-left:8px;">All Crafts</a>
         </nav>
@@ -1154,12 +1154,11 @@ BLOG_INDEX_TEMPLATE = """<!DOCTYPE html>
 
   <div class="mobile-nav" id="mobileNav" aria-hidden="true">
     <div class="mobile-nav-group">
-      <h5>Activities</h5>
-      <a href="/"><span class="drop-icon">🎨</span> Painting</a>
+      <h5>Crafts</h5>
       <a href="/"><span class="drop-icon">✂️</span> Paper Crafts</a>
-      <a href="/"><span class="drop-icon">🧵</span> Yarn &amp; Weaving</a>
+      <a href="/"><span class="drop-icon">🍽️</span> Paper Plate Crafts</a>
+      <a href="/"><span class="drop-icon">🖐️</span> Handprint Crafts</a>
       <a href="/"><span class="drop-icon">♻️</span> Recycled Crafts</a>
-      <a href="/"><span class="drop-icon">🌈</span> Sensory Play</a>
     </div>
     <div class="mobile-nav-group">
       <h5>Seasons</h5>
