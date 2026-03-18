@@ -913,7 +913,7 @@ def build_article_page(slug: str, article_html: str, keyword_data: dict, pub_dat
 
     /* Footer */
     .footer {{ background: #2E2B28; color: #FFFFFF; padding: 64px 0 32px; }}
-    .footer-top {{ display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 56px; margin-bottom: 56px; }}
+    .footer-top {{ display: grid; grid-template-columns: 1fr; gap: 56px; margin-bottom: 56px; }}
     .footer-brand-name {{ font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 1.25rem; color: #FFFFFF; margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }}
     .footer-brand-name .dot {{ width: 8px; height: 8px; background: #E8856A; border-radius: 50%; flex-shrink: 0; }}
     .footer-tagline {{ font-size: 0.9rem; color: rgba(255,255,255,0.45); line-height: 1.7; max-width: 260px; }}
@@ -931,8 +931,6 @@ def build_article_page(slug: str, article_html: str, keyword_data: dict, pub_dat
 
     /* Responsive */
     @media (max-width: 960px) {{
-      .footer-top {{ grid-template-columns: 1fr 1fr; gap: 36px; }}
-      .footer-brand-col {{ grid-column: 1 / -1; }}
     }}
     @media (max-width: 640px) {{
       .nav {{ display: none; }}
@@ -1073,24 +1071,6 @@ def build_article_page(slug: str, article_html: str, keyword_data: dict, pub_dat
         <div class="footer-brand-col">
           <div class="footer-brand-name"><span class="dot"></span> Craft with Mommy</div>
           <p class="footer-tagline">Simple, foolproof crafts for moms and little ones. Creating memories, one project at a time.</p>
-        </div>
-        <div>
-          <div class="footer-col-title">Crafts</div>
-          <ul class="footer-links">
-            <li><a href="./paper-crafts.html">Paper Crafts</a></li>
-            <li><a href="./paper-plate-crafts.html">Paper Plate Crafts</a></li>
-            <li><a href="./handprint-crafts.html">Handprint Crafts</a></li>
-            <li><a href="./recycled-crafts.html">Recycled Crafts</a></li>
-          </ul>
-        </div>
-        <div>
-          <div class="footer-col-title">Seasons</div>
-          <ul class="footer-links">
-            <li><a href="/">🌸 Spring</a></li>
-            <li><a href="/">☀️ Summer</a></li>
-            <li><a href="/">🍂 Fall</a></li>
-            <li><a href="/">❄️ Winter</a></li>
-          </ul>
         </div>
       </div>
       <div class="footer-bottom">
@@ -1281,7 +1261,7 @@ def build_collection_page(collection_slug: str, all_articles: list) -> str:
     .newsletter-form input:focus {{ border-color: #E8856A; }}
     .newsletter-note {{ font-size: 0.8rem; color: #c5bfba; }}
     .footer {{ background: #2E2B28; color: #fff; padding: 64px 0 32px; }}
-    .footer-top {{ display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 56px; margin-bottom: 56px; }}
+    .footer-top {{ display: grid; grid-template-columns: 1fr; gap: 56px; margin-bottom: 56px; }}
     .footer-brand-name {{ font-family: \'Nunito\', sans-serif; font-weight: 900; font-size: 1.25rem; color: #fff; margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }}
     .footer-brand-name .dot {{ width: 8px; height: 8px; background: #E8856A; border-radius: 50%; flex-shrink: 0; }}
     .footer-tagline {{ font-size: 0.9rem; color: rgba(255,255,255,0.45); line-height: 1.7; max-width: 260px; }}
@@ -1297,8 +1277,6 @@ def build_collection_page(collection_slug: str, all_articles: list) -> str:
     .social-btn:hover {{ background: #E8856A; color: #fff; transform: translateY(-2px); }}
     @media (max-width: 960px) {{
       .blog-grid {{ grid-template-columns: 1fr 1fr; }}
-      .footer-top {{ grid-template-columns: 1fr 1fr; gap: 36px; }}
-      .footer-brand-col {{ grid-column: 1 / -1; }}
     }}
     @media (max-width: 640px) {{
       .nav {{ display: none; }}
@@ -1406,21 +1384,6 @@ def build_collection_page(collection_slug: str, all_articles: list) -> str:
         <div class="footer-brand-col">
           <div class="footer-brand-name"><span class="dot"></span> Craft with Mommy</div>
           <p class="footer-tagline">Simple, foolproof crafts for moms and little ones. Creating memories, one project at a time.</p>
-        </div>
-        <div>
-          <div class="footer-col-title">Crafts</div>
-          <ul class="footer-links">
-{footer_links}
-          </ul>
-        </div>
-        <div>
-          <div class="footer-col-title">Seasons</div>
-          <ul class="footer-links">
-            <li><a href="/">🌸 Spring</a></li>
-            <li><a href="/">☀️ Summer</a></li>
-            <li><a href="/">🍂 Fall</a></li>
-            <li><a href="/">❄️ Winter</a></li>
-          </ul>
         </div>
       </div>
       <div class="footer-bottom">
@@ -1687,24 +1650,6 @@ BLOG_INDEX_TEMPLATE = """<!DOCTYPE html>
         <div class="footer-brand-col">
           <div class="footer-brand-name"><span class="dot"></span> Craft with Mommy</div>
           <p class="footer-tagline">Simple, foolproof crafts for moms and little ones. Creating memories, one project at a time.</p>
-        </div>
-        <div>
-          <div class="footer-col-title">Crafts</div>
-          <ul class="footer-links">
-            <li><a href="./paper-crafts.html">Paper Crafts</a></li>
-            <li><a href="./paper-plate-crafts.html">Paper Plate Crafts</a></li>
-            <li><a href="./handprint-crafts.html">Handprint Crafts</a></li>
-            <li><a href="./recycled-crafts.html">Recycled Crafts</a></li>
-          </ul>
-        </div>
-        <div>
-          <div class="footer-col-title">Seasons</div>
-          <ul class="footer-links">
-            <li><a href="/">🌸 Spring</a></li>
-            <li><a href="/">☀️ Summer</a></li>
-            <li><a href="/">🍂 Fall</a></li>
-            <li><a href="/">❄️ Winter</a></li>
-          </ul>
         </div>
       </div>
       <div class="footer-bottom">
