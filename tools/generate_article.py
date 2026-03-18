@@ -1078,6 +1078,7 @@ def build_article_page(slug: str, article_html: str, keyword_data: dict, pub_dat
           <ul class="footer-links">
             <li><a href="/blog/">All Articles</a></li>
             <li><a href="/legal.html">Legal &amp; Disclosures</a></li>
+            <li><a href="/privacy.html">Privacy Policy</a></li>
           </ul>
         </div>
       </div>
@@ -1400,6 +1401,7 @@ def build_collection_page(collection_slug: str, all_articles: list) -> str:
           <ul class="footer-links">
             <li><a href="/blog/">All Articles</a></li>
             <li><a href="/legal.html">Legal &amp; Disclosures</a></li>
+            <li><a href="/privacy.html">Privacy Policy</a></li>
           </ul>
         </div>
       </div>
@@ -1674,6 +1676,7 @@ BLOG_INDEX_TEMPLATE = """<!DOCTYPE html>
           <ul class="footer-links">
             <li><a href="/blog/">All Articles</a></li>
             <li><a href="/legal.html">Legal &amp; Disclosures</a></li>
+            <li><a href="/privacy.html">Privacy Policy</a></li>
           </ul>
         </div>
       </div>
