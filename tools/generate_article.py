@@ -981,7 +981,6 @@ def build_article_page(slug: str, article_html: str, keyword_data: dict, pub_dat
               <a href="/" role="menuitem"><span class="drop-icon">❄️</span> Winter</a>
             </div></div>
           </div>
-          <a href="/blog/" class="btn btn-sm" style="margin-left:8px;">All Crafts</a>
         </nav>
         <button class="hamburger" id="menuBtn" aria-label="Open menu" aria-expanded="false">
           <span></span><span></span><span></span>
@@ -1342,7 +1341,6 @@ def build_collection_page(collection_slug: str, all_articles: list) -> str:
               <a href="/" role="menuitem"><span class="drop-icon">❄️</span> Winter</a>
             </div></div>
           </div>
-          <a href="/blog/" class="btn btn-sm" style="margin-left:8px;">All Crafts</a>
         </nav>
         <button class="hamburger" id="menuBtn" aria-label="Open menu" aria-expanded="false">
           <span></span><span></span><span></span>
@@ -1621,7 +1619,6 @@ BLOG_INDEX_TEMPLATE = """<!DOCTYPE html>
               <a href="/" role="menuitem"><span class="drop-icon">❄️</span> Winter</a>
             </div></div>
           </div>
-          <a href="/blog/" class="btn btn-sm" style="margin-left:8px;">All Crafts</a>
         </nav>
         <button class="hamburger" id="menuBtn" aria-label="Open menu" aria-expanded="false">
           <span></span><span></span><span></span>
