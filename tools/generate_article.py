@@ -79,6 +79,33 @@ FALLBACK_TOPICS = [
     "Pipe cleaner animals",
 ]
 
+COLLECTIONS = {
+    "paper-plate-crafts": {
+        "name": "Paper Plate Crafts",
+        "emoji": "🍽️",
+        "description": "Fun and easy crafts made from paper plates — perfect for toddlers and preschoolers.",
+        "page": "paper-plate-crafts.html",
+    },
+    "paper-crafts": {
+        "name": "Paper Crafts",
+        "emoji": "✂️",
+        "description": "Simple paper crafts for kids of all ages — no special skills required.",
+        "page": "paper-crafts.html",
+    },
+    "handprint-crafts": {
+        "name": "Handprint Crafts",
+        "emoji": "🖐️",
+        "description": "Adorable keepsake crafts using little hands — memories you'll treasure forever.",
+        "page": "handprint-crafts.html",
+    },
+    "recycled-crafts": {
+        "name": "Recycled Crafts",
+        "emoji": "♻️",
+        "description": "Creative crafts made from recycled materials — good for kids and the planet.",
+        "page": "recycled-crafts.html",
+    },
+}
+
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(message)s",
@@ -103,7 +130,7 @@ def load_published_keywords() -> list:
     return []
 
 
-def save_keyword(keyword_data: dict, slug: str, pub_date: str, main_image_filename: str = "") -> None:
+def save_keyword(keyword_data: dict, slug: str, pub_date: str, main_image_filename: str = "", collection: str = "paper-crafts") -> None:
     records = load_published_keywords()
     records.append({
         "keyword": keyword_data["primary_keyword"],
@@ -111,9 +138,24 @@ def save_keyword(keyword_data: dict, slug: str, pub_date: str, main_image_filena
         "title": keyword_data["article_title"],
         "date": pub_date,
         "main_image": main_image_filename,
+        "collection": collection,
     })
     PUBLISHED_KEYWORDS_FILE.write_text(json.dumps(records, indent=2, ensure_ascii=False))
     log.info("Saved keyword to published_keywords.json")
+
+
+def determine_collection(keyword: str, title: str) -> str:
+    """Classify an article into one of the 4 collections based on its keyword/title."""
+    combined = (keyword + " " + title).lower()
+    if "handprint" in combined or "hand print" in combined or "fingerprint" in combined:
+        return "handprint-crafts"
+    if any(w in combined for w in ["recycled", "toilet roll", "toilet paper roll", "egg carton",
+                                    "cardboard box", "cereal box", "tin can", "bottle"]):
+        return "recycled-crafts"
+    if "paper plate" in combined:
+        return "paper-plate-crafts"
+    # Default fallback
+    return "paper-crafts"
 
 
 # ---------------------------------------------------------------------------
@@ -551,7 +593,7 @@ def resolve_image_placeholders(article_html: str, image_paths: dict, slug: str) 
 # Step 6 — Build full article page HTML
 # ---------------------------------------------------------------------------
 
-def build_article_page(slug: str, article_html: str, keyword_data: dict, pub_date: str) -> str:
+def build_article_page(slug: str, article_html: str, keyword_data: dict, pub_date: str, collection: str = "paper-crafts") -> str:
     title = keyword_data["article_title"]
     category = keyword_data["category"]
     age_range = keyword_data["age_range"]
@@ -568,6 +610,13 @@ def build_article_page(slug: str, article_html: str, keyword_data: dict, pub_dat
         "Recycled Crafts": "♻️",
         "Sensory Play": "🌈",
     }.get(category, "🎨")
+
+    # Collection badge info
+    col_info = COLLECTIONS.get(collection, COLLECTIONS["paper-crafts"])
+    collection_badge_html = (
+        f'<a href="./{col_info["page"]}" class="badge badge-category" style="text-decoration:none;">'
+        f'{col_info["emoji"]} {col_info["name"]}</a>'
+    )
 
     # Build JSON-LD HowTo steps
     steps_ld = []
@@ -801,16 +850,16 @@ def build_article_page(slug: str, article_html: str, keyword_data: dict, pub_dat
         <nav class="nav" aria-label="Main navigation">
           <div class="nav-item">
             <button class="nav-trigger" aria-haspopup="true" aria-expanded="false">
-              Activities
+              Crafts
               <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true">
                 <path d="M2.5 4.5L6.5 8.5L10.5 4.5" stroke="#666" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </button>
             <div class="dropdown" role="menu"><div class="dropdown-inner">
-              <a href="/" role="menuitem"><span class="drop-icon">✂️</span> Paper Crafts</a>
-              <a href="/" role="menuitem"><span class="drop-icon">🍽️</span> Paper Plate Crafts</a>
-              <a href="/" role="menuitem"><span class="drop-icon">🖐️</span> Handprint Crafts</a>
-              <a href="/" role="menuitem"><span class="drop-icon">♻️</span> Recycled Crafts</a>
+              <a href="./paper-crafts.html" role="menuitem"><span class="drop-icon">✂️</span> Paper Crafts</a>
+              <a href="./paper-plate-crafts.html" role="menuitem"><span class="drop-icon">🍽️</span> Paper Plate Crafts</a>
+              <a href="./handprint-crafts.html" role="menuitem"><span class="drop-icon">🖐️</span> Handprint Crafts</a>
+              <a href="./recycled-crafts.html" role="menuitem"><span class="drop-icon">♻️</span> Recycled Crafts</a>
             </div></div>
           </div>
           <div class="nav-item">
@@ -839,10 +888,10 @@ def build_article_page(slug: str, article_html: str, keyword_data: dict, pub_dat
   <div class="mobile-nav" id="mobileNav" aria-hidden="true">
     <div class="mobile-nav-group">
       <h5>Crafts</h5>
-      <a href="/"><span class="drop-icon">✂️</span> Paper Crafts</a>
-      <a href="/"><span class="drop-icon">🍽️</span> Paper Plate Crafts</a>
-      <a href="/"><span class="drop-icon">🖐️</span> Handprint Crafts</a>
-      <a href="/"><span class="drop-icon">♻️</span> Recycled Crafts</a>
+      <a href="./paper-crafts.html"><span class="drop-icon">✂️</span> Paper Crafts</a>
+      <a href="./paper-plate-crafts.html"><span class="drop-icon">🍽️</span> Paper Plate Crafts</a>
+      <a href="./handprint-crafts.html"><span class="drop-icon">🖐️</span> Handprint Crafts</a>
+      <a href="./recycled-crafts.html"><span class="drop-icon">♻️</span> Recycled Crafts</a>
     </div>
     <div class="mobile-nav-group">
       <h5>Seasons</h5>
@@ -877,7 +926,7 @@ def build_article_page(slug: str, article_html: str, keyword_data: dict, pub_dat
   <section class="article-hero">
     <div class="container">
       <div class="article-meta-badges">
-        <span class="badge badge-category">{category_emoji} {category}</span>
+        {collection_badge_html}
         <span class="badge">👶 {age_range}</span>
         <span class="badge">⏱ {time_min} min</span>
         <span class="badge">{messiness_emoji} Messiness: {messiness}</span>
@@ -921,13 +970,12 @@ def build_article_page(slug: str, article_html: str, keyword_data: dict, pub_dat
           <p class="footer-tagline">Simple, foolproof crafts for moms and little ones. Creating memories, one project at a time.</p>
         </div>
         <div>
-          <div class="footer-col-title">Activities</div>
+          <div class="footer-col-title">Crafts</div>
           <ul class="footer-links">
-            <li><a href="/">Painting</a></li>
-            <li><a href="/">Paper Crafts</a></li>
-            <li><a href="/">Yarn &amp; Weaving</a></li>
-            <li><a href="/">Recycled Crafts</a></li>
-            <li><a href="/">Sensory Play</a></li>
+            <li><a href="./paper-crafts.html">Paper Crafts</a></li>
+            <li><a href="./paper-plate-crafts.html">Paper Plate Crafts</a></li>
+            <li><a href="./handprint-crafts.html">Handprint Crafts</a></li>
+            <li><a href="./recycled-crafts.html">Recycled Crafts</a></li>
           </ul>
         </div>
         <div>
@@ -997,6 +1045,333 @@ def save_article(slug: str, page_html: str) -> Path:
     path.write_text(page_html, encoding="utf-8")
     log.info(f"Article saved: {path}")
     return path
+
+
+# ---------------------------------------------------------------------------
+# Collection pages
+# ---------------------------------------------------------------------------
+
+def build_collection_page(collection_slug: str, all_articles: list) -> str:
+    """Build the full HTML of a collection page."""
+    col = COLLECTIONS[collection_slug]
+    articles = [a for a in all_articles if a.get("collection") == collection_slug]
+
+    cards_html = ""
+    if not articles:
+        cards_html = '        <p style="color:#aaa;text-align:center;padding:40px 0;grid-column:1/-1;">No articles yet — check back soon! 🎨</p>\n'
+    else:
+        for art in reversed(articles):  # newest first
+            slug = art["slug"]
+            title = art["title"]
+            date = art["date"]
+            main_image = art.get("main_image", "")
+            coll = COLLECTIONS.get(art.get("collection", "paper-crafts"), COLLECTIONS["paper-crafts"])
+
+            if main_image:
+                thumb = f'<img src="../blog/images/{slug}/{main_image}" alt="{title}" loading="lazy">'
+            else:
+                thumb = col["emoji"]
+
+            cards_html += f'''        <article class="blog-card">
+          <a href="/blog/{slug}.html">
+            <div class="blog-card-thumb">
+              {thumb}
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-card-tag">{coll["emoji"]} {coll["name"]}</div>
+              <h3 class="blog-card-title">{title}</h3>
+              <div class="blog-card-meta">
+                <span>⏱ 15 min</span>
+                <span>📅 {date}</span>
+              </div>
+            </div>
+          </a>
+        </article>\n'''
+
+    # Nav links (relative, from blog/)
+    nav_links = "\n".join(
+        f'              <a href="./{c["page"]}" role="menuitem"><span class="drop-icon">{c["emoji"]}</span> {c["name"]}</a>'
+        for c in COLLECTIONS.values()
+    )
+    mobile_nav_links = "\n".join(
+        f'      <a href="./{c["page"]}"><span class="drop-icon">{c["emoji"]}</span> {c["name"]}</a>'
+        for c in COLLECTIONS.values()
+    )
+    footer_links = "\n".join(
+        f'            <li><a href="./{c["page"]}">{c["name"]}</a></li>'
+        for c in COLLECTIONS.values()
+    )
+
+    return f'''<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="../brand_assets/craft-with-mommy-favicon-2.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{col["name"]} — Craft with Mommy</title>
+  <meta name="description" content="{col["description"]}">
+  <link rel="canonical" href="https://craft-with-mommy.com/blog/{col["page"]}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {{ box-sizing: border-box; margin: 0; padding: 0; }}
+    html {{ scroll-behavior: smooth; }}
+    body {{ font-family: \'DM Sans\', sans-serif; color: #333; background: #fff; line-height: 1.65; -webkit-font-smoothing: antialiased; }}
+    h1, h2, h3, h4, h5 {{ font-family: \'Nunito\', sans-serif; line-height: 1.2; }}
+    a {{ text-decoration: none; color: inherit; }}
+    img {{ max-width: 100%; display: block; }}
+    .container {{ max-width: 1140px; margin: 0 auto; padding: 0 24px; }}
+    .btn {{ display: inline-block; background: #E8856A; color: #fff; font-family: \'Nunito\', sans-serif; font-weight: 700; font-size: 1rem; padding: 13px 30px; border-radius: 36px; border: 2px solid transparent; cursor: pointer; transition: background 0.2s, transform 0.15s; white-space: nowrap; }}
+    .btn:hover {{ background: #D4755C; transform: translateY(-2px); }}
+    .btn-sm {{ font-size: 0.88rem; padding: 10px 22px; }}
+    .header {{ position: sticky; top: 0; z-index: 200; background: rgba(255,255,255,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid #F0ECE7; }}
+    .header-inner {{ padding: 5px 0; display: flex; align-items: center; justify-content: space-between; gap: 24px; }}
+    .logo {{ display: flex; align-items: center; flex-shrink: 0; }}
+    .logo img {{ height: 78px; width: auto; }} @media (max-width: 768px) {{ .logo img {{ height: 70px; }} }}
+    .nav {{ display: flex; align-items: center; gap: 4px; }}
+    .nav-item {{ position: relative; }}
+    .nav-trigger {{ font-family: \'Nunito\', sans-serif; font-weight: 700; font-size: 0.95rem; color: #444; padding: 9px 16px; border-radius: 10px; cursor: pointer; display: flex; align-items: center; gap: 6px; transition: background 0.15s, color 0.15s; background: none; border: none; }}
+    .nav-trigger:hover {{ background: #FDFBF7; color: #E8856A; }}
+    .nav-trigger svg {{ transition: transform 0.25s; flex-shrink: 0; }}
+    .nav-item:hover .nav-trigger svg {{ transform: rotate(180deg); }}
+    .dropdown {{ position: absolute; top: 100%; left: 0; padding: 10px 0 0 0; background: transparent; min-width: 210px; opacity: 0; visibility: hidden; transform: translateY(-6px); transition: opacity 0.2s, transform 0.2s, visibility 0.2s; pointer-events: none; }}
+    .dropdown-inner {{ background: #fff; border: 1px solid #F0ECE7; border-radius: 18px; padding: 8px; box-shadow: 0 12px 40px rgba(0,0,0,0.09); }}
+    .nav-item:hover .dropdown, .nav-item:focus-within .dropdown {{ opacity: 1; visibility: visible; transform: translateY(0); pointer-events: auto; }}
+    .dropdown a {{ display: flex; align-items: center; gap: 11px; padding: 10px 13px; border-radius: 11px; font-size: 0.91rem; font-weight: 500; color: #555; transition: background 0.15s, color 0.15s; }}
+    .dropdown a:hover {{ background: #FEF0EC; color: #E8856A; }}
+    .drop-icon {{ font-size: 1.05rem; line-height: 1; }}
+    .hamburger {{ display: none; flex-direction: column; justify-content: center; gap: 5px; padding: 8px; cursor: pointer; background: none; border: none; }}
+    .hamburger span {{ display: block; width: 22px; height: 2px; background: #444; border-radius: 2px; transition: transform 0.25s, opacity 0.25s; }}
+    .hamburger.open span:nth-child(1) {{ transform: translateY(7px) rotate(45deg); }}
+    .hamburger.open span:nth-child(2) {{ opacity: 0; }}
+    .hamburger.open span:nth-child(3) {{ transform: translateY(-7px) rotate(-45deg); }}
+    .mobile-nav {{ display: none; position: fixed; inset: 72px 0 0 0; background: #fff; z-index: 190; padding: 24px; overflow-y: auto; }}
+    .mobile-nav.open {{ display: block; }}
+    .mobile-nav-group {{ margin-bottom: 28px; }}
+    .mobile-nav-group h5 {{ font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #E8856A; margin-bottom: 12px; }}
+    .mobile-nav-group a {{ display: flex; align-items: center; gap: 12px; padding: 11px 14px; border-radius: 12px; font-size: 0.95rem; font-weight: 500; color: #444; transition: background 0.15s; }}
+    .mobile-nav-group a:hover {{ background: #FDFBF7; }}
+    .blog-hero {{ background: #FDFBF7; padding: 72px 0 56px; }}
+    .section-label {{ font-family: \'Nunito\', sans-serif; font-weight: 700; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 1.2px; color: #E8856A; margin-bottom: 10px; }}
+    .blog-hero h1 {{ font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; color: #333; margin-bottom: 14px; }}
+    .blog-hero p {{ font-size: 1rem; color: #888; max-width: 520px; }}
+    .blog-grid-section {{ padding: 64px 0 96px; }}
+    .blog-grid {{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }}
+    .blog-card {{ border-radius: 20px; overflow: hidden; background: #fff; border: 1px solid #F0ECE7; transition: transform 0.2s, box-shadow 0.2s; }}
+    .blog-card:hover {{ transform: translateY(-5px); box-shadow: 0 18px 48px rgba(0,0,0,0.08); }}
+    .blog-card-thumb {{ height: 195px; overflow: hidden; position: relative; background: linear-gradient(135deg, #FECDC5, #FFD8B0); display: flex; align-items: center; justify-content: center; font-size: 4rem; }}
+    .blog-card-thumb img {{ width: 100%; height: 100%; object-fit: cover; }}
+    .blog-card-body {{ padding: 20px; }}
+    .blog-card-tag {{ font-family: \'Nunito\', sans-serif; font-size: 0.73rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #E8856A; margin-bottom: 8px; }}
+    .blog-card-title {{ font-family: \'Nunito\', sans-serif; font-size: 1rem; font-weight: 800; color: #333; line-height: 1.4; margin-bottom: 12px; }}
+    .blog-card-meta {{ display: flex; gap: 14px; font-size: 0.78rem; color: #bbb; }}
+    .newsletter {{ padding: 88px 0; background: linear-gradient(150deg, #FDFBF7 0%, #FEF0EC 100%); }}
+    .newsletter-inner {{ text-align: center; max-width: 540px; margin: 0 auto; }}
+    .newsletter-emoji {{ font-size: 2.8rem; margin-bottom: 18px; }}
+    .newsletter h2 {{ font-size: clamp(1.8rem, 3vw, 2.3rem); font-weight: 900; color: #333; margin-bottom: 14px; }}
+    .newsletter-lead {{ font-size: 1rem; color: #888; line-height: 1.75; margin-bottom: 38px; }}
+    .newsletter-form {{ display: flex; gap: 10px; max-width: 460px; margin: 0 auto 16px; }}
+    .newsletter-form input {{ flex: 1; min-width: 0; padding: 13px 20px; border: 2px solid #EDE8E3; border-radius: 36px; font-family: \'DM Sans\', sans-serif; font-size: 0.95rem; color: #333; background: #fff; outline: none; transition: border-color 0.2s; }}
+    .newsletter-form input:focus {{ border-color: #E8856A; }}
+    .newsletter-note {{ font-size: 0.8rem; color: #c5bfba; }}
+    .footer {{ background: #2E2B28; color: #fff; padding: 64px 0 32px; }}
+    .footer-top {{ display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 56px; margin-bottom: 56px; }}
+    .footer-brand-name {{ font-family: \'Nunito\', sans-serif; font-weight: 900; font-size: 1.25rem; color: #fff; margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }}
+    .footer-brand-name .dot {{ width: 8px; height: 8px; background: #E8856A; border-radius: 50%; flex-shrink: 0; }}
+    .footer-tagline {{ font-size: 0.9rem; color: rgba(255,255,255,0.45); line-height: 1.7; max-width: 260px; }}
+    .footer-col-title {{ font-family: \'Nunito\', sans-serif; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.8px; color: rgba(255,255,255,0.7); margin-bottom: 18px; }}
+    .footer-links {{ list-style: none; }}
+    .footer-links li {{ margin-bottom: 10px; }}
+    .footer-links a {{ font-size: 0.9rem; color: rgba(255,255,255,0.4); transition: color 0.2s; }}
+    .footer-links a:hover {{ color: #FECDC5; }}
+    .footer-bottom {{ border-top: 1px solid rgba(255,255,255,0.08); padding-top: 26px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }}
+    .footer-copy {{ font-size: 0.82rem; color: rgba(255,255,255,0.3); }}
+    .social-row {{ display: flex; gap: 10px; }}
+    .social-btn {{ width: 38px; height: 38px; background: rgba(255,255,255,0.07); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.95rem; color: rgba(255,255,255,0.5); transition: background 0.2s, color 0.2s, transform 0.15s; }}
+    .social-btn:hover {{ background: #E8856A; color: #fff; transform: translateY(-2px); }}
+    @media (max-width: 960px) {{
+      .blog-grid {{ grid-template-columns: 1fr 1fr; }}
+      .footer-top {{ grid-template-columns: 1fr 1fr; gap: 36px; }}
+      .footer-brand-col {{ grid-column: 1 / -1; }}
+    }}
+    @media (max-width: 640px) {{
+      .nav {{ display: none; }}
+      .hamburger {{ display: flex; }}
+      .blog-grid {{ grid-template-columns: 1fr; }}
+      .newsletter-form {{ flex-direction: column; }}
+      .newsletter-form input, .newsletter-form .btn {{ width: 100%; }}
+      .footer-top {{ grid-template-columns: 1fr; gap: 28px; }}
+      .footer-bottom {{ flex-direction: column; align-items: flex-start; }}
+    }}
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="/" class="logo" aria-label="Craft with Mommy — Home">
+          <img src="../brand_assets/Craft with mommy logo.png" alt="Craft with Mommy">
+        </a>
+        <nav class="nav" aria-label="Main navigation">
+          <div class="nav-item">
+            <button class="nav-trigger" aria-haspopup="true" aria-expanded="false">
+              Crafts
+              <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true">
+                <path d="M2.5 4.5L6.5 8.5L10.5 4.5" stroke="#666" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <div class="dropdown" role="menu"><div class="dropdown-inner">
+{nav_links}
+            </div></div>
+          </div>
+          <div class="nav-item">
+            <button class="nav-trigger" aria-haspopup="true" aria-expanded="false">
+              Seasons
+              <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true">
+                <path d="M2.5 4.5L6.5 8.5L10.5 4.5" stroke="#666" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <div class="dropdown" role="menu"><div class="dropdown-inner">
+              <a href="/" role="menuitem"><span class="drop-icon">🌸</span> Spring</a>
+              <a href="/" role="menuitem"><span class="drop-icon">☀️</span> Summer</a>
+              <a href="/" role="menuitem"><span class="drop-icon">🍂</span> Fall</a>
+              <a href="/" role="menuitem"><span class="drop-icon">❄️</span> Winter</a>
+            </div></div>
+          </div>
+          <a href="/blog/" class="btn btn-sm" style="margin-left:8px;">All Crafts</a>
+        </nav>
+        <button class="hamburger" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+    <div class="mobile-nav-group">
+      <h5>Crafts</h5>
+{mobile_nav_links}
+    </div>
+    <div class="mobile-nav-group">
+      <h5>Seasons</h5>
+      <a href="/"><span class="drop-icon">🌸</span> Spring</a>
+      <a href="/"><span class="drop-icon">☀️</span> Summer</a>
+      <a href="/"><span class="drop-icon">🍂</span> Fall</a>
+      <a href="/"><span class="drop-icon">❄️</span> Winter</a>
+    </div>
+  </div>
+
+  <section class="blog-hero">
+    <div class="container">
+      <div class="section-label">{col["emoji"]} Collection</div>
+      <h1>{col["name"]}</h1>
+      <p>{col["description"]}</p>
+    </div>
+  </section>
+
+  <section class="blog-grid-section">
+    <div class="container">
+      <div class="blog-grid">
+        <!-- ARTICLE_CARDS_START -->
+{cards_html}        <!-- ARTICLE_CARDS_END -->
+      </div>
+    </div>
+  </section>
+
+  <section class="newsletter">
+    <div class="container">
+      <div class="newsletter-inner">
+        <div class="newsletter-emoji">💌</div>
+        <h2>Be the first to create!</h2>
+        <p class="newsletter-lead">Get fresh foolproof craft ideas delivered to your inbox every week. Simple, cute, and guaranteed to bring smiles — zero chaos included.</p>
+        <form class="newsletter-form" onsubmit="return false;" aria-label="Newsletter signup">
+          <input type="email" placeholder="Your email address" autocomplete="email" aria-label="Email address" required>
+          <button type="submit" class="btn">Join us!</button>
+        </form>
+        <p class="newsletter-note">No spam, ever. Just crafts and happy moments. 🎨</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand-col">
+          <div class="footer-brand-name"><span class="dot"></span> Craft with Mommy</div>
+          <p class="footer-tagline">Simple, foolproof crafts for moms and little ones. Creating memories, one project at a time.</p>
+        </div>
+        <div>
+          <div class="footer-col-title">Crafts</div>
+          <ul class="footer-links">
+{footer_links}
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Seasons</div>
+          <ul class="footer-links">
+            <li><a href="/">🌸 Spring</a></li>
+            <li><a href="/">☀️ Summer</a></li>
+            <li><a href="/">🍂 Fall</a></li>
+            <li><a href="/">❄️ Winter</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copy">© 2026 Craft with Mommy. Made with ❤️ for moms &amp; kids.</span>
+        <div class="social-row">
+          <a href="#" class="social-btn" aria-label="Pinterest">📌</a>
+          <a href="#" class="social-btn" aria-label="Instagram">📷</a>
+          <a href="#" class="social-btn" aria-label="Facebook">👍</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {{
+      const btn = document.getElementById('menuBtn');
+      const nav = document.getElementById('mobileNav');
+      btn.addEventListener('click', function () {{
+        const isOpen = nav.classList.toggle('open');
+        btn.classList.toggle('open', isOpen);
+        btn.setAttribute('aria-expanded', isOpen);
+        nav.setAttribute('aria-hidden', !isOpen);
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+      }});
+      nav.querySelectorAll('a').forEach(function (link) {{
+        link.addEventListener('click', function () {{
+          nav.classList.remove('open');
+          btn.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
+          nav.setAttribute('aria-hidden', 'true');
+          document.body.style.overflow = '';
+        }});
+      }});
+      window.addEventListener('resize', function () {{
+        if (window.innerWidth > 640) {{
+          nav.classList.remove('open');
+          btn.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
+          nav.setAttribute('aria-hidden', 'true');
+          document.body.style.overflow = '';
+        }}
+      }});
+    }})();
+  </script>
+
+</body>
+</html>'''
+
+
+def rebuild_collection_pages(all_articles: list):
+    """Rebuild all 4 collection HTML pages from published_keywords."""
+    for slug in COLLECTIONS:
+        page_path = BLOG_DIR / COLLECTIONS[slug]["page"]
+        html = build_collection_page(slug, all_articles)
+        page_path.write_text(html, encoding="utf-8")
+        log.info(f"Rebuilt collection page: {page_path.name}")
 
 
 # ---------------------------------------------------------------------------
@@ -1117,16 +1492,16 @@ BLOG_INDEX_TEMPLATE = """<!DOCTYPE html>
         <nav class="nav" aria-label="Main navigation">
           <div class="nav-item">
             <button class="nav-trigger" aria-haspopup="true" aria-expanded="false">
-              Activities
+              Crafts
               <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true">
                 <path d="M2.5 4.5L6.5 8.5L10.5 4.5" stroke="#666" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </button>
             <div class="dropdown" role="menu"><div class="dropdown-inner">
-              <a href="/" role="menuitem"><span class="drop-icon">✂️</span> Paper Crafts</a>
-              <a href="/" role="menuitem"><span class="drop-icon">🍽️</span> Paper Plate Crafts</a>
-              <a href="/" role="menuitem"><span class="drop-icon">🖐️</span> Handprint Crafts</a>
-              <a href="/" role="menuitem"><span class="drop-icon">♻️</span> Recycled Crafts</a>
+              <a href="./paper-crafts.html" role="menuitem"><span class="drop-icon">✂️</span> Paper Crafts</a>
+              <a href="./paper-plate-crafts.html" role="menuitem"><span class="drop-icon">🍽️</span> Paper Plate Crafts</a>
+              <a href="./handprint-crafts.html" role="menuitem"><span class="drop-icon">🖐️</span> Handprint Crafts</a>
+              <a href="./recycled-crafts.html" role="menuitem"><span class="drop-icon">♻️</span> Recycled Crafts</a>
             </div></div>
           </div>
           <div class="nav-item">
@@ -1155,10 +1530,10 @@ BLOG_INDEX_TEMPLATE = """<!DOCTYPE html>
   <div class="mobile-nav" id="mobileNav" aria-hidden="true">
     <div class="mobile-nav-group">
       <h5>Crafts</h5>
-      <a href="/"><span class="drop-icon">✂️</span> Paper Crafts</a>
-      <a href="/"><span class="drop-icon">🍽️</span> Paper Plate Crafts</a>
-      <a href="/"><span class="drop-icon">🖐️</span> Handprint Crafts</a>
-      <a href="/"><span class="drop-icon">♻️</span> Recycled Crafts</a>
+      <a href="./paper-crafts.html"><span class="drop-icon">✂️</span> Paper Crafts</a>
+      <a href="./paper-plate-crafts.html"><span class="drop-icon">🍽️</span> Paper Plate Crafts</a>
+      <a href="./handprint-crafts.html"><span class="drop-icon">🖐️</span> Handprint Crafts</a>
+      <a href="./recycled-crafts.html"><span class="drop-icon">♻️</span> Recycled Crafts</a>
     </div>
     <div class="mobile-nav-group">
       <h5>Seasons</h5>
@@ -1209,13 +1584,12 @@ BLOG_INDEX_TEMPLATE = """<!DOCTYPE html>
           <p class="footer-tagline">Simple, foolproof crafts for moms and little ones. Creating memories, one project at a time.</p>
         </div>
         <div>
-          <div class="footer-col-title">Activities</div>
+          <div class="footer-col-title">Crafts</div>
           <ul class="footer-links">
-            <li><a href="/">Painting</a></li>
-            <li><a href="/">Paper Crafts</a></li>
-            <li><a href="/">Yarn &amp; Weaving</a></li>
-            <li><a href="/">Recycled Crafts</a></li>
-            <li><a href="/">Sensory Play</a></li>
+            <li><a href="./paper-crafts.html">Paper Crafts</a></li>
+            <li><a href="./paper-plate-crafts.html">Paper Plate Crafts</a></li>
+            <li><a href="./handprint-crafts.html">Handprint Crafts</a></li>
+            <li><a href="./recycled-crafts.html">Recycled Crafts</a></li>
           </ul>
         </div>
         <div>
@@ -1664,6 +2038,10 @@ def main():
     pub_date = datetime.today().strftime("%B %d, %Y")
     log.info(f"Slug: {slug} | Date: {pub_date}")
 
+    # Determine collection early so it's available for build_article_page and save_keyword
+    collection = determine_collection(keyword_data.get("primary_keyword", ""), keyword_data.get("article_title", ""))
+    log.info(f"Article collection: {collection}")
+
     # Step 3: Generate article (pass published articles for real internal links)
     try:
         article_html = generate_article_html(keyword_data, published_articles=published)
@@ -1688,7 +2066,7 @@ def main():
     article_html = resolve_image_placeholders(article_html, image_paths, slug)
 
     # Step 6: Build full page
-    page_html = build_article_page(slug, article_html, keyword_data, pub_date)
+    page_html = build_article_page(slug, article_html, keyword_data, pub_date, collection)
 
     # Step 7: Save article
     save_article(slug, page_html)
@@ -1736,7 +2114,11 @@ def main():
     update_homepage_latest_crafts(recent_articles_meta)
 
     # Step 10: Save keyword record (includes main image filename for future homepage rebuilds)
-    save_keyword(keyword_data, slug, pub_date, main_image_filename)
+    save_keyword(keyword_data, slug, pub_date, main_image_filename, collection)
+
+    # Rebuild all collection pages
+    all_articles = load_published_keywords()
+    rebuild_collection_pages(all_articles)
 
     # Step 11: Git push
     try:
