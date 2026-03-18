@@ -1447,6 +1447,72 @@ _AMAZON_LINK_RE = re.compile(
     re.IGNORECASE | re.DOTALL,
 )
 
+# Curated lookup table: keyword fragment → direct Amazon product URL (with affiliate tag).
+# Keys are lowercase substrings to match against the normalized placeholder key.
+# Longer / more specific keys are listed first so they win over shorter ones.
+_AMAZON_PRODUCT_CATALOG: list[tuple[str, str]] = [
+    # Paints
+    ("tempera_paint",     "https://www.amazon.com/dp/B07G9HCSX3?tag=craftwithmomm-20"),
+    ("washable_paint",    "https://www.amazon.com/dp/B07G9HCSX3?tag=craftwithmomm-20"),
+    ("dot_paint",         "https://www.amazon.com/dp/B00JOZY8RE?tag=craftwithmomm-20"),
+    ("paint_marker",      "https://www.amazon.com/dp/B00JOZY8RE?tag=craftwithmomm-20"),
+    ("dot_marker",        "https://www.amazon.com/dp/B00JOZY8RE?tag=craftwithmomm-20"),
+    # Paintbrushes
+    ("paintbrush",        "https://www.amazon.com/dp/B07GH7WGC3?tag=craftwithmomm-20"),
+    ("paint_brush",       "https://www.amazon.com/dp/B07GH7WGC3?tag=craftwithmomm-20"),
+    # Glue
+    ("glue_stick",        "https://www.amazon.com/dp/B00MZ5Q5QG?tag=craftwithmomm-20"),
+    ("glue",              "https://www.amazon.com/dp/B00MZ5Q5QG?tag=craftwithmomm-20"),
+    # Scissors
+    ("scissors",          "https://www.amazon.com/dp/B00K2T14WW?tag=craftwithmomm-20"),
+    # Paper
+    ("paper_plate",       "https://www.amazon.com/dp/B07VF2KK6R?tag=craftwithmomm-20"),
+    ("construction_paper","https://www.amazon.com/dp/B00125Q27M?tag=craftwithmomm-20"),
+    ("cardstock",         "https://www.amazon.com/dp/B00125Q27M?tag=craftwithmomm-20"),
+    ("tissue_paper",      "https://www.amazon.com/dp/B07V524WJ7?tag=craftwithmomm-20"),
+    # Googly eyes
+    ("googly_eye",        "https://www.amazon.com/dp/B00D4IJH6S?tag=craftwithmomm-20"),
+    ("wiggle_eye",        "https://www.amazon.com/dp/B00D4IJH6S?tag=craftwithmomm-20"),
+    # Markers & crayons
+    ("washable_marker",   "https://www.amazon.com/dp/B0000CBHBC?tag=craftwithmomm-20"),
+    ("marker",            "https://www.amazon.com/dp/B0000CBHBC?tag=craftwithmomm-20"),
+    ("crayon",            "https://www.amazon.com/dp/B00000J1ER?tag=craftwithmomm-20"),
+    # Pipe cleaners / chenille stems
+    ("pipe_cleaner",      "https://www.amazon.com/dp/B07YSGLFGC?tag=craftwithmomm-20"),
+    ("chenille",          "https://www.amazon.com/dp/B07YSGLFGC?tag=craftwithmomm-20"),
+    # Pom poms
+    ("pom_pom",           "https://www.amazon.com/dp/B01MTOWHJH?tag=craftwithmomm-20"),
+    ("pompom",            "https://www.amazon.com/dp/B01MTOWHJH?tag=craftwithmomm-20"),
+    # Craft sticks
+    ("craft_stick",       "https://www.amazon.com/dp/B07F367TCK?tag=craftwithmomm-20"),
+    ("popsicle_stick",    "https://www.amazon.com/dp/B07F367TCK?tag=craftwithmomm-20"),
+    ("popsicle",          "https://www.amazon.com/dp/B07F367TCK?tag=craftwithmomm-20"),
+    # Foam
+    ("foam_sticker",      "https://www.amazon.com/dp/B07J5GSBSP?tag=craftwithmomm-20"),
+    ("foam_sheet",        "https://www.amazon.com/dp/B07J5GSBSP?tag=craftwithmomm-20"),
+    # Tape
+    ("washi_tape",        "https://www.amazon.com/dp/B08TWB425H?tag=craftwithmomm-20"),
+    ("masking_tape",      "https://www.amazon.com/dp/B08TWB425H?tag=craftwithmomm-20"),
+    # Yarn / felt
+    ("yarn",              "https://www.amazon.com/dp/B07B7M5RBW?tag=craftwithmomm-20"),
+    ("felt",              "https://www.amazon.com/dp/B07DNKGW4Q?tag=craftwithmomm-20"),
+    # Stickers
+    ("sticker",           "https://www.amazon.com/dp/B07J5GSBSP?tag=craftwithmomm-20"),
+    # Ribbon
+    ("ribbon",            "https://www.amazon.com/dp/B07B7M5RBW?tag=craftwithmomm-20"),
+]
+
+
+def _lookup_product_url(key: str) -> str | None:
+    """Return a direct Amazon product URL for a placeholder key, or None."""
+    # Normalise key: hyphens/spaces → underscores, lowercase
+    normalised = key.replace("-", "_").replace(" ", "_").lower()
+    for fragment, url in _AMAZON_PRODUCT_CATALOG:
+        if fragment in normalised:
+            return url
+    return None
+
+
 _CRAFT_WORDS = {
     "paint", "brush", "glue", "scissors", "paper", "foam", "felt", "yarn",
     "craft", "art", "marker", "crayon", "sticker", "ribbon", "tape", "stamp",
@@ -1548,21 +1614,27 @@ def resolve_amazon_links(article_html: str) -> str:
     def _replace(m: re.Match) -> str:
         pre, key, post, text = m.group(1), m.group(2), m.group(3), m.group(4)
 
-        if not credentials_ok:
-            query = _placeholder_key_to_query(key)
-            safe_q = requests.utils.quote(query, safe="")
-            search_url = f"https://www.amazon.com/s?k={safe_q}&tag={associate_tag or 'craftmommy-20'}"
-            return f'<a{pre}href="{search_url}"{post}>{text}</a>'
+        # 1. Check curated product catalog first (always, no credentials needed)
+        direct_url = _lookup_product_url(key)
+        if direct_url:
+            log.info(f"Amazon product (catalog): {key} → {direct_url}")
+            return f'<a{pre}href="{direct_url}"{post}>{text}</a>'
 
-        if key not in cache:
-            query = _placeholder_key_to_query(key)
-            cache[key] = search_amazon_product(query, amazon_api, associate_tag)
+        # 2. PA API lookup (only when credentials are configured)
+        if credentials_ok:
+            if key not in cache:
+                query = _placeholder_key_to_query(key)
+                cache[key] = search_amazon_product(query, amazon_api, associate_tag)
+            product = cache[key]
+            if product:
+                return f'<a{pre}href="{product["url"]}"{post}>{text}</a>'
 
-        product = cache[key]
-        if product:
-            return f'<a{pre}href="{product["url"]}"{post}>{text}</a>'
-        # No qualifying product — strip <a>, keep plain text
-        return text
+        # 3. Fallback: Amazon search URL
+        query = _placeholder_key_to_query(key)
+        safe_q = requests.utils.quote(query, safe="")
+        search_url = f"https://www.amazon.com/s?k={safe_q}&tag={associate_tag or 'craftwithmomm-20'}"
+        log.warning(f"Amazon product not in catalog for '{key}' — using search URL fallback")
+        return f'<a{pre}href="{search_url}"{post}>{text}</a>'
 
     return _AMAZON_LINK_RE.sub(_replace, article_html)
 
