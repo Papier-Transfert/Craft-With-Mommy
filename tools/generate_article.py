@@ -913,7 +913,7 @@ def build_article_page(slug: str, article_html: str, keyword_data: dict, pub_dat
 
     /* Footer */
     .footer {{ background: #2E2B28; color: #FFFFFF; padding: 64px 0 32px; }}
-    .footer-top {{ display: grid; grid-template-columns: 1fr; gap: 56px; margin-bottom: 56px; }}
+    .footer-top {{ display: grid; grid-template-columns: 1.6fr 1fr; gap: 56px; margin-bottom: 40px; }}
     .footer-brand-name {{ font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 1.25rem; color: #FFFFFF; margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }}
     .footer-brand-name .dot {{ width: 8px; height: 8px; background: #E8856A; border-radius: 50%; flex-shrink: 0; }}
     .footer-tagline {{ font-size: 0.9rem; color: rgba(255,255,255,0.45); line-height: 1.7; max-width: 260px; }}
@@ -923,6 +923,7 @@ def build_article_page(slug: str, article_html: str, keyword_data: dict, pub_dat
     .footer-links a {{ font-size: 0.9rem; color: rgba(255,255,255,0.4); transition: color 0.2s; }}
     .footer-links a:hover {{ color: #FECDC5; }}
     .footer-bottom {{ border-top: 1px solid rgba(255,255,255,0.08); padding-top: 26px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }}
+    .footer-affiliate {{ font-size: 0.78rem; color: rgba(255,255,255,0.28); text-align: center; padding: 16px 0; border-top: 1px solid rgba(255,255,255,0.07); border-bottom: 1px solid rgba(255,255,255,0.07); margin-bottom: 24px; }}
     .footer-copy {{ font-size: 0.82rem; color: rgba(255,255,255,0.3); }}
     .social-row {{ display: flex; gap: 10px; }}
     .social-btn {{ width: 38px; height: 38px; background: rgba(255,255,255,0.07); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.95rem; color: rgba(255,255,255,0.5); transition: background 0.2s, color 0.2s, transform 0.15s; }}
@@ -1072,7 +1073,15 @@ def build_article_page(slug: str, article_html: str, keyword_data: dict, pub_dat
           <div class="footer-brand-name"><span class="dot"></span> Craft with Mommy</div>
           <p class="footer-tagline">Simple, foolproof crafts for moms and little ones. Creating memories, one project at a time.</p>
         </div>
+        <div>
+          <div class="footer-col-title">Blog</div>
+          <ul class="footer-links">
+            <li><a href="/blog/">All Articles</a></li>
+            <li><a href="/legal.html">Legal &amp; Disclosures</a></li>
+          </ul>
+        </div>
       </div>
+      <div class="footer-affiliate">As an Amazon Associate, we earn from qualifying purchases.</div>
       <div class="footer-bottom">
         <span class="footer-copy">© 2026 Craft with Mommy. Made with ❤️ for moms &amp; kids.</span>
         <div class="social-row">
@@ -1261,7 +1270,7 @@ def build_collection_page(collection_slug: str, all_articles: list) -> str:
     .newsletter-form input:focus {{ border-color: #E8856A; }}
     .newsletter-note {{ font-size: 0.8rem; color: #c5bfba; }}
     .footer {{ background: #2E2B28; color: #fff; padding: 64px 0 32px; }}
-    .footer-top {{ display: grid; grid-template-columns: 1fr; gap: 56px; margin-bottom: 56px; }}
+    .footer-top {{ display: grid; grid-template-columns: 1.6fr 1fr; gap: 56px; margin-bottom: 40px; }}
     .footer-brand-name {{ font-family: \'Nunito\', sans-serif; font-weight: 900; font-size: 1.25rem; color: #fff; margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }}
     .footer-brand-name .dot {{ width: 8px; height: 8px; background: #E8856A; border-radius: 50%; flex-shrink: 0; }}
     .footer-tagline {{ font-size: 0.9rem; color: rgba(255,255,255,0.45); line-height: 1.7; max-width: 260px; }}
@@ -1271,6 +1280,7 @@ def build_collection_page(collection_slug: str, all_articles: list) -> str:
     .footer-links a {{ font-size: 0.9rem; color: rgba(255,255,255,0.4); transition: color 0.2s; }}
     .footer-links a:hover {{ color: #FECDC5; }}
     .footer-bottom {{ border-top: 1px solid rgba(255,255,255,0.08); padding-top: 26px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }}
+    .footer-affiliate {{ font-size: 0.78rem; color: rgba(255,255,255,0.28); text-align: center; padding: 16px 0; border-top: 1px solid rgba(255,255,255,0.07); border-bottom: 1px solid rgba(255,255,255,0.07); margin-bottom: 24px; }}
     .footer-copy {{ font-size: 0.82rem; color: rgba(255,255,255,0.3); }}
     .social-row {{ display: flex; gap: 10px; }}
     .social-btn {{ width: 38px; height: 38px; background: rgba(255,255,255,0.07); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.95rem; color: rgba(255,255,255,0.5); transition: background 0.2s, color 0.2s, transform 0.15s; }}
@@ -1385,7 +1395,15 @@ def build_collection_page(collection_slug: str, all_articles: list) -> str:
           <div class="footer-brand-name"><span class="dot"></span> Craft with Mommy</div>
           <p class="footer-tagline">Simple, foolproof crafts for moms and little ones. Creating memories, one project at a time.</p>
         </div>
+        <div>
+          <div class="footer-col-title">Blog</div>
+          <ul class="footer-links">
+            <li><a href="/blog/">All Articles</a></li>
+            <li><a href="/legal.html">Legal &amp; Disclosures</a></li>
+          </ul>
+        </div>
       </div>
+      <div class="footer-affiliate">As an Amazon Associate, we earn from qualifying purchases.</div>
       <div class="footer-bottom">
         <span class="footer-copy">© 2026 Craft with Mommy. Made with ❤️ for moms &amp; kids.</span>
         <div class="social-row">
@@ -1651,7 +1669,15 @@ BLOG_INDEX_TEMPLATE = """<!DOCTYPE html>
           <div class="footer-brand-name"><span class="dot"></span> Craft with Mommy</div>
           <p class="footer-tagline">Simple, foolproof crafts for moms and little ones. Creating memories, one project at a time.</p>
         </div>
+        <div>
+          <div class="footer-col-title">Blog</div>
+          <ul class="footer-links">
+            <li><a href="/blog/">All Articles</a></li>
+            <li><a href="/legal.html">Legal &amp; Disclosures</a></li>
+          </ul>
+        </div>
       </div>
+      <div class="footer-affiliate">As an Amazon Associate, we earn from qualifying purchases.</div>
       <div class="footer-bottom">
         <span class="footer-copy">© 2026 Craft with Mommy. Made with ❤️ for moms &amp; kids.</span>
         <div class="social-row">
