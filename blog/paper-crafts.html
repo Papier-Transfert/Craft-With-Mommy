@@ -72,7 +72,7 @@
     .newsletter-form input:focus { border-color: #E8856A; }
     .newsletter-note { font-size: 0.8rem; color: #c5bfba; }
     .footer { background: #2E2B28; color: #fff; padding: 64px 0 32px; }
-    .footer-top { display: grid; grid-template-columns: 1.6fr 1fr; gap: 56px; margin-bottom: 40px; }
+    .footer-top { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 56px; margin-bottom: 40px; }
     .footer-brand-name { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 1.25rem; color: #fff; margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
     .footer-brand-name .dot { width: 8px; height: 8px; background: #E8856A; border-radius: 50%; flex-shrink: 0; }
     .footer-tagline { font-size: 0.9rem; color: rgba(255,255,255,0.45); line-height: 1.7; max-width: 260px; }
@@ -110,6 +110,7 @@
           <img src="../brand_assets/Craft with mommy logo.png" alt="Craft with Mommy">
         </a>
         <nav class="nav" aria-label="Main navigation">
+          <a href="/about.html" class="nav-trigger">About</a>
           <div class="nav-item">
             <button class="nav-trigger" aria-haspopup="true" aria-expanded="false">
               Crafts
@@ -118,8 +119,8 @@
               </svg>
             </button>
             <div class="dropdown" role="menu"><div class="dropdown-inner">
-              <a href="./paper-crafts.html" role="menuitem"><span class="drop-icon">✂️</span> Paper Crafts</a>
               <a href="./paper-plate-crafts.html" role="menuitem"><span class="drop-icon">🍽️</span> Paper Plate Crafts</a>
+              <a href="./paper-crafts.html" role="menuitem"><span class="drop-icon">✂️</span> Paper Crafts</a>
               <a href="./handprint-crafts.html" role="menuitem"><span class="drop-icon">🖐️</span> Handprint Crafts</a>
               <a href="./recycled-crafts.html" role="menuitem"><span class="drop-icon">♻️</span> Recycled Crafts</a>
             </div></div>
@@ -149,8 +150,8 @@
   <div class="mobile-nav" id="mobileNav" aria-hidden="true">
     <div class="mobile-nav-group">
       <h5>Crafts</h5>
-      <a href="./paper-crafts.html"><span class="drop-icon">✂️</span> Paper Crafts</a>
       <a href="./paper-plate-crafts.html"><span class="drop-icon">🍽️</span> Paper Plate Crafts</a>
+      <a href="./paper-crafts.html"><span class="drop-icon">✂️</span> Paper Crafts</a>
       <a href="./handprint-crafts.html"><span class="drop-icon">🖐️</span> Handprint Crafts</a>
       <a href="./recycled-crafts.html"><span class="drop-icon">♻️</span> Recycled Crafts</a>
     </div>
@@ -160,6 +161,10 @@
       <a href="/"><span class="drop-icon">☀️</span> Summer</a>
       <a href="/"><span class="drop-icon">🍂</span> Fall</a>
       <a href="/"><span class="drop-icon">❄️</span> Winter</a>
+    </div>
+    <div class="mobile-nav-group">
+      <h5>About</h5>
+      <a href="/about.html">🌸 About</a>
     </div>
   </div>
 
@@ -175,7 +180,21 @@
     <div class="container">
       <div class="blog-grid">
         <!-- ARTICLE_CARDS_START -->
-        <p style="color:#aaa;text-align:center;padding:40px 0;grid-column:1/-1;">No articles yet — check back soon! 🎨</p>
+        <article class="blog-card">
+          <a href="/blog/paper-flower-craft.html">
+            <div class="blog-card-thumb">
+              <img src="../blog/images/paper-flower-craft/paper-flower-craft.webp" alt="Gorgeous Paper Flower Craft for Kids — So Easy Even Toddlers Can Make a Beautiful Bouquet!" loading="lazy">
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-card-tag">✂️ Paper Crafts</div>
+              <h3 class="blog-card-title">Gorgeous Paper Flower Craft for Kids — So Easy Even Toddlers Can Make a Beautiful Bouquet!</h3>
+              <div class="blog-card-meta">
+                <span>⏱ 15 min</span>
+                <span>📅 March 19, 2026</span>
+              </div>
+            </div>
+          </a>
+        </article>
         <!-- ARTICLE_CARDS_END -->
       </div>
     </div>
@@ -207,7 +226,13 @@
           <div class="footer-col-title">Blog</div>
           <ul class="footer-links">
             <li><a href="/blog/">All Articles</a></li>
-            <li><a href="/legal.html">Legal &amp; Disclosures</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Information</div>
+          <ul class="footer-links">
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/legal.html">Legal Notice</a></li>
             <li><a href="/privacy.html">Privacy Policy</a></li>
           </ul>
         </div>
