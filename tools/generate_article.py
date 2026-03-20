@@ -1979,6 +1979,9 @@ _AMAZON_PRODUCT_CATALOG: list[tuple[str, str]] = [
     ("sponge_brush",      "https://www.amazon.com/dp/B07142BY1S?tag=craftwithmomm-20"),
     ("foam_brush",        "https://www.amazon.com/dp/B07142BY1S?tag=craftwithmomm-20"),
     ("foam_paintbrush",   "https://www.amazon.com/dp/B07142BY1S?tag=craftwithmomm-20"),
+    # Doilies
+    ("doily",             "https://www.amazon.com/s?k=white+paper+doilies&tag=craftwithmomm-20"),
+    ("doilies",           "https://www.amazon.com/s?k=white+paper+doilies&tag=craftwithmomm-20"),
 ]
 
 
@@ -2064,11 +2067,19 @@ def resolve_amazon_links(article_html: str) -> str:
     secret_key = os.environ.get("AMAZON_SECRET_KEY", "").strip()
 
     if not _AMAZON_PAAPI_AVAILABLE:
-        log.warning("python-amazon-paapi not installed — Amazon links set to '#'")
+        log.warning("python-amazon-paapi not installed — using catalog + search URL fallback")
+        _tag = os.environ.get("AMAZON_ASSOCIATE_TAG", "craftwithmomm-20").strip() or "craftwithmomm-20"
 
         def _noop_replace(m):
-            pre, _key, post, text = m.group(1), m.group(2), m.group(3), m.group(4)
-            return f'<a{pre}href="#"{post}>{text}</a>'
+            pre, key, post, text = m.group(1), m.group(2), m.group(3), m.group(4)
+            direct_url = _lookup_product_url(key)
+            if direct_url:
+                log.info(f"Amazon product (catalog, no-paapi): {key} → {direct_url}")
+                return f'<a{pre}href="{direct_url}"{post}>{text}</a>'
+            safe_q = requests.utils.quote(key.replace("_", " "), safe="")
+            search_url = f"https://www.amazon.com/s?k={safe_q}&tag={_tag}"
+            log.warning(f"Amazon product not in catalog for '{key}' — using search URL fallback")
+            return f'<a{pre}href="{search_url}"{post}>{text}</a>'
 
         return _AMAZON_LINK_RE.sub(_noop_replace, article_html)
 
