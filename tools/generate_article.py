@@ -516,6 +516,35 @@ Return only the HTML content, no explanation."""
 # Step 4 — Generate images via Google Imagen
 # ---------------------------------------------------------------------------
 
+_IMAGE_PHOTO_STYLE = (
+    "Realistic photo style. Warm natural daylight from a window. "
+    "White or light wood craft table surface. "
+    "Clean, cozy, family-friendly atmosphere. "
+    "Landscape orientation 4:3. "
+    "Slightly angled tutorial composition — instructional yet warm and inviting."
+)
+
+_IMAGE_MAX_RETRIES = 3
+
+
+def _build_craft_anchor(article_title: str, step_descriptions: list) -> str:
+    """Build a visual consistency anchor from the article's step descriptions.
+
+    Extracts key craft materials and colors mentioned across all steps so the
+    model keeps the same craft design from image to image.
+    """
+    all_text = " ".join(step_descriptions).lower()
+    # Derive the primary craft medium for the anchor
+    materials_hint = f"as described in: {article_title}"
+    return (
+        f"VISUAL CONSISTENCY RULE: All step images must show the SAME craft evolving "
+        f"step by step — same materials, same colors, same shapes, same craft pieces "
+        f"{materials_hint}. "
+        f"Do not show elements from future steps. "
+        f"Do not let the craft design change between images."
+    )
+
+
 def generate_images(slug: str, article_title: str, step_descriptions: list,
                     primary_keyword: str = "") -> dict:
     """Generate all images for an article.
@@ -525,9 +554,10 @@ def generate_images(slug: str, article_title: str, step_descriptions: list,
     or the PLACEHOLDER sentinel dict on failure.
 
     Image pipeline per image:
-      1. Generate via Imagen API (landscape 4:3 aspect ratio)
-      2. Write raw bytes to disk (SEO-friendly filename already applied)
-      3. Compress in-place with Pillow (quality=75)
+      1. Generate via Gemini image model (landscape 4:3 aspect ratio)
+      2. Up to 3 retries per image on failure
+      3. Write raw bytes to disk (SEO-friendly filename already applied)
+      4. Compress in-place with Pillow (quality=75)
     """
     try:
         from google import genai
@@ -545,44 +575,78 @@ def generate_images(slug: str, article_title: str, step_descriptions: list,
     img_dir = IMAGES_DIR / slug
     img_dir.mkdir(parents=True, exist_ok=True)
 
+    craft_anchor = _build_craft_anchor(article_title, step_descriptions)
     paths = {}
 
-    # --- Main image: flat-lay, landscape 4:3 ---
+    # --- Main / featured image: finished craft, landscape 4:3 ---
     source_text = primary_keyword or article_title
     main_stem = make_seo_filename(source_text, max_words=4)
     main_filename = f"{main_stem}.webp"
-    main_alt = f"Craft supplies for {article_title}"
+    main_alt = f"Finished {article_title} displayed on a craft table"
+    # Last step description gives the best hint of the completed craft
+    finished_hint = step_descriptions[-1] if step_descriptions else ""
     main_prompt = (
-        f"Flat-lay photo of craft materials for '{article_title}': colorful paper, "
-        f"scissors, glue, and other supplies arranged neatly on a white wooden table. "
-        f"Bright, natural light. Clean, cheerful aesthetic. No people."
+        f"A beautifully presented FINISHED '{article_title}' craft displayed on a white craft table. "
+        f"The craft is complete, adorable, and ready to be shown off. "
+        f"Final appearance hint: {finished_hint}. "
+        f"The photo looks Pinterest-worthy — attractive, realistic, no cartoon elements. "
+        f"A young child's hands may be gently holding or touching the finished craft. "
+        f"{_IMAGE_PHOTO_STYLE}"
     )
-    paths["main"] = _generate_single_image(
+    paths["main"] = _generate_single_image_with_retry(
         client, main_prompt, img_dir / main_filename,
         alt_text=main_alt, aspect_ratio="4:3",
     )
     time.sleep(1)
 
-    # --- Step images: process shots, landscape 4:3 ---
+    # --- Step images: exact process shots, landscape 4:3 ---
     for i, desc in enumerate(step_descriptions[:5], start=1):
         step_stem = make_seo_filename(desc, max_words=3)
         step_filename = f"{step_stem}.webp"
-        # Descriptive alt: use the step description directly (already natural language)
         step_alt = desc.strip().rstrip(".")
         if len(step_alt) > 120:
             step_alt = step_alt[:117] + "..."
+
+        # Build context about what has already been done (for continuity)
+        prior_steps = step_descriptions[:i - 1]
+        prior_context = ""
+        if prior_steps:
+            prior_summary = "; ".join(prior_steps)
+            prior_context = (
+                f"Prior steps already completed (visible in craft state): {prior_summary}. "
+            )
+
         step_prompt = (
-            f"Close-up photo of child's hands doing a craft step: {desc}. "
-            f"Bright natural light, white table, colorful craft supplies visible. "
-            f"Warm and cheerful kids craft photo style."
+            f"Tutorial photo for step {i} of '{article_title}'. "
+            f"This step: {desc}. "
+            f"{prior_context}"
+            f"Show EXACTLY this step — not a future step, not the finished craft. "
+            f"The craft should show only the progress made up to and including this step. "
+            f"Child's hands actively performing this specific action. "
+            f"{craft_anchor} "
+            f"{_IMAGE_PHOTO_STYLE}"
         )
-        paths[f"step_{i}"] = _generate_single_image(
+        paths[f"step_{i}"] = _generate_single_image_with_retry(
             client, step_prompt, img_dir / step_filename,
             alt_text=step_alt, aspect_ratio="4:3",
         )
         time.sleep(1)
 
     return paths
+
+
+def _generate_single_image_with_retry(client, prompt: str, output_path: Path,
+                                      alt_text: str = "", aspect_ratio: str = "4:3") -> dict:
+    """Wrapper around _generate_single_image with up to _IMAGE_MAX_RETRIES attempts."""
+    for attempt in range(1, _IMAGE_MAX_RETRIES + 1):
+        result = _generate_single_image(client, prompt, output_path,
+                                        alt_text=alt_text, aspect_ratio=aspect_ratio)
+        if result.get("path") != "PLACEHOLDER":
+            return result
+        if attempt < _IMAGE_MAX_RETRIES:
+            log.warning(f"Image retry {attempt}/{_IMAGE_MAX_RETRIES} for {output_path.name}")
+            time.sleep(3)
+    return result
 
 
 def _generate_single_image(client, prompt: str, output_path: Path,
