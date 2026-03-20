@@ -464,26 +464,36 @@ Write a complete, engaging article of ~1500 words in HTML format. The article mu
      After the last paragraph of this section, place exactly: [WHY_IMAGE_PLACEHOLDER]
 
    - <h2>What You'll Need</h2>
-     This is the most important section for practical value. Write a detailed <ul> list of EVERY material and tool needed.
+     This is the most important section for practical value. Write a detailed supply list wrapped in a box:
+     Wrap the entire <ul> inside: <div class="supply-list-box"><ul>...</ul></div>
      Rules for this section:
      a) Be SPECIFIC — mention exact colors, sizes, quantities when they matter.
-        Examples: "6 paper plates (standard 9-inch size)", "washable red and black tempera paint",
-        "a medium round paintbrush (#8)", "a low-temp glue gun", "12 googly eyes (10mm)"
-     b) For every item that can realistically be purchased on Amazon, wrap the item name in an affiliate link:
-        <a href="[AMAZON_LINK_item_slug]" rel="nofollow sponsored" target="_blank">item name</a>
+     b) For every item that can realistically be purchased on Amazon, wrap ONLY the product name in an affiliate link:
+        <a href="[AMAZON_LINK_item_slug]" rel="nofollow sponsored" target="_blank">product name</a>
         where item_slug is a short lowercase hyphenated identifier for that item.
         Examples:
-          <a href="[AMAZON_LINK_paper_plates]" rel="nofollow sponsored" target="_blank">standard 9-inch paper plates</a>
-          <a href="[AMAZON_LINK_washable_tempera_paint]" rel="nofollow sponsored" target="_blank">washable red and black tempera paint</a>
-          <a href="[AMAZON_LINK_googly_eyes]" rel="nofollow sponsored" target="_blank">10mm googly eyes</a>
-          <a href="[AMAZON_LINK_round_paintbrush]" rel="nofollow sponsored" target="_blank">medium round paintbrush</a>
-          <a href="[AMAZON_LINK_glue_stick]" rel="nofollow sponsored" target="_blank">glue stick</a>
-     c) Items that do NOT need an affiliate link: things every household has (tap water, a table, paper towels, etc.)
-     d) Aim for 6–10 items total. Every item must be on its own <li>.
+          <a href="[AMAZON_LINK_paper_plates]" rel="nofollow sponsored" target="_blank">9-inch paper plates</a>
+          <a href="[AMAZON_LINK_washable_tempera_paint]" rel="nofollow sponsored" target="_blank">washable tempera paint</a>
+          <a href="[AMAZON_LINK_googly_eyes]" rel="nofollow sponsored" target="_blank">googly eyes, 10mm size</a>
+     c) Write each bullet as a short natural sentence. Place the affiliate-linked product name at the START of the sentence.
+        Do NOT use the pattern "Product Name: explanation". Instead write a flowing sentence.
+        Example: <li><a href="[AMAZON_LINK_paper_plates]" ...>9-inch paper plate</a>, one per child (grab a pack to have extras).</li>
+     d) Keep each bullet concise — aim for one line on desktop. Remove unnecessary words.
+     e) Items that do NOT need an affiliate link: things every household already has (tap water, a table, paper towels, etc.)
+     f) Aim for 6–10 items total. Every item must be on its own <li>.
 
-   - <h2>Step-by-Step Instructions</h2> (5 numbered steps, each with <h3>Step X: [name]</h3>, a paragraph, and an image placeholder: [STEP_IMAGE_PLACEHOLDER_1] through [STEP_IMAGE_PLACEHOLDER_5])
-
-   - <h2>Tips for Success</h2> (3–4 bullet tips for age-appropriate adaptations)
+   - <h2>Step-by-Step Instructions</h2>
+     5 numbered steps. For each step use this EXACT structure:
+       <h3>Step X: [name]</h3>
+       <p>[step paragraph — keep to ~5 lines max on desktop; split into 2 paragraphs if longer]</p>
+       [optional: ONE tip box if genuinely helpful for this step — see tip box rules below]
+       [STEP_IMAGE_PLACEHOLDER_X]
+     Tip box rules:
+       - Maximum ONE tip box per step. Never force a tip if nothing useful comes to mind.
+       - The tip box goes AFTER the paragraph and BEFORE the image. Never above the paragraph.
+       - Format: <div class="step-tip"><strong>💡 Tip:</strong> Short, practical, warm tip here.</div>
+       - Keep tips short, natural, and actionable. Not every step needs a tip.
+     Do NOT add a separate "Tips for Success" section. All tips must live inside the relevant steps.
 
    - <h2>Variations to Try</h2> (2–3 creative variations, 1 short paragraph each)
 
@@ -497,10 +507,11 @@ Write a complete, engaging article of ~1500 words in HTML format. The article mu
 6. Use only these HTML tags: p, ul, ol, li, h2, h3, strong, em, a, div
 7. Keep the tone warm, encouraging, and conversational, like a best friend who crafts
 8. Do NOT use em dashes (—) anywhere in the article. Replace them with a comma, a colon, parentheses, or a period depending on the sentence. Em dashes make the writing feel AI-generated.
-9. Do NOT include <html>, <head>, <body>, or any document-level tags
-10. Do NOT include the article title as an h1 (it's added by the template)
-11. IMPORTANT: Do NOT invent any internal links. Only use the exact URLs provided above.
-12. IMPORTANT: Do NOT use generic affiliate links. Each Amazon link must target the specific item it wraps.
+9. Keep all paragraphs short — aim for a maximum of ~5 lines on desktop. If a paragraph would be longer, split it naturally into two shorter paragraphs. This improves readability on both desktop and mobile.
+10. Do NOT include <html>, <head>, <body>, or any document-level tags
+11. Do NOT include the article title as an h1 (it's added by the template)
+12. IMPORTANT: Do NOT invent any internal links. Only use the exact URLs provided above.
+13. IMPORTANT: Do NOT use generic affiliate links. Each Amazon link must target the specific item it wraps.
 
 Return only the HTML content, no explanation."""
 
@@ -1004,6 +1015,33 @@ def build_article_page(slug: str, article_html: str, keyword_data: dict, pub_dat
     .img-placeholder--main {{ height: 380px; margin-bottom: 32px; }}
     .img-placeholder--step {{ height: 220px; margin: 16px 0 24px; border-radius: 14px; font-size: 2rem; }}
 
+    /* Inline step tip callout */
+    .step-tip {{
+      background: #FEF0EC;
+      border: 1px solid #FECDC5;
+      border-left: 3px solid #E8856A;
+      border-radius: 10px;
+      padding: 13px 18px;
+      margin: -4px 0 28px;
+      font-size: 0.92rem;
+      line-height: 1.65;
+      color: #5A3025;
+    }}
+    .step-tip strong {{ color: #C0503A; font-weight: 700; }}
+
+    /* Supply list box */
+    .supply-list-box {{
+      background: #FEF0EC;
+      border: 1px solid #FECDC5;
+      border-left: 3px solid #E8856A;
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin: 0 0 32px;
+    }}
+    .supply-list-box ul {{ margin-bottom: 0; }}
+    .supply-list-box li {{ margin-bottom: 9px; }}
+    .supply-list-box li:last-child {{ margin-bottom: 0; }}
+
     /* Newsletter */
     .newsletter {{ padding: 72px 0; background: linear-gradient(150deg, #FDFBF7 0%, #FEF0EC 100%); }}
     .newsletter-inner {{ text-align: center; max-width: 540px; margin: 0 auto; }}
@@ -1044,6 +1082,9 @@ def build_article_page(slug: str, article_html: str, keyword_data: dict, pub_dat
       .newsletter-form input, .newsletter-form .btn {{ width: 100%; }}
       .footer-top {{ grid-template-columns: 1fr; gap: 28px; }}
       .footer-bottom {{ flex-direction: column; align-items: flex-start; }}
+      .breadcrumb-list {{ flex-wrap: nowrap; }}
+      .breadcrumb-list li {{ flex-shrink: 0; }}
+      .breadcrumb-list li:last-child {{ flex-shrink: 1; min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }}
     }}
   </style>
 </head>
