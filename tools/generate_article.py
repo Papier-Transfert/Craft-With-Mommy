@@ -2388,6 +2388,15 @@ def main():
     all_articles = load_published_keywords()
     rebuild_collection_pages(all_articles)
 
+    # Regenerate sitemap before pushing
+    try:
+        sys.path.insert(0, str(Path(__file__).parent))
+        from generate_sitemap import generate_sitemap
+        generate_sitemap()
+        log.info("sitemap.xml updated")
+    except Exception as exc:
+        log.warning(f"Sitemap generation failed (non-fatal): {exc}")
+
     # Step 11: Git push
     try:
         git_commit_and_push(slug, pub_date)
