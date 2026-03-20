@@ -494,11 +494,12 @@ Write a complete, engaging article of ~1500 words in HTML format. The article mu
 4. Include at least 2 of these variant keywords: {variants}
 5. Place [MAIN_IMAGE_PLACEHOLDER] as the very first element (before the intro)
 6. Use only these HTML tags: p, ul, ol, li, h2, h3, strong, em, a, div
-7. Keep the tone warm, encouraging, and conversational — like a best friend who crafts
-8. Do NOT include <html>, <head>, <body>, or any document-level tags
-9. Do NOT include the article title as an h1 (it's added by the template)
-10. IMPORTANT: Do NOT invent any internal links. Only use the exact URLs provided above.
-11. IMPORTANT: Do NOT use generic affiliate links. Each Amazon link must target the specific item it wraps.
+7. Keep the tone warm, encouraging, and conversational, like a best friend who crafts
+8. Do NOT use em dashes (—) anywhere in the article. Replace them with a comma, a colon, parentheses, or a period depending on the sentence. Em dashes make the writing feel AI-generated.
+9. Do NOT include <html>, <head>, <body>, or any document-level tags
+10. Do NOT include the article title as an h1 (it's added by the template)
+11. IMPORTANT: Do NOT invent any internal links. Only use the exact URLs provided above.
+12. IMPORTANT: Do NOT use generic affiliate links. Each Amazon link must target the specific item it wraps.
 
 Return only the HTML content, no explanation."""
 
@@ -810,6 +811,7 @@ def build_article_page(slug: str, article_html: str, keyword_data: dict, pub_dat
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="../brand_assets/craft-with-mommy-favicon-2.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{title} — Craft with Mommy</title>
   <meta name="description" content="Learn how to make {keyword} with your kids. A simple, fun {category.lower()} craft for {age_range}. Takes only {time_min} minutes!">
@@ -1547,6 +1549,7 @@ BLOG_INDEX_TEMPLATE = """<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="../brand_assets/craft-with-mommy-favicon-2.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>All Craft Ideas — Craft with Mommy</title>
   <meta name="description" content="Browse all our simple, foolproof craft ideas for moms and kids. New articles published daily!">
