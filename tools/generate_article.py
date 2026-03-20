@@ -683,12 +683,13 @@ def _generate_single_image(client, prompt: str, output_path: Path,
         if image_bytes is None:
             raise ValueError("No image data found in Gemini response")
 
-        # Convert from PNG/JPEG → WebP at quality=75 in one Pillow pass (no temp file)
+        # Resize to 1200x900 (4:3 rectangular standard) and save as WebP
         with _PILImage.open(io.BytesIO(image_bytes)) as img:
-            img.save(output_path, "WEBP", quality=75, method=6)
+            resized = img.resize((1200, 900), _PILImage.LANCZOS)
+            resized.save(output_path, "WEBP", quality=82, method=6)
 
         size_kb = output_path.stat().st_size // 1024
-        log.info(f"Image saved & compressed: {output_path.name} ({size_kb}KB)")
+        log.info(f"Image saved: {output_path.name} (1200x900px, {size_kb}KB)")
 
         return {
             "path": str(output_path.relative_to(BASE_DIR)),
@@ -729,7 +730,7 @@ def resolve_image_placeholders(article_html: str, image_paths: dict, slug: str) 
         main_img_html = (
             f'<figure class="article-main-img">'
             f'<img src="{rel}" alt="{alt}" '
-            f'width="800" height="600" loading="eager">'
+            f'width="1200" height="900" loading="eager">'
             f'</figure>'
         )
     article_html = article_html.replace("[MAIN_IMAGE_PLACEHOLDER]", main_img_html)
@@ -750,7 +751,7 @@ def resolve_image_placeholders(article_html: str, image_paths: dict, slug: str) 
             step_img_html = (
                 f'<figure class="article-step-img">'
                 f'<img src="{rel}" alt="{alt}" '
-                f'width="800" height="600" loading="lazy">'
+                f'width="1200" height="900" loading="lazy">'
                 f'</figure>'
             )
         article_html = article_html.replace(f"[STEP_IMAGE_PLACEHOLDER_{i}]", step_img_html)
