@@ -5,7 +5,8 @@
     "title": "Easy Paper Plate Butterfly Craft for Preschoolers",
     "date": "March 17, 2026",
     "main_image": "",
-    "collection": "paper-plate-crafts"
+    "collection": "paper-plate-crafts",
+    "collections": ["paper-plate-crafts", "animals", "spring-crafts"]
   },
   {
     "keyword": "easy paper plate rainbow fish craft for toddlers",
@@ -13,7 +14,8 @@
     "title": "Easy Paper Plate Rainbow Fish Craft for Toddlers",
     "date": "March 17, 2026",
     "main_image": "",
-    "collection": "paper-plate-crafts"
+    "collection": "paper-plate-crafts",
+    "collections": ["paper-plate-crafts", "animals", "summer-crafts"]
   },
   {
     "keyword": "easy paper plate ladybug craft for toddlers",
@@ -21,7 +23,8 @@
     "title": "Easy Paper Plate Ladybug Craft for Toddlers",
     "date": "March 17, 2026",
     "main_image": "paper-plate-ladybug-craft.webp",
-    "collection": "paper-plate-crafts"
+    "collection": "paper-plate-crafts",
+    "collections": ["paper-plate-crafts", "animals", "spring-crafts"]
   },
   {
     "keyword": "easy paper plate turtle craft for preschoolers",
@@ -29,7 +32,8 @@
     "title": "Easy Paper Plate Turtle Craft for Preschoolers (5 Simple Steps!)",
     "date": "March 18, 2026",
     "main_image": "paper-plate-turtle-craft.webp",
-    "collection": "paper-plate-crafts"
+    "collection": "paper-plate-crafts",
+    "collections": ["paper-plate-crafts", "animals", "summer-crafts"]
   },
   {
     "keyword": "paper flower craft",
@@ -37,7 +41,8 @@
     "title": "Gorgeous Paper Flower Craft for Kids — So Easy Even Toddlers Can Make a Beautiful Bouquet!",
     "date": "March 19, 2026",
     "main_image": "paper-flower-craft.webp",
-    "collection": "paper-crafts"
+    "collection": "paper-crafts",
+    "collections": ["paper-crafts", "spring-crafts"]
   },
   {
     "keyword": "craft using paper",
@@ -45,6 +50,7 @@
     "title": "20-Minute Craft Using Paper That Kids Will Beg to Make Again and Again",
     "date": "March 20, 2026",
     "main_image": "craft-paper.webp",
-    "collection": "paper-crafts"
+    "collection": "paper-crafts",
+    "collections": ["paper-crafts", "animals", "spring-crafts"]
   }
 ]

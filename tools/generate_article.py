@@ -105,6 +105,42 @@ COLLECTIONS = {
         "description": "Creative crafts made from recycled materials — good for kids and the planet.",
         "page": "recycled-crafts.html",
     },
+    "animals": {
+        "name": "Animal Crafts",
+        "emoji": "🐾",
+        "description": "Fun animal-themed crafts for kids — from butterflies to turtles and everything in between.",
+        "page": "animal-crafts.html",
+    },
+    "spring-crafts": {
+        "name": "Spring Crafts",
+        "emoji": "🌸",
+        "description": "Fresh and colorful crafts to celebrate spring with your little ones.",
+        "page": "spring-crafts.html",
+    },
+    "summer-crafts": {
+        "name": "Summer Crafts",
+        "emoji": "☀️",
+        "description": "Bright and sunny craft ideas to keep kids busy all summer long.",
+        "page": "summer-crafts.html",
+    },
+    "fall-crafts": {
+        "name": "Fall Crafts",
+        "emoji": "🍂",
+        "description": "Cozy autumn-inspired crafts for kids — leaves, pumpkins, and more.",
+        "page": "fall-crafts.html",
+    },
+    "winter-crafts": {
+        "name": "Winter Crafts",
+        "emoji": "❄️",
+        "description": "Warm and festive winter crafts perfect for chilly days indoors.",
+        "page": "winter-crafts.html",
+    },
+    "christmas-crafts": {
+        "name": "Christmas Crafts",
+        "emoji": "🎄",
+        "description": "Magical Christmas crafts to make the holiday season extra special with your kids.",
+        "page": "christmas-crafts.html",
+    },
 }
 
 logging.basicConfig(
@@ -161,7 +197,9 @@ def mark_keyword_used(keyword: str) -> None:
     log.info(f"Marked keyword as used in queue: {keyword}")
 
 
-def save_keyword(keyword_data: dict, slug: str, pub_date: str, main_image_filename: str = "", collection: str = "paper-crafts") -> None:
+def save_keyword(keyword_data: dict, slug: str, pub_date: str, main_image_filename: str = "", collections: list = None) -> None:
+    if collections is None:
+        collections = ["paper-crafts"]
     records = load_published_keywords()
     records.append({
         "keyword": keyword_data["primary_keyword"],
@@ -169,24 +207,64 @@ def save_keyword(keyword_data: dict, slug: str, pub_date: str, main_image_filena
         "title": keyword_data["article_title"],
         "date": pub_date,
         "main_image": main_image_filename,
-        "collection": collection,
+        "collection": collections[0],
+        "collections": collections,
     })
     PUBLISHED_KEYWORDS_FILE.write_text(json.dumps(records, indent=2, ensure_ascii=False))
     log.info("Saved keyword to published_keywords.json")
 
 
-def determine_collection(keyword: str, title: str) -> str:
-    """Classify an article into one of the 4 collections based on its keyword/title."""
+def determine_collections(keyword: str, title: str) -> list:
+    """Classify an article into one or more collections based on its keyword/title."""
     combined = (keyword + " " + title).lower()
+    collections = []
+
+    # Craft type (primary — always include one)
     if "handprint" in combined or "hand print" in combined or "fingerprint" in combined:
-        return "handprint-crafts"
-    if any(w in combined for w in ["recycled", "toilet roll", "toilet paper roll", "egg carton",
-                                    "cardboard box", "cereal box", "tin can", "bottle"]):
-        return "recycled-crafts"
-    if "paper plate" in combined:
-        return "paper-plate-crafts"
-    # Default fallback
-    return "paper-crafts"
+        collections.append("handprint-crafts")
+    elif any(w in combined for w in ["recycled", "toilet roll", "toilet paper roll", "egg carton",
+                                      "cardboard box", "cereal box", "tin can", "bottle"]):
+        collections.append("recycled-crafts")
+    elif "paper plate" in combined:
+        collections.append("paper-plate-crafts")
+    else:
+        collections.append("paper-crafts")
+
+    # Animals
+    animal_words = ["turtle", "butterfly", "ladybug", "fish", "caterpillar", "frog", "bird",
+                    "rabbit", "bunny", "bear", "lion", "elephant", "dinosaur", "owl",
+                    "bee", "snail", "crab", "octopus", "whale", "dog", "cat", "fox",
+                    "hedgehog", "penguin", "flamingo", "deer", "horse", "spider", "bug",
+                    "insect", "animal", "creature"]
+    if any(w in combined for w in animal_words):
+        collections.append("animals")
+
+    # Seasons
+    spring_words = ["butterfly", "ladybug", "flower", "spring", "caterpillar", "bee",
+                    "bunny", "easter", "chick", "lamb", "frog", "bird", "robin",
+                    "daisy", "tulip", "rainbow", "garden"]
+    summer_words = ["summer", "beach", "ocean", "sea", "fish", "turtle", "crab",
+                    "octopus", "whale", "seahorse", "starfish", "sun", "sunflower",
+                    "watermelon", "ice cream", "flamingo"]
+    fall_words = ["fall", "autumn", "pumpkin", "leaf", "leaves", "scarecrow",
+                  "harvest", "apple", "acorn", "owl", "hedgehog", "mushroom"]
+    winter_words = ["winter", "snowflake", "snow", "snowman", "polar bear",
+                    "penguin", "mitten", "ice", "frost"]
+    christmas_words = ["christmas", "santa", "reindeer", "elf", "ornament",
+                       "wreath", "snowman", "xmas", "holiday", "tree", "rudolph"]
+
+    if any(w in combined for w in christmas_words):
+        collections.append("christmas-crafts")
+    elif any(w in combined for w in winter_words):
+        collections.append("winter-crafts")
+    elif any(w in combined for w in fall_words):
+        collections.append("fall-crafts")
+    elif any(w in combined for w in summer_words):
+        collections.append("summer-crafts")
+    elif any(w in combined for w in spring_words):
+        collections.append("spring-crafts")
+
+    return collections
 
 
 # ---------------------------------------------------------------------------
@@ -1106,10 +1184,11 @@ def build_article_page(slug: str, article_html: str, keyword_data: dict, pub_dat
               </svg>
             </button>
             <div class="dropdown" role="menu"><div class="dropdown-inner">
-              <a href="./paper-crafts.html" role="menuitem"><span class="drop-icon">✂️</span> Paper Crafts</a>
               <a href="./paper-plate-crafts.html" role="menuitem"><span class="drop-icon">🍽️</span> Paper Plate Crafts</a>
+              <a href="./paper-crafts.html" role="menuitem"><span class="drop-icon">✂️</span> Paper Crafts</a>
               <a href="./handprint-crafts.html" role="menuitem"><span class="drop-icon">🖐️</span> Handprint Crafts</a>
               <a href="./recycled-crafts.html" role="menuitem"><span class="drop-icon">♻️</span> Recycled Crafts</a>
+              <a href="./animal-crafts.html" role="menuitem"><span class="drop-icon">🐾</span> Animal Crafts</a>
             </div></div>
           </div>
           <div class="nav-item">
@@ -1120,10 +1199,11 @@ def build_article_page(slug: str, article_html: str, keyword_data: dict, pub_dat
               </svg>
             </button>
             <div class="dropdown" role="menu"><div class="dropdown-inner">
-              <a href="/" role="menuitem"><span class="drop-icon">🌸</span> Spring</a>
-              <a href="/" role="menuitem"><span class="drop-icon">☀️</span> Summer</a>
-              <a href="/" role="menuitem"><span class="drop-icon">🍂</span> Fall</a>
-              <a href="/" role="menuitem"><span class="drop-icon">❄️</span> Winter</a>
+              <a href="./spring-crafts.html" role="menuitem"><span class="drop-icon">🌸</span> Spring</a>
+              <a href="./summer-crafts.html" role="menuitem"><span class="drop-icon">☀️</span> Summer</a>
+              <a href="./fall-crafts.html" role="menuitem"><span class="drop-icon">🍂</span> Fall</a>
+              <a href="./winter-crafts.html" role="menuitem"><span class="drop-icon">❄️</span> Winter</a>
+              <a href="./christmas-crafts.html" role="menuitem"><span class="drop-icon">🎄</span> Christmas</a>
             </div></div>
           </div>
         </nav>
@@ -1137,17 +1217,19 @@ def build_article_page(slug: str, article_html: str, keyword_data: dict, pub_dat
   <div class="mobile-nav" id="mobileNav" aria-hidden="true">
     <div class="mobile-nav-group">
       <h5>Crafts</h5>
-      <a href="./paper-crafts.html"><span class="drop-icon">✂️</span> Paper Crafts</a>
       <a href="./paper-plate-crafts.html"><span class="drop-icon">🍽️</span> Paper Plate Crafts</a>
+      <a href="./paper-crafts.html"><span class="drop-icon">✂️</span> Paper Crafts</a>
       <a href="./handprint-crafts.html"><span class="drop-icon">🖐️</span> Handprint Crafts</a>
       <a href="./recycled-crafts.html"><span class="drop-icon">♻️</span> Recycled Crafts</a>
+      <a href="./animal-crafts.html"><span class="drop-icon">🐾</span> Animal Crafts</a>
     </div>
     <div class="mobile-nav-group">
       <h5>Seasons</h5>
-      <a href="/"><span class="drop-icon">🌸</span> Spring</a>
-      <a href="/"><span class="drop-icon">☀️</span> Summer</a>
-      <a href="/"><span class="drop-icon">🍂</span> Fall</a>
-      <a href="/"><span class="drop-icon">❄️</span> Winter</a>
+      <a href="./spring-crafts.html"><span class="drop-icon">🌸</span> Spring</a>
+      <a href="./summer-crafts.html"><span class="drop-icon">☀️</span> Summer</a>
+      <a href="./fall-crafts.html"><span class="drop-icon">🍂</span> Fall</a>
+      <a href="./winter-crafts.html"><span class="drop-icon">❄️</span> Winter</a>
+      <a href="./christmas-crafts.html"><span class="drop-icon">🎄</span> Christmas</a>
     </div>
     <div class="mobile-nav-group">
       <h5>About</h5>
@@ -1300,7 +1382,10 @@ def save_article(slug: str, page_html: str) -> Path:
 def build_collection_page(collection_slug: str, all_articles: list) -> str:
     """Build the full HTML of a collection page."""
     col = COLLECTIONS[collection_slug]
-    articles = [a for a in all_articles if a.get("collection") == collection_slug]
+    articles = [
+        a for a in all_articles
+        if collection_slug in a.get("collections", []) or a.get("collection") == collection_slug
+    ]
 
     cards_html = ""
     if not articles:
@@ -1335,13 +1420,23 @@ def build_collection_page(collection_slug: str, all_articles: list) -> str:
         </article>\n'''
 
     # Nav links (relative, from blog/)
-    nav_links = "\n".join(
-        f'              <a href="./{c["page"]}" role="menuitem"><span class="drop-icon">{c["emoji"]}</span> {c["name"]}</a>'
-        for c in COLLECTIONS.values()
+    _craft_slugs = ["paper-plate-crafts", "paper-crafts", "handprint-crafts", "recycled-crafts", "animals"]
+    _season_slugs = ["spring-crafts", "summer-crafts", "fall-crafts", "winter-crafts", "christmas-crafts"]
+    craft_nav_links = "\n".join(
+        f'              <a href="./{COLLECTIONS[s]["page"]}" role="menuitem"><span class="drop-icon">{COLLECTIONS[s]["emoji"]}</span> {COLLECTIONS[s]["name"]}</a>'
+        for s in _craft_slugs
     )
-    mobile_nav_links = "\n".join(
-        f'      <a href="./{c["page"]}"><span class="drop-icon">{c["emoji"]}</span> {c["name"]}</a>'
-        for c in COLLECTIONS.values()
+    season_nav_links = "\n".join(
+        f'              <a href="./{COLLECTIONS[s]["page"]}" role="menuitem"><span class="drop-icon">{COLLECTIONS[s]["emoji"]}</span> {COLLECTIONS[s]["name"]}</a>'
+        for s in _season_slugs
+    )
+    mobile_craft_links = "\n".join(
+        f'      <a href="./{COLLECTIONS[s]["page"]}"><span class="drop-icon">{COLLECTIONS[s]["emoji"]}</span> {COLLECTIONS[s]["name"]}</a>'
+        for s in _craft_slugs
+    )
+    mobile_season_links = "\n".join(
+        f'      <a href="./{COLLECTIONS[s]["page"]}"><span class="drop-icon">{COLLECTIONS[s]["emoji"]}</span> {COLLECTIONS[s]["name"]}</a>'
+        for s in _season_slugs
     )
     footer_links = "\n".join(
         f'            <li><a href="./{c["page"]}">{c["name"]}</a></li>'
@@ -1469,7 +1564,7 @@ def build_collection_page(collection_slug: str, all_articles: list) -> str:
               </svg>
             </button>
             <div class="dropdown" role="menu"><div class="dropdown-inner">
-{nav_links}
+{craft_nav_links}
             </div></div>
           </div>
           <div class="nav-item">
@@ -1480,10 +1575,7 @@ def build_collection_page(collection_slug: str, all_articles: list) -> str:
               </svg>
             </button>
             <div class="dropdown" role="menu"><div class="dropdown-inner">
-              <a href="/" role="menuitem"><span class="drop-icon">🌸</span> Spring</a>
-              <a href="/" role="menuitem"><span class="drop-icon">☀️</span> Summer</a>
-              <a href="/" role="menuitem"><span class="drop-icon">🍂</span> Fall</a>
-              <a href="/" role="menuitem"><span class="drop-icon">❄️</span> Winter</a>
+{season_nav_links}
             </div></div>
           </div>
         </nav>
@@ -1497,14 +1589,11 @@ def build_collection_page(collection_slug: str, all_articles: list) -> str:
   <div class="mobile-nav" id="mobileNav" aria-hidden="true">
     <div class="mobile-nav-group">
       <h5>Crafts</h5>
-{mobile_nav_links}
+{mobile_craft_links}
     </div>
     <div class="mobile-nav-group">
       <h5>Seasons</h5>
-      <a href="/"><span class="drop-icon">🌸</span> Spring</a>
-      <a href="/"><span class="drop-icon">☀️</span> Summer</a>
-      <a href="/"><span class="drop-icon">🍂</span> Fall</a>
-      <a href="/"><span class="drop-icon">❄️</span> Winter</a>
+{mobile_season_links}
     </div>
     <div class="mobile-nav-group">
       <h5>About</h5>
@@ -1611,7 +1700,7 @@ def build_collection_page(collection_slug: str, all_articles: list) -> str:
 
 
 def rebuild_collection_pages(all_articles: list):
-    """Rebuild all 4 collection HTML pages from published_keywords."""
+    """Rebuild all 10 collection HTML pages from published_keywords."""
     for slug in COLLECTIONS:
         page_path = BLOG_DIR / COLLECTIONS[slug]["page"]
         html = build_collection_page(slug, all_articles)
@@ -1745,10 +1834,11 @@ BLOG_INDEX_TEMPLATE = """<!DOCTYPE html>
               </svg>
             </button>
             <div class="dropdown" role="menu"><div class="dropdown-inner">
-              <a href="./paper-crafts.html" role="menuitem"><span class="drop-icon">✂️</span> Paper Crafts</a>
               <a href="./paper-plate-crafts.html" role="menuitem"><span class="drop-icon">🍽️</span> Paper Plate Crafts</a>
+              <a href="./paper-crafts.html" role="menuitem"><span class="drop-icon">✂️</span> Paper Crafts</a>
               <a href="./handprint-crafts.html" role="menuitem"><span class="drop-icon">🖐️</span> Handprint Crafts</a>
               <a href="./recycled-crafts.html" role="menuitem"><span class="drop-icon">♻️</span> Recycled Crafts</a>
+              <a href="./animal-crafts.html" role="menuitem"><span class="drop-icon">🐾</span> Animal Crafts</a>
             </div></div>
           </div>
           <div class="nav-item">
@@ -1759,10 +1849,11 @@ BLOG_INDEX_TEMPLATE = """<!DOCTYPE html>
               </svg>
             </button>
             <div class="dropdown" role="menu"><div class="dropdown-inner">
-              <a href="/" role="menuitem"><span class="drop-icon">🌸</span> Spring</a>
-              <a href="/" role="menuitem"><span class="drop-icon">☀️</span> Summer</a>
-              <a href="/" role="menuitem"><span class="drop-icon">🍂</span> Fall</a>
-              <a href="/" role="menuitem"><span class="drop-icon">❄️</span> Winter</a>
+              <a href="./spring-crafts.html" role="menuitem"><span class="drop-icon">🌸</span> Spring</a>
+              <a href="./summer-crafts.html" role="menuitem"><span class="drop-icon">☀️</span> Summer</a>
+              <a href="./fall-crafts.html" role="menuitem"><span class="drop-icon">🍂</span> Fall</a>
+              <a href="./winter-crafts.html" role="menuitem"><span class="drop-icon">❄️</span> Winter</a>
+              <a href="./christmas-crafts.html" role="menuitem"><span class="drop-icon">🎄</span> Christmas</a>
             </div></div>
           </div>
         </nav>
@@ -1776,17 +1867,19 @@ BLOG_INDEX_TEMPLATE = """<!DOCTYPE html>
   <div class="mobile-nav" id="mobileNav" aria-hidden="true">
     <div class="mobile-nav-group">
       <h5>Crafts</h5>
-      <a href="./paper-crafts.html"><span class="drop-icon">✂️</span> Paper Crafts</a>
       <a href="./paper-plate-crafts.html"><span class="drop-icon">🍽️</span> Paper Plate Crafts</a>
+      <a href="./paper-crafts.html"><span class="drop-icon">✂️</span> Paper Crafts</a>
       <a href="./handprint-crafts.html"><span class="drop-icon">🖐️</span> Handprint Crafts</a>
       <a href="./recycled-crafts.html"><span class="drop-icon">♻️</span> Recycled Crafts</a>
+      <a href="./animal-crafts.html"><span class="drop-icon">🐾</span> Animal Crafts</a>
     </div>
     <div class="mobile-nav-group">
       <h5>Seasons</h5>
-      <a href="/"><span class="drop-icon">🌸</span> Spring</a>
-      <a href="/"><span class="drop-icon">☀️</span> Summer</a>
-      <a href="/"><span class="drop-icon">🍂</span> Fall</a>
-      <a href="/"><span class="drop-icon">❄️</span> Winter</a>
+      <a href="./spring-crafts.html"><span class="drop-icon">🌸</span> Spring</a>
+      <a href="./summer-crafts.html"><span class="drop-icon">☀️</span> Summer</a>
+      <a href="./fall-crafts.html"><span class="drop-icon">🍂</span> Fall</a>
+      <a href="./winter-crafts.html"><span class="drop-icon">❄️</span> Winter</a>
+      <a href="./christmas-crafts.html"><span class="drop-icon">🎄</span> Christmas</a>
     </div>
     <div class="mobile-nav-group">
       <h5>About</h5>
@@ -2294,6 +2387,7 @@ def main():
     collection = queue_entry["collection"]
     log.info(f"Next keyword from queue: '{queue_entry['keyword']}' (collection: {collection})")
 
+
     # Step 2: Scrape competitors for inspiration (not for keyword selection)
     titles = scrape_competitor_titles(COMPETITOR_SITES)
     log.info(f"Competitor titles collected for inspiration: {len(titles)}")
@@ -2307,7 +2401,8 @@ def main():
 
     slug = slugify(keyword_data["primary_keyword"])
     pub_date = datetime.today().strftime("%B %d, %Y")
-    log.info(f"Slug: {slug} | Date: {pub_date} | Collection: {collection}")
+    collections = determine_collections(keyword_data["primary_keyword"], keyword_data["article_title"])
+    log.info(f"Slug: {slug} | Date: {pub_date} | Collections: {collections}")
 
     # Step 3: Generate article (pass published articles for real internal links)
     try:
@@ -2333,7 +2428,7 @@ def main():
     article_html = resolve_image_placeholders(article_html, image_paths, slug)
 
     # Step 6: Build full page
-    page_html = build_article_page(slug, article_html, keyword_data, pub_date, collection)
+    page_html = build_article_page(slug, article_html, keyword_data, pub_date, collections[0])
 
     # Step 7: Save article
     save_article(slug, page_html)
@@ -2381,7 +2476,7 @@ def main():
     update_homepage_latest_crafts(recent_articles_meta)
 
     # Step 10: Save keyword record and mark queue entry as used
-    save_keyword(keyword_data, slug, pub_date, main_image_filename, collection)
+    save_keyword(keyword_data, slug, pub_date, main_image_filename, collections)
     mark_keyword_used(queue_entry["keyword"])
 
     # Rebuild all collection pages

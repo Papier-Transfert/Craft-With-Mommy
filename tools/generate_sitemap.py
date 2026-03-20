@@ -24,6 +24,12 @@ STATIC_PAGES = [
     "/blog/paper-plate-crafts.html",
     "/blog/handprint-crafts.html",
     "/blog/recycled-crafts.html",
+    "/blog/animal-crafts.html",
+    "/blog/spring-crafts.html",
+    "/blog/summer-crafts.html",
+    "/blog/fall-crafts.html",
+    "/blog/winter-crafts.html",
+    "/blog/christmas-crafts.html",
 ]
 
 # Pages de collection à exclure du scan automatique des articles
@@ -33,6 +39,12 @@ COLLECTION_PAGES = {
     "paper-plate-crafts.html",
     "handprint-crafts.html",
     "recycled-crafts.html",
+    "animal-crafts.html",
+    "spring-crafts.html",
+    "summer-crafts.html",
+    "fall-crafts.html",
+    "winter-crafts.html",
+    "christmas-crafts.html",
 }
 
 
