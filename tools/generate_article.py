@@ -461,6 +461,7 @@ Write a complete, engaging article of ~1500 words in HTML format. The article mu
 
 2. Use this exact section structure with these HTML headings:
    - <h2>Why Kids Love This Craft</h2> (2 short paragraphs, benefits)
+     After the last paragraph of this section, place exactly: [WHY_IMAGE_PLACEHOLDER]
 
    - <h2>What You'll Need</h2>
      This is the most important section for practical value. Write a detailed <ul> list of EVERY material and tool needed.
@@ -600,6 +601,25 @@ def generate_images(slug: str, article_title: str, step_descriptions: list,
     )
     time.sleep(1)
 
+    # --- "Why Kids Love" lifestyle image: mom + child excited before starting ---
+    why_filename = f"{slug}-why-kids-love.webp"
+    why_alt = f"A mom and young child sitting together at a craft table, excited to start making {article_title}"
+    why_prompt = (
+        f"A warm, joyful lifestyle scene of a young child (ages 3-5) and a mom "
+        f"sitting together at a light wood craft table, both smiling and clearly excited "
+        f"to start a craft project together. "
+        f"The supplies for '{article_title}' are laid out on the table in front of them, "
+        f"but nothing has been made yet — this is the happy anticipation before starting. "
+        f"The child looks engaged and delighted. The mom looks relaxed and present. "
+        f"Mood: warm, cozy, inviting, full of creative energy. "
+        f"{_IMAGE_PHOTO_STYLE}"
+    )
+    paths["why"] = _generate_single_image_with_retry(
+        client, why_prompt, img_dir / why_filename,
+        alt_text=why_alt, aspect_ratio="4:3",
+    )
+    time.sleep(1)
+
     # --- Step images: exact process shots, landscape 4:3 ---
     for i, desc in enumerate(step_descriptions[:5], start=1):
         step_stem = make_seo_filename(desc, max_words=3)
@@ -735,6 +755,23 @@ def resolve_image_placeholders(article_html: str, image_paths: dict, slug: str) 
             f'</figure>'
         )
     article_html = article_html.replace("[MAIN_IMAGE_PLACEHOLDER]", main_img_html)
+
+    # --- "Why Kids Love" image ---
+    why_info = image_paths.get("why", {})
+    why_path = _get(why_info, "path", "PLACEHOLDER")
+    if why_path == "PLACEHOLDER":
+        why_img_html = '<div class="img-placeholder img-placeholder--step" aria-hidden="true">🎨</div>'
+    else:
+        filename = _get(why_info, "filename") or "why.webp"
+        alt = _get(why_info, "alt") or "A mom and child excited to start crafting together"
+        rel = f"../blog/images/{slug}/{filename}"
+        why_img_html = (
+            f'<figure class="article-step-img">'
+            f'<img src="{rel}" alt="{alt}" '
+            f'width="1200" height="900" loading="lazy">'
+            f'</figure>'
+        )
+    article_html = article_html.replace("[WHY_IMAGE_PLACEHOLDER]", why_img_html)
 
     # --- Step images ---
     for i in range(1, 6):
