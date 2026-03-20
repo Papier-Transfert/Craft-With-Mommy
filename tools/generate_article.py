@@ -1970,6 +1970,15 @@ _AMAZON_PRODUCT_CATALOG: list[tuple[str, str]] = [
     ("sticker",           "https://www.amazon.com/dp/B07J5GSBSP?tag=craftwithmomm-20"),
     # Ribbon
     ("ribbon",            "https://www.amazon.com/dp/B07B7M5RBW?tag=craftwithmomm-20"),
+    # Clothespins
+    ("clothespin",        "https://www.amazon.com/s?k=wooden+clothespins+craft&tag=craftwithmomm-20"),
+    # Glitter glue
+    ("glitter_glue",      "https://www.amazon.com/dp/B00CHQTLTS?tag=craftwithmomm-20"),
+    ("glitter",           "https://www.amazon.com/dp/B00CHQTLTS?tag=craftwithmomm-20"),
+    # Sponge / foam brush
+    ("sponge_brush",      "https://www.amazon.com/dp/B07142BY1S?tag=craftwithmomm-20"),
+    ("foam_brush",        "https://www.amazon.com/dp/B07142BY1S?tag=craftwithmomm-20"),
+    ("foam_paintbrush",   "https://www.amazon.com/dp/B07142BY1S?tag=craftwithmomm-20"),
 ]
 
 
