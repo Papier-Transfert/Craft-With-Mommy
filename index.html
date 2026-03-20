@@ -577,10 +577,68 @@
       flex-wrap: wrap;
     }
 
-    .crafts-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+    .crafts-carousel-wrap {
+      overflow: hidden;
+    }
+    .crafts-track {
+      display: flex;
       gap: 26px;
+      transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      will-change: transform;
+    }
+    .crafts-track .craft-card {
+      flex: 0 0 calc((100% - 52px) / 3);
+      min-width: 0;
+    }
+    .carousel-controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      margin-top: 40px;
+    }
+    .carousel-btn {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      border: 2px solid #F0ECE7;
+      background: #fff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #777;
+      transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.15s;
+      flex-shrink: 0;
+    }
+    .carousel-btn:hover:not([disabled]) {
+      background: #E8856A;
+      border-color: #E8856A;
+      color: #fff;
+      transform: scale(1.05);
+    }
+    .carousel-btn[disabled] {
+      opacity: 0.3;
+      cursor: default;
+    }
+    .carousel-dots {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #E5DDD7;
+      cursor: pointer;
+      border: none;
+      padding: 0;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .carousel-dot.active {
+      background: #E8856A;
+      transform: scale(1.4);
     }
 
     .craft-card {
@@ -845,7 +903,7 @@
 
       .categories-grid { grid-template-columns: 1fr; }
 
-      .crafts-grid { grid-template-columns: 1fr 1fr; }
+      .crafts-track .craft-card { flex: 0 0 calc((100% - 26px) / 2); }
     }
 
     @media (max-width: 640px) {
@@ -857,7 +915,7 @@
 
       .section-title { font-size: 1.7rem; }
 
-      .crafts-grid { grid-template-columns: 1fr; }
+      .crafts-track .craft-card { flex: 0 0 85%; }
       .crafts-header { flex-direction: column; align-items: flex-start; }
 
       .newsletter-form { flex-direction: column; }
@@ -1021,72 +1079,6 @@
 
 
   <!-- =============================================
-       LATEST CRAFTS
-  ============================================= -->
-  <section class="crafts" id="crafts">
-    <div class="container">
-
-      <div class="crafts-header">
-        <div>
-          <div class="section-label">Fresh from the craft table</div>
-          <h2 class="section-title">Latest crafts</h2>
-        </div>
-        <a href="blog/" class="btn btn-outline btn-sm">View all crafts</a>
-      </div>
-
-      <div class="crafts-grid">
-        
-        <article class="craft-card">
-          <a href="blog/craft-using-paper.html" style="display:block;color:inherit;">
-            <div class="craft-thumb" style="background: linear-gradient(135deg, #FECDC5, #FFB8A0);">
-              <img src="blog/images/craft-using-paper/craft-paper.webp" alt="20-Minute Craft Using Paper That Kids Will Beg to Make Again and Again" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
-            </div>
-            <div class="craft-body">
-              <div class="craft-tag">Paper Crafts · Ages 3+</div>
-              <h3 class="craft-title">20-Minute Craft Using Paper That Kids Will Beg to Make Again and Again</h3>
-              <div class="craft-meta">
-                <span>⏱ 20 min</span>
-                <span>⭐ Beginner</span>
-              </div>
-            </div>
-          </a>
-        </article>
-        <article class="craft-card">
-          <a href="blog/paper-flower-craft.html" style="display:block;color:inherit;">
-            <div class="craft-thumb" style="background: linear-gradient(135deg, #FECDC5, #FFB8A0);">
-              <img src="blog/images/paper-flower-craft/paper-flower-craft.webp" alt="Paper Flower Craft" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
-            </div>
-            <div class="craft-body">
-              <div class="craft-tag">Paper Crafts · Ages 3+</div>
-              <h3 class="craft-title">Paper Flower Craft</h3>
-              <div class="craft-meta">
-                <span>⏱ 15 min</span>
-                <span>⭐ Beginner</span>
-              </div>
-            </div>
-          </a>
-        </article>
-        <article class="craft-card">
-          <a href="blog/easy-paper-plate-turtle-craft-for-preschoolers.html" style="display:block;color:inherit;">
-            <div class="craft-thumb" style="background: linear-gradient(135deg, #FECDC5, #FFB8A0);">
-              <img src="blog/images/easy-paper-plate-turtle-craft-for-preschoolers/paper-plate-turtle-craft.webp" alt="Easy Paper Plate Turtle Craft For Preschoolers" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
-            </div>
-            <div class="craft-body">
-              <div class="craft-tag">Paper Crafts · Ages 3+</div>
-              <h3 class="craft-title">Easy Paper Plate Turtle Craft For Preschoolers</h3>
-              <div class="craft-meta">
-                <span>⏱ 15 min</span>
-                <span>⭐ Beginner</span>
-              </div>
-            </div>
-          </a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- =============================================
        PROMISE STRIP
   ============================================= -->
   <section class="promise">
@@ -1112,6 +1104,122 @@
         </div>
 
       </div>
+    </div>
+  </section>
+
+
+  <!-- =============================================
+       LATEST CRAFTS
+  ============================================= -->
+  <section class="crafts" id="crafts">
+    <div class="container">
+
+      <div class="crafts-header">
+        <div>
+          <div class="section-label">Fresh from the craft table</div>
+          <h2 class="section-title">Latest crafts</h2>
+        </div>
+        <a href="blog/" class="btn btn-outline btn-sm">View all crafts</a>
+      </div>
+
+      <div class="crafts-carousel-wrap">
+        <div class="crafts-track" id="craftsTrack">
+
+          <article class="craft-card">
+            <a href="blog/craft-using-paper.html" style="display:block;color:inherit;">
+              <div class="craft-thumb" style="background: linear-gradient(135deg, #FECDC5, #FFB8A0);">
+                <img src="blog/images/craft-using-paper/craft-paper.webp" alt="Craft Using Paper" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
+              </div>
+              <div class="craft-body">
+                <div class="craft-tag">Paper Crafts · Ages 3+</div>
+                <h3 class="craft-title">20-Minute Craft Using Paper Kids Will Beg to Make Again</h3>
+                <div class="craft-meta"><span>⏱ 20 min</span><span>⭐ Beginner</span></div>
+              </div>
+            </a>
+          </article>
+
+          <article class="craft-card">
+            <a href="blog/paper-flower-craft.html" style="display:block;color:inherit;">
+              <div class="craft-thumb" style="background: linear-gradient(135deg, #FFD6E0, #FFB3C6);">
+                <img src="blog/images/paper-flower-craft/paper-flower-craft.webp" alt="Paper Flower Craft" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
+              </div>
+              <div class="craft-body">
+                <div class="craft-tag">Paper Crafts · Ages 3+</div>
+                <h3 class="craft-title">Paper Flower Craft</h3>
+                <div class="craft-meta"><span>⏱ 15 min</span><span>⭐ Beginner</span></div>
+              </div>
+            </a>
+          </article>
+
+          <article class="craft-card">
+            <a href="blog/easy-paper-plate-turtle-craft-for-preschoolers.html" style="display:block;color:inherit;">
+              <div class="craft-thumb" style="background: linear-gradient(135deg, #D4F1C8, #B0E0A0);">
+                <img src="blog/images/easy-paper-plate-turtle-craft-for-preschoolers/paper-plate-turtle-craft.webp" alt="Paper Plate Turtle Craft" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
+              </div>
+              <div class="craft-body">
+                <div class="craft-tag">Paper Plate Crafts · Ages 3+</div>
+                <h3 class="craft-title">Easy Paper Plate Turtle Craft for Preschoolers</h3>
+                <div class="craft-meta"><span>⏱ 15 min</span><span>⭐ Beginner</span></div>
+              </div>
+            </a>
+          </article>
+
+          <article class="craft-card">
+            <a href="blog/easy-paper-plate-ladybug-craft-for-toddlers.html" style="display:block;color:inherit;">
+              <div class="craft-thumb" style="background: linear-gradient(135deg, #FECDC5, #FFB8A0);">
+                <img src="blog/images/easy-paper-plate-ladybug-craft-for-toddlers/paper-plate-ladybug-craft.webp" alt="Paper Plate Ladybug Craft" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
+              </div>
+              <div class="craft-body">
+                <div class="craft-tag">Paper Plate Crafts · Ages 2+</div>
+                <h3 class="craft-title">Easy Paper Plate Ladybug Craft for Toddlers</h3>
+                <div class="craft-meta"><span>⏱ 15 min</span><span>⭐ Beginner</span></div>
+              </div>
+            </a>
+          </article>
+
+          <article class="craft-card">
+            <a href="blog/easy-paper-plate-butterfly-craft-for-preschoolers.html" style="display:block;color:inherit;">
+              <div class="craft-thumb" style="background: linear-gradient(135deg, #E8D5FF, #C8A8F0); font-size: 4rem; display:flex; align-items:center; justify-content:center;">
+                🦋
+              </div>
+              <div class="craft-body">
+                <div class="craft-tag">Paper Plate Crafts · Ages 3+</div>
+                <h3 class="craft-title">Easy Paper Plate Butterfly Craft for Preschoolers</h3>
+                <div class="craft-meta"><span>⏱ 15 min</span><span>⭐ Beginner</span></div>
+              </div>
+            </a>
+          </article>
+
+          <article class="craft-card">
+            <a href="blog/easy-paper-plate-rainbow-fish-craft-for-toddlers.html" style="display:block;color:inherit;">
+              <div class="craft-thumb" style="background: linear-gradient(135deg, #B8E8FF, #80CAEE); font-size: 4rem; display:flex; align-items:center; justify-content:center;">
+                🐟
+              </div>
+              <div class="craft-body">
+                <div class="craft-tag">Paper Plate Crafts · Ages 2+</div>
+                <h3 class="craft-title">Easy Paper Plate Rainbow Fish Craft for Toddlers</h3>
+                <div class="craft-meta"><span>⏱ 15 min</span><span>⭐ Beginner</span></div>
+              </div>
+            </a>
+          </article>
+
+        </div>
+      </div>
+
+      <div class="carousel-controls">
+        <button class="carousel-btn" id="carouselPrev" aria-label="Previous crafts" disabled>
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+            <path d="M11 13.5L6.5 9L11 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="carousel-dots" id="carouselDots"></div>
+        <button class="carousel-btn" id="carouselNext" aria-label="Next crafts">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+            <path d="M7 4.5L11.5 9L7 13.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+
     </div>
   </section>
 
@@ -1263,6 +1371,76 @@
           document.body.style.overflow = '';
         }
       });
+    })();
+  </script>
+
+  <script>
+    (function () {
+      var wrap = document.querySelector('.crafts-carousel-wrap');
+      var track = document.getElementById('craftsTrack');
+      var prevBtn = document.getElementById('carouselPrev');
+      var nextBtn = document.getElementById('carouselNext');
+      var dotsWrap = document.getElementById('carouselDots');
+      var current = 0;
+      var resizeTimer;
+
+      function getVisible() {
+        if (window.innerWidth <= 640) return 1;
+        if (window.innerWidth <= 960) return 2;
+        return 3;
+      }
+
+      function getCardCount() {
+        return track.querySelectorAll('.craft-card').length;
+      }
+
+      function maxSlide() {
+        return Math.ceil(getCardCount() / getVisible()) - 1;
+      }
+
+      function buildDots() {
+        var n = maxSlide() + 1;
+        dotsWrap.innerHTML = '';
+        for (var i = 0; i < n; i++) {
+          var d = document.createElement('button');
+          d.className = 'carousel-dot';
+          d.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+          (function (idx) {
+            d.addEventListener('click', function () { goTo(idx); });
+          })(i);
+          dotsWrap.appendChild(d);
+        }
+      }
+
+      function updateDots() {
+        dotsWrap.querySelectorAll('.carousel-dot').forEach(function (d, i) {
+          d.classList.toggle('active', i === current);
+        });
+      }
+
+      function goTo(n) {
+        var ms = maxSlide();
+        current = Math.max(0, Math.min(n, ms));
+        var offset = current * (wrap.offsetWidth + 26);
+        track.style.transform = 'translateX(-' + offset + 'px)';
+        prevBtn.disabled = current === 0;
+        nextBtn.disabled = current === ms;
+        updateDots();
+      }
+
+      prevBtn.addEventListener('click', function () { goTo(current - 1); });
+      nextBtn.addEventListener('click', function () { goTo(current + 1); });
+
+      window.addEventListener('resize', function () {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function () {
+          buildDots();
+          goTo(Math.min(current, maxSlide()));
+        }, 80);
+      });
+
+      buildDots();
+      goTo(0);
     })();
   </script>
 
