@@ -6,7 +6,11 @@
     "date": "March 17, 2026",
     "main_image": "butterfly-craft.webp",
     "collection": "paper-plate-crafts",
-    "collections": ["paper-plate-crafts", "animals", "spring-crafts"]
+    "collections": [
+      "paper-plate-crafts",
+      "animals",
+      "spring-crafts"
+    ]
   },
   {
     "keyword": "easy paper plate rainbow fish craft for toddlers",
@@ -15,7 +19,11 @@
     "date": "March 17, 2026",
     "main_image": "rainbow-fish-craft.webp",
     "collection": "paper-plate-crafts",
-    "collections": ["paper-plate-crafts", "animals", "summer-crafts"]
+    "collections": [
+      "paper-plate-crafts",
+      "animals",
+      "summer-crafts"
+    ]
   },
   {
     "keyword": "easy paper plate ladybug craft for toddlers",
@@ -24,7 +32,11 @@
     "date": "March 17, 2026",
     "main_image": "paper-plate-ladybug-craft.webp",
     "collection": "paper-plate-crafts",
-    "collections": ["paper-plate-crafts", "animals", "spring-crafts"]
+    "collections": [
+      "paper-plate-crafts",
+      "animals",
+      "spring-crafts"
+    ]
   },
   {
     "keyword": "easy paper plate turtle craft for preschoolers",
@@ -33,7 +45,11 @@
     "date": "March 18, 2026",
     "main_image": "paper-plate-turtle-craft.webp",
     "collection": "paper-plate-crafts",
-    "collections": ["paper-plate-crafts", "animals", "summer-crafts"]
+    "collections": [
+      "paper-plate-crafts",
+      "animals",
+      "summer-crafts"
+    ]
   },
   {
     "keyword": "paper flower craft",
@@ -42,7 +58,10 @@
     "date": "March 19, 2026",
     "main_image": "paper-flower-craft.webp",
     "collection": "paper-crafts",
-    "collections": ["paper-crafts", "spring-crafts"]
+    "collections": [
+      "paper-crafts",
+      "spring-crafts"
+    ]
   },
   {
     "keyword": "craft using paper",
@@ -51,6 +70,22 @@
     "date": "March 20, 2026",
     "main_image": "craft-paper.webp",
     "collection": "paper-crafts",
-    "collections": ["paper-crafts", "animals", "spring-crafts"]
+    "collections": [
+      "paper-crafts",
+      "animals",
+      "spring-crafts"
+    ]
+  },
+  {
+    "keyword": "christmas paper crafts",
+    "slug": "christmas-paper-crafts",
+    "title": "25 Adorable Christmas Paper Crafts Kids Will Beg to Make Every Year",
+    "date": "March 21, 2026",
+    "main_image": "christmas-paper-crafts.webp",
+    "collection": "paper-crafts",
+    "collections": [
+      "paper-crafts",
+      "christmas-crafts"
+    ]
   }
 ]
