@@ -604,6 +604,93 @@ Return only the HTML content, no explanation."""
     return html
 
 
+def generate_roundup_html(keyword_data: dict, published_articles: list = None) -> str:
+    """Generate a roundup/listicle article (e.g. '25 Best X for Kids')."""
+    client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+
+    keyword = keyword_data["primary_keyword"]
+    title = keyword_data["article_title"]
+    variants = ", ".join(keyword_data["long_tail_variants"])
+    category = keyword_data["category"]
+
+    # Build internal links instruction
+    if published_articles:
+        links_to_use = published_articles[-2:]
+        internal_links_instruction = (
+            'After the last craft idea, add a <h2>More Crafts You\'ll Love</h2> section '
+            'with a 1-sentence intro and links to these exact published articles only:\n'
+        )
+        for art in links_to_use:
+            art_url = f"/blog/{art['slug']}.html"
+            art_title = art.get("title", art["slug"].replace("-", " ").title())
+            internal_links_instruction += f'  <li><a href="{art_url}">{art_title}</a></li>\n'
+        internal_links_instruction += 'Do NOT invent other links.'
+    else:
+        internal_links_instruction = (
+            'After the last craft idea, add a <h2>More Crafts You\'ll Love</h2> section '
+            'and write: "More fun craft ideas are coming soon — stay tuned!" (no links)'
+        )
+
+    prompt = f"""You are writing a roundup/listicle craft blog article for craft-with-mommy.com — a warm, friendly US family craft blog for moms with kids ages 2–8.
+
+Primary keyword: {keyword}
+LSI/variant keywords to include naturally: {variants}
+Article title: {title}
+Category: {category}
+
+Write a complete roundup article in HTML format. The article must follow this EXACT structure:
+
+1. A warm, inviting intro paragraph (2–3 sentences, no heading). No tutorial language. Mention the number of ideas from the title. Place [MAIN_IMAGE_PLACEHOLDER] before this paragraph.
+
+2. <h2>What You'll Need</h2>
+   One short sentence intro, then a supply list in this format:
+   <div class="supply-list-box"><ul>...</ul></div>
+   Rules for the supply list:
+   - Maximum 4–5 items, broad basics only (construction paper, scissors, glue, markers — nothing project-specific)
+   - For items that can be purchased on Amazon, wrap ONLY the product name in: <a href="[AMAZON_LINK_item_slug]" rel="nofollow sponsored" target="_blank">product name</a>
+   - No more than 3 Amazon links in this section (only the most universal supplies)
+   - Items every household has (pencil, paper towels) need no link
+
+3. <h2>[Number] [Craft Type] Ideas</h2> (use the number and theme from the article title)
+   Then list each idea using this EXACT structure for every single idea:
+   <h3>[Number]. [Craft Name]</h3>
+   <p>[2–4 sentences: what the craft is, why kids love it, a quick how-to hint. Keep it encouraging and fun.]</p>
+   [ROUNDUP_IMAGE_PLACEHOLDER if applicable — use for roughly 1 in 4 ideas, evenly spaced]
+   [Optional internal link — ONLY if a tutorial for this craft exists on the site, placed just before the meta line]
+   <p><em>Age: X+ | Time: X min | Mess: Low/Medium/High</em></p>
+
+   Image placeholder rules:
+   - Use [ROUNDUP_IMAGE_PLACEHOLDER] (not [STEP_IMAGE_PLACEHOLDER]) to mark where images go
+   - Space them evenly (e.g. ideas 4, 8, 12, 16, 20, 25 for a 25-idea list)
+   - Never more than 1 image per idea
+
+4. {internal_links_instruction}
+
+5. A short warm conclusion (1–2 sentences, no heading). Encouraging, no em dashes.
+
+SEO and style rules:
+- Use the <strong> tag to bold the main keyword or LSI keywords when relevant, but do not overdo it (max 1 bolded keyword per 100 words). Apply only in regular paragraph text — never inside headings, captions, or supply lists.
+- Do NOT use em dashes (—) anywhere. Replace them with a comma, colon, parentheses, or period.
+- Keep all paragraphs short — aim for a maximum of 4 lines on desktop.
+- Naturally include the primary keyword "{keyword}" at least 3 times across the article.
+- Include at least 2 of these variant keywords: {variants}
+- Use only these HTML tags: p, ul, ol, li, h2, h3, strong, em, a, div, figure
+- Do NOT include <html>, <head>, <body>, or any document-level tags
+- Do NOT include the article title as an h1 (added by the template)
+- Do NOT invent any internal links. Only use the exact URLs provided above.
+
+Return only the HTML content, no explanation."""
+
+    msg = client.messages.create(
+        model="claude-opus-4-6",
+        max_tokens=8192,
+        messages=[{"role": "user", "content": prompt}],
+    )
+    html = msg.content[0].text.strip()
+    log.info("Roundup article HTML generated")
+    return html
+
+
 # ---------------------------------------------------------------------------
 # Step 4 — Generate images via Google Imagen
 # ---------------------------------------------------------------------------
@@ -2406,8 +2493,13 @@ def main():
     log.info(f"Slug: {slug} | Date: {pub_date} | Collections: {collections}")
 
     # Step 3: Generate article (pass published articles for real internal links)
+    article_type = queue_entry.get("article_type", "tutorial")
+    log.info(f"Article type: {article_type}")
     try:
-        article_html = generate_article_html(keyword_data, published_articles=published)
+        if article_type == "roundup":
+            article_html = generate_roundup_html(keyword_data, published_articles=published)
+        else:
+            article_html = generate_article_html(keyword_data, published_articles=published)
     except Exception as exc:
         log.error(f"Aborting: article generation failed — {exc}")
         sys.exit(1)
