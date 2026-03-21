@@ -581,7 +581,7 @@ Write a complete, engaging article of ~1500 words in HTML format. The article mu
 
 3. Naturally include the primary keyword "{keyword}" at least 4 times
 4. Include at least 2 of these variant keywords: {variants}
-4b. Wrap the primary keyword and its close variants in <strong> tags each time they appear in body paragraphs (intro, body, conclusion). Aim for 5–8 bolded keyword instances total across the article. This signals to Google which terms are important. Do NOT bold keywords inside tips, captions, or headings — only in regular paragraph text.
+4b. Use the <strong> tag to bold the main keyword or LSI keywords when relevant, but do not overdo it (max 1 bolded keyword per 100 words). Apply only in regular paragraph text — never inside headings, tips (step-tip divs), captions, or supply lists.
 5. Place [MAIN_IMAGE_PLACEHOLDER] as the very first element (before the intro)
 6. Use only these HTML tags: p, ul, ol, li, h2, h3, strong, em, a, div
 7. Keep the tone warm, encouraging, and conversational, like a best friend who crafts
