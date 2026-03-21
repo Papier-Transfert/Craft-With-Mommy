@@ -671,7 +671,7 @@ Write a complete roundup article in HTML format. The article must follow this EX
    A short, warm closing paragraph (2–3 sentences). Write it as a gentle goodbye to the mom who just read the list, not as if she just finished a specific craft. Encouraging and friendly, like a warm sign-off from a friend. No em dashes.
 
 SEO and style rules:
-- Use the <strong> tag to bold the main keyword or LSI keywords when relevant, but do not overdo it (max 1 bolded keyword per 100 words). Apply only in regular paragraph text — never inside headings, captions, or supply lists.
+- Use the <strong> tag to bold the main keyword or LSI keywords when relevant. Minimum 8 bolded terms across the full article, spread throughout (not clustered). Max 1 bolded term per 100 words. Apply only in regular paragraph text — never inside headings, captions, or supply lists.
 - Do NOT use em dashes (—) anywhere. Replace them with a comma, colon, parentheses, or period.
 - Keep all paragraphs short — aim for a maximum of 4 lines on desktop.
 - Naturally include the primary keyword "{keyword}" at least 3 times across the article.
@@ -980,7 +980,7 @@ def resolve_image_placeholders(article_html: str, image_paths: dict, slug: str) 
 # Step 6 — Build full article page HTML
 # ---------------------------------------------------------------------------
 
-def build_article_page(slug: str, article_html: str, keyword_data: dict, pub_date: str, collection: str = "paper-crafts") -> str:
+def build_article_page(slug: str, article_html: str, keyword_data: dict, pub_date: str, collection: str = "paper-crafts", article_type: str = "tutorial") -> str:
     title = keyword_data["article_title"]
     category = keyword_data["category"]
     age_range = keyword_data["age_range"]
@@ -1352,9 +1352,7 @@ def build_article_page(slug: str, article_html: str, keyword_data: dict, pub_dat
     <div class="container">
       <div class="article-meta-badges">
         {collection_badge_html}
-        <span class="badge">👶 {age_range}</span>
-        <span class="badge">⏱ {time_min} min</span>
-        <span class="badge">{messiness_emoji} Messiness: {messiness}</span>
+        {'' if article_type == 'roundup' else f'<span class="badge">👶 {age_range}</span><span class="badge">⏱ {time_min} min</span><span class="badge">{messiness_emoji} Messiness: {messiness}</span>'}
       </div>
       <h1>{title}</h1>
       <p class="article-pub-date">Published on {pub_date}</p>
@@ -2523,7 +2521,7 @@ def main():
     article_html = resolve_image_placeholders(article_html, image_paths, slug)
 
     # Step 6: Build full page
-    page_html = build_article_page(slug, article_html, keyword_data, pub_date, collections[0])
+    page_html = build_article_page(slug, article_html, keyword_data, pub_date, collections[0], article_type=article_type)
 
     # Step 7: Save article
     save_article(slug, page_html)
