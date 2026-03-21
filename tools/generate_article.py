@@ -2271,9 +2271,9 @@ _AMAZON_PRODUCT_CATALOG: list[tuple[str, str]] = [
     ("googly_eye",        "https://www.amazon.com/dp/B00D4IJH6S?tag=craftwithmomm-20"),
     ("wiggle_eye",        "https://www.amazon.com/dp/B00D4IJH6S?tag=craftwithmomm-20"),
     # Markers & crayons
-    ("washable_marker",   "https://www.amazon.com/dp/B0000CBHBC?tag=craftwithmomm-20"),
-    ("marker",            "https://www.amazon.com/dp/B0000CBHBC?tag=craftwithmomm-20"),
-    ("crayon",            "https://www.amazon.com/dp/B00000J1ER?tag=craftwithmomm-20"),
+    ("washable_marker",   "https://www.amazon.com/dp/B071CP6X88?tag=craftwithmomm-20"),
+    ("marker",            "https://www.amazon.com/dp/B071CP6X88?tag=craftwithmomm-20"),
+    ("crayon",            "https://www.amazon.com/dp/B00000J1H4?tag=craftwithmomm-20"),
     # Pipe cleaners / chenille stems
     ("pipe_cleaner",      "https://www.amazon.com/dp/B07YSGLFGC?tag=craftwithmomm-20"),
     ("chenille",          "https://www.amazon.com/dp/B07YSGLFGC?tag=craftwithmomm-20"),
