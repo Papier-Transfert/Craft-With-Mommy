@@ -661,12 +661,14 @@ Write a complete roundup article in HTML format. The article must follow this EX
 
    Image placeholder rules:
    - Use [ROUNDUP_IMAGE_PLACEHOLDER] (not [STEP_IMAGE_PLACEHOLDER]) to mark where images go
-   - Space them evenly (e.g. ideas 4, 8, 12, 16, 20, 25 for a 25-idea list)
+   - Place an image for at least 75% of the ideas (e.g. for 25 ideas, at least 19 get images)
+   - Distribute them as evenly as possible — roughly every 1–2 ideas
    - Never more than 1 image per idea
 
 4. {internal_links_instruction}
 
-5. A short warm conclusion (1–2 sentences, no heading). Encouraging, no em dashes.
+5. <h2>Final Thoughts</h2>
+   A short, warm closing paragraph (2–3 sentences). Write it as a gentle goodbye to the mom who just read the list, not as if she just finished a specific craft. Encouraging and friendly, like a warm sign-off from a friend. No em dashes.
 
 SEO and style rules:
 - Use the <strong> tag to bold the main keyword or LSI keywords when relevant, but do not overdo it (max 1 bolded keyword per 100 words). Apply only in regular paragraph text — never inside headings, captions, or supply lists.
