@@ -2459,6 +2459,45 @@ def resolve_amazon_links(article_html: str) -> str:
 # ---------------------------------------------------------------------------
 # Main pipeline
 # ---------------------------------------------------------------------------
+# Article type detection
+# ---------------------------------------------------------------------------
+
+# Keywords that signal a roundup / ideas article (multiple crafts expected).
+# A keyword containing ANY of these terms is treated as a roundup.
+_ROUNDUP_SIGNALS = {
+    "crafts",       # "paper plate crafts", "Christmas paper crafts"
+    "ideas",        # "craft ideas for kids"
+    "activities",   # "toddler activities"
+    "projects",     # "art projects for kids"
+    "things to make",
+}
+
+
+def detect_article_type(keyword: str) -> str:
+    """Return 'roundup' or 'tutorial' based on keyword intent.
+
+    Roundup signals (any word in _ROUNDUP_SIGNALS present in the keyword):
+      "paper plate crafts"        → roundup   (plural "crafts")
+      "Christmas paper crafts"    → roundup
+      "easy crafts for toddlers"  → roundup
+      "animal crafts for kids"    → roundup
+      "craft ideas for preschool" → roundup   ("ideas")
+
+    Tutorial signals (none of the above):
+      "paper plate turtle craft"  → tutorial  (specific single craft)
+      "handprint flower craft"    → tutorial
+      "paper bag snowman craft"   → tutorial
+    """
+    kw = keyword.lower()
+    for signal in _ROUNDUP_SIGNALS:
+        if signal in kw:
+            log.info(f"Auto-detected article type: roundup (signal: '{signal}')")
+            return "roundup"
+    log.info("Auto-detected article type: tutorial")
+    return "tutorial"
+
+
+# ---------------------------------------------------------------------------
 
 def main():
     load_env()
@@ -2492,8 +2531,8 @@ def main():
     collections = determine_collections(keyword_data["primary_keyword"], keyword_data["article_title"])
     log.info(f"Slug: {slug} | Date: {pub_date} | Collections: {collections}")
 
-    # Step 3: Generate article (pass published articles for real internal links)
-    article_type = queue_entry.get("article_type", "tutorial")
+    # Step 3: Determine article type — explicit queue field wins; otherwise auto-detect
+    article_type = queue_entry.get("article_type") or detect_article_type(queue_entry["keyword"])
     log.info(f"Article type: {article_type}")
     try:
         if article_type == "roundup":
