@@ -1211,7 +1211,7 @@ def build_article_page(slug: str, article_html: str, keyword_data: dict, pub_dat
     .supply-list-box li:last-child {{ margin-bottom: 0; }}
 
     /* Newsletter */
-    .newsletter {{ padding: 72px 0; background: linear-gradient(150deg, #FDFBF7 0%, #FEF0EC 100%); }}
+    .newsletter {{ padding: 64px 0 88px; background: linear-gradient(150deg, #FDFBF7 0%, #FEF0EC 100%); }}
     .newsletter-inner {{ text-align: center; max-width: 540px; margin: 0 auto; }}
     .newsletter-emoji {{ font-size: 2.8rem; margin-bottom: 18px; }}
     .newsletter h2 {{ font-size: clamp(1.8rem, 3vw, 2.3rem); font-weight: 900; color: #333; margin-bottom: 14px; }}
@@ -1246,6 +1246,7 @@ def build_article_page(slug: str, article_html: str, keyword_data: dict, pub_dat
     @media (max-width: 640px) {{
       .nav {{ display: none; }}
       .hamburger {{ display: flex; }}
+      .newsletter {{ padding-top: 48px; }}
       .newsletter-form {{ flex-direction: column; }}
       .newsletter-form input, .newsletter-form .btn {{ width: 100%; }}
       .footer-top {{ grid-template-columns: 1fr; gap: 28px; }}
@@ -1595,7 +1596,7 @@ def build_collection_page(collection_slug: str, all_articles: list) -> str:
     .blog-card-tag {{ font-family: \'Nunito\', sans-serif; font-size: 0.73rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #E8856A; margin-bottom: 8px; }}
     .blog-card-title {{ font-family: \'Nunito\', sans-serif; font-size: 1rem; font-weight: 800; color: #333; line-height: 1.4; margin-bottom: 12px; }}
     .blog-card-meta {{ display: flex; gap: 14px; font-size: 0.78rem; color: #bbb; }}
-    .newsletter {{ padding: 88px 0; background: linear-gradient(150deg, #FDFBF7 0%, #FEF0EC 100%); }}
+    .newsletter {{ padding: 64px 0 88px; background: linear-gradient(150deg, #FDFBF7 0%, #FEF0EC 100%); }}
     .newsletter-inner {{ text-align: center; max-width: 540px; margin: 0 auto; }}
     .newsletter-emoji {{ font-size: 2.8rem; margin-bottom: 18px; }}
     .newsletter h2 {{ font-size: clamp(1.8rem, 3vw, 2.3rem); font-weight: 900; color: #333; margin-bottom: 14px; }}
@@ -1627,6 +1628,7 @@ def build_collection_page(collection_slug: str, all_articles: list) -> str:
       .nav {{ display: none; }}
       .hamburger {{ display: flex; }}
       .blog-grid {{ grid-template-columns: 1fr; }}
+      .newsletter {{ padding-top: 48px; }}
       .newsletter-form {{ flex-direction: column; }}
       .newsletter-form input, .newsletter-form .btn {{ width: 100%; }}
       .footer-top {{ grid-template-columns: 1fr; gap: 28px; }}
@@ -1864,7 +1866,7 @@ BLOG_INDEX_TEMPLATE = """<!DOCTYPE html>
     .blog-card-tag { font-family: 'Nunito', sans-serif; font-size: 0.73rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #E8856A; margin-bottom: 8px; }
     .blog-card-title { font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 800; color: #333; line-height: 1.4; margin-bottom: 12px; }
     .blog-card-meta { display: flex; gap: 14px; font-size: 0.78rem; color: #bbb; }
-    .newsletter { padding: 88px 0; background: linear-gradient(150deg, #FDFBF7 0%, #FEF0EC 100%); }
+    .newsletter { padding: 64px 0 88px; background: linear-gradient(150deg, #FDFBF7 0%, #FEF0EC 100%); }
     .newsletter-inner { text-align: center; max-width: 540px; margin: 0 auto; }
     .newsletter-emoji { font-size: 2.8rem; margin-bottom: 18px; }
     .newsletter h2 { font-size: clamp(1.8rem, 3vw, 2.3rem); font-weight: 900; color: #333; margin-bottom: 14px; }
@@ -1897,6 +1899,7 @@ BLOG_INDEX_TEMPLATE = """<!DOCTYPE html>
       .nav { display: none; }
       .hamburger { display: flex; }
       .blog-grid { grid-template-columns: 1fr; }
+      .newsletter { padding-top: 48px; }
       .newsletter-form { flex-direction: column; }
       .newsletter-form input, .newsletter-form .btn { width: 100%; }
       .footer-top { grid-template-columns: 1fr; gap: 28px; }
