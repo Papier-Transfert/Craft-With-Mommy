@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <link rel="icon" type="image/png" href="../brand_assets/craft-with-mommy-favicon-2.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Paper Crafts — Craft with Mommy</title>
-  <meta name="description" content="Simple paper crafts for kids of all ages — no special skills required.">
-  <link rel="canonical" href="https://craft-with-mommy.com/blog/paper-crafts.html">
+  <title>Seasonal Kids Crafts — Craft with Mommy</title>
+  <meta name="description" content="Browse crafts by season — spring, summer, fall, winter, and Christmas crafts for kids and moms to make together all year long.">
+  <link rel="canonical" href="https://craft-with-mommy.com/blog/seasons.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
@@ -48,20 +48,23 @@
     .mobile-nav-group h5 { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #E8856A; margin-bottom: 12px; }
     .mobile-nav-group a { display: flex; align-items: center; gap: 12px; padding: 11px 14px; border-radius: 12px; font-size: 0.95rem; font-weight: 500; color: #444; transition: background 0.15s; }
     .mobile-nav-group a:hover { background: #FDFBF7; }
+    /* Page hero */
     .blog-hero { background: #FDFBF7; padding: 72px 0 56px; }
     .section-label { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 1.2px; color: #E8856A; margin-bottom: 10px; }
     .blog-hero h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; color: #333; margin-bottom: 14px; }
     .blog-hero p { font-size: 1rem; color: #888; max-width: 520px; }
-    .blog-grid-section { padding: 64px 0 96px; }
-    .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-    .blog-card { border-radius: 20px; overflow: hidden; background: #fff; border: 1px solid #F0ECE7; transition: transform 0.2s, box-shadow 0.2s; }
-    .blog-card:hover { transform: translateY(-5px); box-shadow: 0 18px 48px rgba(0,0,0,0.08); }
-    .blog-card-thumb { height: 195px; overflow: hidden; position: relative; background: linear-gradient(135deg, #FECDC5, #FFD8B0); display: flex; align-items: center; justify-content: center; font-size: 4rem; }
-    .blog-card-thumb img { width: 100%; height: 100%; object-fit: cover; }
-    .blog-card-body { padding: 20px; }
-    .blog-card-tag { font-family: 'Nunito', sans-serif; font-size: 0.73rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #E8856A; margin-bottom: 8px; }
-    .blog-card-title { font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 800; color: #333; line-height: 1.4; margin-bottom: 12px; }
-    .blog-card-meta { display: flex; gap: 14px; font-size: 0.78rem; color: #bbb; }
+    /* Hub grid */
+    .hub-section { padding: 64px 0 96px; }
+    .hub-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .hub-card { border-radius: 24px; overflow: hidden; background: #fff; border: 1px solid #F0ECE7; transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; }
+    .hub-card:hover { transform: translateY(-5px); box-shadow: 0 18px 48px rgba(0,0,0,0.08); }
+    .hub-card-icon { height: 140px; display: flex; align-items: center; justify-content: center; font-size: 4.5rem; }
+    .hub-card-body { padding: 24px 24px 28px; flex: 1; display: flex; flex-direction: column; }
+    .hub-card-title { font-family: 'Nunito', sans-serif; font-size: 1.25rem; font-weight: 900; color: #333; margin-bottom: 10px; }
+    .hub-card-desc { font-size: 0.92rem; color: #777; line-height: 1.6; flex: 1; margin-bottom: 20px; }
+    .hub-card-link { display: inline-flex; align-items: center; gap: 6px; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.92rem; color: #E8856A; transition: gap 0.2s; }
+    .hub-card-link:hover { gap: 10px; }
+    /* Newsletter */
     .newsletter { padding: 88px 0; background: linear-gradient(150deg, #FDFBF7 0%, #FEF0EC 100%); }
     .newsletter-inner { text-align: center; max-width: 540px; margin: 0 auto; }
     .newsletter-emoji { font-size: 2.8rem; margin-bottom: 18px; }
@@ -71,6 +74,7 @@
     .newsletter-form input { flex: 1; min-width: 0; padding: 13px 20px; border: 2px solid #EDE8E3; border-radius: 36px; font-family: 'DM Sans', sans-serif; font-size: 0.95rem; color: #333; background: #fff; outline: none; transition: border-color 0.2s; }
     .newsletter-form input:focus { border-color: #E8856A; }
     .newsletter-note { font-size: 0.8rem; color: #c5bfba; }
+    /* Footer */
     .footer { background: #2E2B28; color: #fff; padding: 64px 0 32px; }
     .footer-top { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 56px; margin-bottom: 40px; }
     .footer-brand-name { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 1.25rem; color: #fff; margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
@@ -84,16 +88,13 @@
     .footer-bottom { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
     .footer-affiliate { font-size: 0.78rem; color: rgba(255,255,255,0.28); text-align: center; padding: 16px 0; border-top: 1px solid rgba(255,255,255,0.07); border-bottom: 1px solid rgba(255,255,255,0.07); margin-bottom: 24px; }
     .footer-copy { font-size: 0.82rem; color: rgba(255,255,255,0.3); }
-    .social-row { display: flex; gap: 10px; }
-    .social-btn { width: 38px; height: 38px; background: rgba(255,255,255,0.07); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.95rem; color: rgba(255,255,255,0.5); transition: background 0.2s, color 0.2s, transform 0.15s; }
-    .social-btn:hover { background: #E8856A; color: #fff; transform: translateY(-2px); }
     @media (max-width: 960px) {
-      .blog-grid { grid-template-columns: 1fr 1fr; }
+      .hub-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 640px) {
       .nav { display: none; }
       .hamburger { display: flex; }
-      .blog-grid { grid-template-columns: 1fr; }
+      .hub-grid { grid-template-columns: 1fr; }
       .newsletter-form { flex-direction: column; }
       .newsletter-form input, .newsletter-form .btn { width: 100%; }
       .footer-top { grid-template-columns: 1fr; gap: 28px; }
@@ -174,92 +175,61 @@
 
   <section class="blog-hero">
     <div class="container">
-      <div class="section-label">✂️ Collection</div>
-      <h1>Paper Crafts</h1>
-      <p>Simple paper crafts for kids of all ages — no special skills required.</p>
+      <div class="section-label">🌸 Browse by Season</div>
+      <h1>Seasonal Crafts</h1>
+      <p>Find crafts that match the time of year. From spring blossoms to Christmas magic, every season is better with a little creating.</p>
     </div>
   </section>
 
-  <section class="blog-grid-section">
+  <section class="hub-section">
     <div class="container">
-      <div class="blog-grid">
-        <!-- ARTICLE_CARDS_START -->
-        <article class="blog-card">
-          <a href="/blog/simple-paper-craft.html">
-            <div class="blog-card-thumb">
-              <img src="../blog/images/simple-paper-craft/paper-craft.webp" alt="20 Adorable Simple Paper Craft Ideas Kids Will Beg to Make Again and Again" loading="lazy">
-            </div>
-            <div class="blog-card-body">
-              <div class="blog-card-tag">✂️ Paper Crafts</div>
-              <h3 class="blog-card-title">20 Adorable Simple Paper Craft Ideas Kids Will Beg to Make Again and Again</h3>
-              <div class="blog-card-meta">
-                <span>⏱ 30 min</span>
-                <span>📅 March 22, 2026</span>
-              </div>
-            </div>
-          </a>
-        </article>
-        <article class="blog-card">
-          <a href="/blog/craft-paper-pumpkin.html">
-            <div class="blog-card-thumb">
-              <img src="../blog/images/craft-paper-pumpkin/craft-paper-pumpkin.webp" alt="Adorable Craft Paper Pumpkin Kids Will Beg to Make This Fall" loading="lazy">
-            </div>
-            <div class="blog-card-body">
-              <div class="blog-card-tag">✂️ Paper Crafts</div>
-              <h3 class="blog-card-title">Adorable Craft Paper Pumpkin Kids Will Beg to Make This Fall</h3>
-              <div class="blog-card-meta">
-                <span>⏱ 30 min</span>
-                <span>📅 March 22, 2026</span>
-              </div>
-            </div>
-          </a>
-        </article>
-        <article class="blog-card">
-          <a href="/blog/christmas-paper-crafts.html">
-            <div class="blog-card-thumb">
-              <img src="../blog/images/christmas-paper-crafts/christmas-paper-crafts.webp" alt="25 Adorable Christmas Paper Crafts Kids Will Beg to Make Every Year" loading="lazy">
-            </div>
-            <div class="blog-card-body">
-              <div class="blog-card-tag">✂️ Paper Crafts</div>
-              <h3 class="blog-card-title">25 Adorable Christmas Paper Crafts Kids Will Beg to Make Every Year</h3>
-              <div class="blog-card-meta">
-                <span>⏱ 30 min</span>
-                <span>📅 March 21, 2026</span>
-              </div>
-            </div>
-          </a>
-        </article>
-        <article class="blog-card">
-          <a href="/blog/craft-using-paper.html">
-            <div class="blog-card-thumb">
-              <img src="../blog/images/craft-using-paper/craft-paper.webp" alt="20-Minute Craft Using Paper That Kids Will Beg to Make Again and Again" loading="lazy">
-            </div>
-            <div class="blog-card-body">
-              <div class="blog-card-tag">✂️ Paper Crafts</div>
-              <h3 class="blog-card-title">20-Minute Craft Using Paper That Kids Will Beg to Make Again and Again</h3>
-              <div class="blog-card-meta">
-                <span>⏱ 25 min</span>
-                <span>📅 March 20, 2026</span>
-              </div>
-            </div>
-          </a>
-        </article>
-        <article class="blog-card">
-          <a href="/blog/paper-flower-craft.html">
-            <div class="blog-card-thumb">
-              <img src="../blog/images/paper-flower-craft/paper-flower-craft.webp" alt="Gorgeous Paper Flower Craft for Kids — So Easy Even Toddlers Can Make a Beautiful Bouquet!" loading="lazy">
-            </div>
-            <div class="blog-card-body">
-              <div class="blog-card-tag">✂️ Paper Crafts</div>
-              <h3 class="blog-card-title">Gorgeous Paper Flower Craft for Kids — So Easy Even Toddlers Can Make a Beautiful Bouquet!</h3>
-              <div class="blog-card-meta">
-                <span>⏱ 35 min</span>
-                <span>📅 March 19, 2026</span>
-              </div>
-            </div>
-          </a>
-        </article>
-        <!-- ARTICLE_CARDS_END -->
+      <div class="hub-grid">
+
+        <div class="hub-card">
+          <div class="hub-card-icon" style="background: linear-gradient(135deg, #D4F0DC 0%, #FECDC5 100%);">🌸</div>
+          <div class="hub-card-body">
+            <h2 class="hub-card-title">Spring Crafts</h2>
+            <p class="hub-card-desc">Flowers, butterflies, rainbows, and baby animals. Spring is bursting with inspiration and these crafts bring the season indoors in the most cheerful way.</p>
+            <a href="./spring-crafts.html" class="hub-card-link">Explore Spring Crafts <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+
+        <div class="hub-card">
+          <div class="hub-card-icon" style="background: linear-gradient(135deg, #FFF5B0 0%, #FFD8B0 100%);">☀️</div>
+          <div class="hub-card-body">
+            <h2 class="hub-card-title">Summer Crafts</h2>
+            <p class="hub-card-desc">Sun, ocean, ice cream, and bugs. Summer crafts are bright, colorful, and perfect for keeping little hands busy on long sunny afternoons.</p>
+            <a href="./summer-crafts.html" class="hub-card-link">Explore Summer Crafts <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+
+        <div class="hub-card">
+          <div class="hub-card-icon" style="background: linear-gradient(135deg, #FFD8B0 0%, #FECDC5 100%);">🍂</div>
+          <div class="hub-card-body">
+            <h2 class="hub-card-title">Fall Crafts</h2>
+            <p class="hub-card-desc">Pumpkins, leaves, acorns, and cozy colors. Fall is one of the best seasons for crafting and these ideas capture all that warm autumn magic.</p>
+            <a href="./fall-crafts.html" class="hub-card-link">Explore Fall Crafts <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+
+        <div class="hub-card">
+          <div class="hub-card-icon" style="background: linear-gradient(135deg, #B8E6F5 0%, #D4EAF8 100%);">❄️</div>
+          <div class="hub-card-body">
+            <h2 class="hub-card-title">Winter Crafts</h2>
+            <p class="hub-card-desc">Snowflakes, polar bears, mittens, and cozy cabin vibes. Winter crafts are perfect for cold days when everyone wants to stay inside and create.</p>
+            <a href="./winter-crafts.html" class="hub-card-link">Explore Winter Crafts <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+
+        <div class="hub-card">
+          <div class="hub-card-icon" style="background: linear-gradient(135deg, #C8F0C0 0%, #FECDC5 100%);">🎄</div>
+          <div class="hub-card-body">
+            <h2 class="hub-card-title">Christmas Crafts</h2>
+            <p class="hub-card-desc">Santas, ornaments, stars, and reindeer. Christmas crafts fill the season with handmade magic and create memories that kids carry with them forever.</p>
+            <a href="./christmas-crafts.html" class="hub-card-link">Explore Christmas Crafts <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -304,7 +274,6 @@
       <div class="footer-affiliate">As an Amazon Associate, we earn from qualifying purchases.</div>
       <div class="footer-bottom">
         <span class="footer-copy">© 2026 Craft with Mommy. Made with ❤️ for moms &amp; kids.</span>
-
       </div>
     </div>
   </footer>
