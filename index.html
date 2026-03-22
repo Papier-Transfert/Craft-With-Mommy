@@ -7,8 +7,9 @@
   <title>Craft with Mommy — Simple DIY Crafts for Moms & Kids</title>
   <meta name="description" content="Foolproof craft ideas for moms and little ones — simple to set up, quick to make, and always adorable. No artistic talent required.">
 
-  <!-- Preload hero image so it renders at highest priority -->
-  <link rel="preload" href="images/hero-lifestyle.webp" as="image">
+  <!-- Preload hero images -->
+  <link rel="preload" href="images/hero-lifestyle.webp" as="image" media="(min-width: 961px)">
+  <link rel="preload" href="images/hero-mobile.webp" as="image" media="(max-width: 960px)">
 
   <!-- Google Fonts: Nunito (headings) + DM Sans (body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -355,6 +356,11 @@
       color: #aaa;
     }
     .hero-stat svg { flex-shrink: 0; }
+
+    /* Mobile-only hero image block — hidden on desktop */
+    .hero-mobile-img {
+      display: none;
+    }
 
     /* Hero visual: lifestyle photo via background-image (reliable cross-browser fill) */
     .hero-visual {
@@ -842,12 +848,25 @@
        RESPONSIVE
     ============================================= */
     @media (max-width: 960px) {
-      .hero { flex-direction: column; }
-      .hero-left { flex: 1 0 auto; padding: 80px 24px 96px; text-align: center; }
+      .hero { flex-direction: column; min-height: 0; }
+      .hero-left { flex: 1 0 auto; padding: 56px 24px 32px; text-align: center; }
       .hero-text { align-items: center; }
       .hero-lead { max-width: 100%; }
       .hero-actions { justify-content: center; }
       .hero-visual { display: none; }
+
+      /* Mobile image block */
+      .hero-mobile-img {
+        display: block;
+        padding: 0 20px 52px;
+      }
+      .hero-mobile-img img {
+        width: 100%;
+        height: auto;
+        border-radius: 22px;
+        display: block;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+      }
 
       .promise-grid { grid-template-columns: 1fr; gap: 16px; }
       .promise-card { padding: 28px 22px; }
@@ -860,7 +879,9 @@
       .nav { display: none; }
       .hamburger { display: flex; }
 
-      .hero-left { padding: 60px 24px 72px; }
+      .hero-left { padding: 44px 20px 28px; }
+      .hero-mobile-img { padding: 0 16px 44px; }
+      .hero-mobile-img img { border-radius: 18px; }
       .hero h1 { font-size: 2rem; }
 
       .section-title { font-size: 1.7rem; }
@@ -999,6 +1020,11 @@
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- Mobile-only lifestyle image — shown below CTA on small screens -->
+    <div class="hero-mobile-img" aria-hidden="true">
+      <img src="images/hero-mobile.webp" alt="" width="900" height="900" loading="eager" decoding="async">
     </div>
 
     <!-- Right: Lifestyle photo — background-image fills flex child to viewport edge -->
