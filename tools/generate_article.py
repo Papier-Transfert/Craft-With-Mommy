@@ -2138,49 +2138,73 @@ def update_blog_index(metadata: dict) -> None:
 # ---------------------------------------------------------------------------
 
 def update_homepage_latest_crafts(recent_articles: list) -> None:
+    """Rebuild the homepage Latest Crafts carousel using ALL published articles.
+
+    The carousel structure must never be replaced with a plain grid.
+    """
     content = HOME_INDEX_FILE.read_text(encoding="utf-8")
 
-    cards_html = ""
-    for art in recent_articles[:3]:
-        slug = art["slug"]
-        title = art["title"]
-        category = art["category"]
-        age_range = art["age_range"]
-        time_min = art["time_minutes"]
-        has_img = art.get("has_main_image", False)
+    # Load every published article for a complete carousel
+    all_published = load_published_keywords()
 
-        if has_img:
-            main_filename = art.get("main_image_filename") or "main.webp"
+    # Colour palette cycling for card thumbnails
+    _GRADIENTS = [
+        "linear-gradient(135deg, #FECDC5, #FFB8A0)",
+        "linear-gradient(135deg, #C8E6C9, #A5D6A7)",
+        "linear-gradient(135deg, #B3E5FC, #81D4FA)",
+        "linear-gradient(135deg, #F8BBD9, #F48FB1)",
+        "linear-gradient(135deg, #FFCDD2, #EF9A9A)",
+        "linear-gradient(135deg, #B2EBF2, #80DEEA)",
+        "linear-gradient(135deg, #DCEDC8, #AED581)",
+        "linear-gradient(135deg, #F3E5F5, #CE93D8)",
+        "linear-gradient(135deg, #FFF9C4, #FFF176)",
+        "linear-gradient(135deg, #FFE0B2, #FFCC80)",
+    ]
+
+    _COLLECTION_LABELS = {
+        "paper-plate-crafts": "🍽️ Paper Plate Crafts",
+        "paper-crafts":       "✂️ Paper Crafts",
+        "handprint-crafts":   "🖐️ Handprint Crafts",
+        "recycled-crafts":    "♻️ Recycled Crafts",
+        "animal-crafts":      "🐾 Animal Crafts",
+        "animals":            "🐾 Animal Crafts",
+        "spring-crafts":      "🌸 Spring Crafts",
+        "summer-crafts":      "☀️ Summer Crafts",
+        "fall-crafts":        "🍂 Fall Crafts",
+        "winter-crafts":      "❄️ Winter Crafts",
+        "christmas-crafts":   "🎄 Christmas Crafts",
+    }
+
+    cards_html = ""
+    for i, art in enumerate(reversed(all_published)):   # newest first
+        slug    = art["slug"]
+        title   = art.get("title") or slug.replace("-", " ").title()
+        img_fn  = art.get("main_image", "")
+        coll    = art.get("collection", "paper-crafts")
+        label   = _COLLECTION_LABELS.get(coll, "✂️ Paper Crafts")
+        grad    = _GRADIENTS[i % len(_GRADIENTS)]
+
+        if img_fn:
             thumb_inner = (
-                f'<img src="blog/images/{slug}/{main_filename}" '
+                f'<img src="blog/images/{slug}/{img_fn}" '
                 f'alt="{title}" style="width:100%;height:100%;object-fit:cover;" loading="lazy">'
             )
         else:
-            category_emoji = {
-                "Painting": "🎨",
-                "Paper Crafts": "✂️",
-                "Yarn & Weaving": "🧵",
-                "Recycled Crafts": "♻️",
-                "Sensory Play": "🌈",
-            }.get(category, "🎨")
-            thumb_inner = category_emoji
+            thumb_inner = label.split()[0]   # just the emoji
 
         cards_html += f"""
-        <article class="craft-card">
-          <a href="blog/{slug}.html" style="display:block;color:inherit;">
-            <div class="craft-thumb" style="background: linear-gradient(135deg, #FECDC5, #FFB8A0);">
-              {thumb_inner}
-            </div>
-            <div class="craft-body">
-              <div class="craft-tag">{category} · {age_range}</div>
-              <h3 class="craft-title">{title}</h3>
-              <div class="craft-meta">
-                <span>⏱ {time_min} min</span>
-                <span>⭐ Beginner</span>
-              </div>
-            </div>
-          </a>
-        </article>"""
+            <article class="craft-card">
+              <a href="blog/{slug}.html" style="display:block;color:inherit;">
+                <div class="craft-thumb" style="background: {grad};">
+                  {thumb_inner}
+                </div>
+                <div class="craft-body">
+                  <div class="craft-tag">{label}</div>
+                  <h3 class="craft-title">{title}</h3>
+                  <div class="craft-meta"><span>⏱ 15 min</span><span>⭐ Beginner</span></div>
+                </div>
+              </a>
+            </article>"""
 
     new_section = f"""<!-- =============================================
        LATEST CRAFTS
@@ -2196,8 +2220,17 @@ def update_homepage_latest_crafts(recent_articles: list) -> None:
         <a href="blog/" class="btn btn-outline btn-sm">View all crafts</a>
       </div>
 
-      <div class="crafts-grid">
-        {cards_html}
+      <div class="crafts-carousel-row">
+        <button class="carousel-btn" id="carouselPrev" aria-label="Previous crafts">&#8249;</button>
+        <div class="crafts-carousel-wrap">
+          <div class="crafts-track" id="craftsTrack">
+{cards_html}
+          </div>
+        </div>
+        <button class="carousel-btn" id="carouselNext" aria-label="Next crafts">&#8250;</button>
+      </div>
+      <div class="carousel-dots-row">
+        <div class="carousel-dots" id="carouselDots"></div>
       </div>
     </div>
   </section>"""
@@ -2209,7 +2242,7 @@ def update_homepage_latest_crafts(recent_articles: list) -> None:
         log.warning("Could not find LATEST CRAFTS section to replace in index.html")
     else:
         HOME_INDEX_FILE.write_text(new_content, encoding="utf-8")
-        log.info("index.html Latest Crafts section updated")
+        log.info("index.html Latest Crafts carousel updated with %d articles", len(all_published))
 
 
 # ---------------------------------------------------------------------------
