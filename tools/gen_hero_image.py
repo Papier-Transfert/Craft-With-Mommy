@@ -11,7 +11,7 @@ from dotenv import load_dotenv
 BASE_DIR = Path(__file__).resolve().parent.parent
 OUTPUT_DIR = BASE_DIR / "images"
 OUTPUT_PATH = OUTPUT_DIR / "hero-lifestyle.webp"
-TARGET_W, TARGET_H = 1400, 933   # ~3:2, wide landscape for hero
+TARGET_W, TARGET_H = 1200, 900   # 4:3 — matches hero section's aspect ratio
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 log = logging.getLogger(__name__)
@@ -45,7 +45,7 @@ def generate_image(client, prompt: str, output_path: Path) -> bool:
         from google.genai import types as genai_types
         from PIL import Image as PILImage
 
-        full_prompt = f"{prompt} Aspect ratio 3:2. Wide rectangular landscape orientation."
+        full_prompt = f"{prompt} Aspect ratio 4:3. Landscape orientation."
         response = client.models.generate_content(
             model="gemini-2.5-flash-image",
             contents=full_prompt,
