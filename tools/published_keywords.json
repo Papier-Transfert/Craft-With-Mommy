@@ -10,7 +10,8 @@
       "paper-plate-crafts",
       "animals",
       "spring-crafts"
-    ]
+    ],
+    "time_minutes": 30
   },
   {
     "keyword": "easy paper plate rainbow fish craft for toddlers",
@@ -23,7 +24,8 @@
       "paper-plate-crafts",
       "animals",
       "summer-crafts"
-    ]
+    ],
+    "time_minutes": 30
   },
   {
     "keyword": "easy paper plate ladybug craft for toddlers",
@@ -36,7 +38,8 @@
       "paper-plate-crafts",
       "animals",
       "spring-crafts"
-    ]
+    ],
+    "time_minutes": 30
   },
   {
     "keyword": "easy paper plate turtle craft for preschoolers",
@@ -49,19 +52,21 @@
       "paper-plate-crafts",
       "animals",
       "summer-crafts"
-    ]
+    ],
+    "time_minutes": 30
   },
   {
     "keyword": "paper flower craft",
     "slug": "paper-flower-craft",
-    "title": "Gorgeous Paper Flower Craft for Kids — So Easy Even Toddlers Can Make a Beautiful Bouquet!",
+    "title": "Gorgeous Paper Flower Craft for Kids \u2014 So Easy Even Toddlers Can Make a Beautiful Bouquet!",
     "date": "March 19, 2026",
     "main_image": "paper-flower-craft.webp",
     "collection": "paper-crafts",
     "collections": [
       "paper-crafts",
       "spring-crafts"
-    ]
+    ],
+    "time_minutes": 35
   },
   {
     "keyword": "craft using paper",
@@ -74,7 +79,8 @@
       "paper-crafts",
       "animals",
       "spring-crafts"
-    ]
+    ],
+    "time_minutes": 25
   },
   {
     "keyword": "christmas paper crafts",
@@ -86,7 +92,8 @@
     "collections": [
       "paper-crafts",
       "christmas-crafts"
-    ]
+    ],
+    "time_minutes": 30
   },
   {
     "keyword": "craft paper pumpkin",
@@ -98,7 +105,8 @@
     "collections": [
       "paper-crafts",
       "fall-crafts"
-    ]
+    ],
+    "time_minutes": 30
   },
   {
     "keyword": "simple paper craft",
@@ -109,6 +117,7 @@
     "collection": "paper-crafts",
     "collections": [
       "paper-crafts"
-    ]
+    ],
+    "time_minutes": 30
   }
 ]

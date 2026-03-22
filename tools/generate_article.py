@@ -378,7 +378,7 @@ Return ONLY valid JSON with this exact structure (no markdown, no explanation):
   "article_title": "...",
   "category": "Painting|Paper Crafts|Yarn & Weaving|Recycled Crafts|Sensory Play",
   "age_range": "Ages 2+|Ages 3+|Ages 4+|Ages 5+",
-  "time_minutes": 15,
+  "time_minutes": <realistic total in minutes including setup, crafting with a child, and cleanup — typically 20–45, do not default to 15 unless the craft is genuinely that quick>,
   "messiness_scale": "Low|Medium|High",
   "step_descriptions": [
     "Brief description of step 1 (for image prompt)",
@@ -453,7 +453,7 @@ Return ONLY valid JSON (no markdown, no explanation):
   "article_title": "...",
   "category": "{col_name}",
   "age_range": "Ages 2+|Ages 3+|Ages 4+|Ages 5+",
-  "time_minutes": 15,
+  "time_minutes": <realistic total in minutes including setup, crafting with a child, and cleanup — typically 20–45, do not default to 15 unless the craft is genuinely that quick>,
   "messiness_scale": "Low|Medium|High",
   "step_descriptions": [
     "Brief description of step 1 (for image prompt)",
@@ -1030,7 +1030,7 @@ def build_article_page(slug: str, article_html: str, keyword_data: dict, pub_dat
   <link rel="icon" type="image/png" href="../brand_assets/craft-with-mommy-favicon-2.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{title} — Craft with Mommy</title>
-  <meta name="description" content="Learn how to make {keyword} with your kids. A simple, fun {category.lower()} craft for {age_range}. Takes only {time_min} minutes!">
+  <meta name="description" content="Learn how to make {keyword} with your kids. A simple, fun {category.lower()} craft for {age_range}. Ready in about {time_min} minutes.">
   <link rel="canonical" href="{canonical_url}">
 
   <!-- Open Graph -->
@@ -1500,7 +1500,7 @@ def build_collection_page(collection_slug: str, all_articles: list) -> str:
               <div class="blog-card-tag">{coll["emoji"]} {coll["name"]}</div>
               <h3 class="blog-card-title">{title}</h3>
               <div class="blog-card-meta">
-                <span>⏱ 15 min</span>
+                <span>⏱ {art.get("time_minutes", 30)} min</span>
                 <span>📅 {date}</span>
               </div>
             </div>
@@ -2630,7 +2630,7 @@ def main():
                 "title": r["slug"].replace("-", " ").title(),
                 "category": "Paper Crafts",
                 "age_range": "Ages 3+",
-                "time_minutes": 15,
+                "time_minutes": r.get("time_minutes", 30),
                 "pub_date": r.get("date", ""),
                 "has_main_image": bool(stored_img),
                 "main_image_filename": stored_img or "main.webp",
