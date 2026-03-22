@@ -292,7 +292,14 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 64px;
-      align-items: center;
+      align-items: stretch;
+      min-height: 500px;
+    }
+
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     /* Hero text */
@@ -344,85 +351,23 @@
     }
     .hero-stat svg { flex-shrink: 0; }
 
-    /* Hero visual: mock craft card */
+    /* Hero visual: lifestyle photo */
     .hero-visual {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 30px 10px;
-    }
-
-    .hero-card-wrap {
       position: relative;
-      width: 100%;
-      max-width: 340px;
-    }
-
-    .hero-craft-card {
-      background: #FFFFFF;
-      border-radius: 22px;
       overflow: hidden;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.11);
+      padding: 0;
+      margin-right: -24px;
     }
 
-    .hero-craft-thumb {
-      height: 190px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 5rem;
-      background: linear-gradient(135deg, #FECDC5 0%, #FFD8B0 100%);
+    .hero-lifestyle-img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.6) 22%, black 42%);
+      mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.6) 22%, black 42%);
     }
-
-    .hero-craft-body {
-      padding: 18px 20px 22px;
-    }
-
-    .hero-craft-tag {
-      font-family: 'Nunito', sans-serif;
-      font-size: 0.72rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      color: #E8856A;
-      margin-bottom: 6px;
-    }
-
-    .hero-craft-title {
-      font-family: 'Nunito', sans-serif;
-      font-size: 1.05rem;
-      font-weight: 800;
-      color: #333;
-      margin-bottom: 10px;
-      line-height: 1.35;
-    }
-
-    .hero-craft-meta {
-      display: flex;
-      gap: 14px;
-      font-size: 0.78rem;
-      color: #bbb;
-    }
-    .hero-craft-meta span { display: flex; align-items: center; gap: 4px; }
-
-    /* Floating badges */
-    .float-badge {
-      position: absolute;
-      background: #FFFFFF;
-      border-radius: 14px;
-      padding: 9px 14px;
-      box-shadow: 0 6px 24px rgba(0,0,0,0.1);
-      font-family: 'Nunito', sans-serif;
-      font-weight: 700;
-      font-size: 0.82rem;
-      color: #444;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      white-space: nowrap;
-    }
-    .float-badge-tl { top: -14px; right: -14px; }
-    .float-badge-br { bottom: -18px; left: -18px; }
 
     /* =============================================
        PROMISE STRIP
@@ -1050,31 +995,13 @@
           </div>
         </div>
 
-        <!-- Right: Mock craft card -->
+        <!-- Right: Lifestyle photo -->
         <div class="hero-visual" aria-hidden="true">
-          <div class="hero-card-wrap">
-            <!-- Floating badge top-right -->
-            <div class="float-badge float-badge-tl">
-              💚 No mess tips included
-            </div>
-
-            <div class="hero-craft-card">
-              <div class="hero-craft-thumb">🎨</div>
-              <div class="hero-craft-body">
-                <div class="hero-craft-tag">Painting · Ages 2+</div>
-                <div class="hero-craft-title">Finger Painting Rainbow, Easy &amp; Adorable!</div>
-                <div class="hero-craft-meta">
-                  <span>⏱ 10 min</span>
-                  <span>⭐ Beginner</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Floating badge bottom-left -->
-            <div class="float-badge float-badge-br">
-              🏆 Always a cute result
-            </div>
-          </div>
+          <img class="hero-lifestyle-img"
+               src="images/hero-lifestyle.webp"
+               alt=""
+               width="1400" height="933"
+               loading="eager" decoding="async">
         </div>
 
       </div>
