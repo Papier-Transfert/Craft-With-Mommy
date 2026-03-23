@@ -58,7 +58,7 @@
   {
     "keyword": "paper flower craft",
     "slug": "paper-flower-craft",
-    "title": "Gorgeous Paper Flower Craft for Kids \u2014 So Easy Even Toddlers Can Make a Beautiful Bouquet!",
+    "title": "Gorgeous Paper Flower Craft for Kids — So Easy Even Toddlers Can Make a Beautiful Bouquet!",
     "date": "March 19, 2026",
     "main_image": "paper-flower-craft.webp",
     "collection": "paper-crafts",
@@ -119,5 +119,17 @@
       "paper-crafts"
     ],
     "time_minutes": 30
+  },
+  {
+    "keyword": "snowflake paper craft",
+    "slug": "snowflake-paper-craft",
+    "title": "Magical Snowflake Paper Craft for Kids – Easy Winter Fun They'll Want to Make Again and Again!",
+    "date": "March 23, 2026",
+    "main_image": "snowflake-paper-craft.webp",
+    "collection": "paper-crafts",
+    "collections": [
+      "paper-crafts",
+      "winter-crafts"
+    ]
   }
 ]
