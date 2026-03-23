@@ -987,7 +987,7 @@ def build_article_page(slug: str, article_html: str, keyword_data: dict, pub_dat
     time_min = keyword_data["time_minutes"]
     messiness = keyword_data["messiness_scale"]
     keyword = keyword_data["primary_keyword"]
-    canonical_url = f"https://craft-with-mommy.com/blog/{slug}.html"
+    canonical_url = f"https://www.craft-with-mommy.com/blog/{slug}.html"
 
     messiness_emoji = {"Low": "💧", "Medium": "💦", "High": "🌊"}.get(messiness, "💧")
     category_emoji = {
@@ -1027,7 +1027,7 @@ def build_article_page(slug: str, article_html: str, keyword_data: dict, pub_dat
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="icon" type="image/png" href="../brand_assets/craft-with-mommy-favicon-2.png">
+  <link rel="icon" type="image/png" href="/brand_assets/craft-with-mommy-favicon-2.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{title} — Craft with Mommy</title>
   <meta name="description" content="Learn how to make {keyword} with your kids. A simple, fun {category.lower()} craft for {age_range}. Ready in about {time_min} minutes.">
@@ -1536,11 +1536,11 @@ def build_collection_page(collection_slug: str, all_articles: list) -> str:
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="icon" type="image/png" href="../brand_assets/craft-with-mommy-favicon-2.png">
+  <link rel="icon" type="image/png" href="/brand_assets/craft-with-mommy-favicon-2.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{col["name"]} — Craft with Mommy</title>
   <meta name="description" content="{col["description"]}">
-  <link rel="canonical" href="https://craft-with-mommy.com/blog/{col["page"]}">
+  <link rel="canonical" href="https://www.craft-with-mommy.com/blog/{col["page"]}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
@@ -1806,11 +1806,11 @@ BLOG_INDEX_TEMPLATE = """<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="icon" type="image/png" href="../brand_assets/craft-with-mommy-favicon-2.png">
+  <link rel="icon" type="image/png" href="/brand_assets/craft-with-mommy-favicon-2.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>All Craft Ideas — Craft with Mommy</title>
   <meta name="description" content="Browse all our simple, foolproof craft ideas for moms and kids. New articles published daily!">
-  <link rel="canonical" href="https://craft-with-mommy.com/blog/">
+  <link rel="canonical" href="https://www.craft-with-mommy.com/blog/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
