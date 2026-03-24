@@ -32,17 +32,17 @@
   {
     "keyword": "5 minute crafts with paper easy",
     "collection": "paper-crafts",
-    "used": false
+    "used": true
   },
   {
     "keyword": "cool paper crafts",
     "collection": "paper-crafts",
-    "used": false
+    "used": true
   },
   {
     "keyword": "halloween crafts using construction paper",
     "collection": "paper-crafts",
-    "used": false
+    "used": true
   },
   {
     "keyword": "paper arts and crafts",
@@ -1373,5 +1373,15 @@
     "keyword": "snowman craft with toilet paper roll",
     "collection": "recycled-crafts",
     "used": false
+  },
+  {
+    "keyword": "easy paper plate butterfly craft for preschoolers",
+    "collection": "paper-plate-crafts",
+    "used": true
+  },
+  {
+    "keyword": "easy paper plate rainbow fish craft for toddlers",
+    "collection": "paper-plate-crafts",
+    "used": true
   }
 ]
