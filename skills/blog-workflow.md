@@ -100,3 +100,12 @@ Before finishing, verify:
 - If the site uses a card array, manifest, JSON file, template include, or other source of truth for article listings, update that source as part of the workflow
 - The article is not considered fully published if it exists at its direct URL but does not appear in the site listings
 - Do not treat publish as complete until the article is discoverable from the site’s main listing and the correct collection page
+
+- After the article HTML is written:
+1. Add the article card to the correct collection pages using <!-- ARTICLE_CARDS_START -->.
+2. Add the article card to blog/index.html using <!-- ARTICLE_CARDS_START -->.
+3. Update the homepage carousel at /index.html:
+   - insert the new card as the first item in <div class="crafts-track" id="craftsTrack">
+   - remove the last card so the total stays exactly 9
+4. Move the keyword from unused-keywords.txt to used-keywords.txt.
+5. Run QA. The article is not complete until QA passes.
