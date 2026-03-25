@@ -721,12 +721,12 @@ Recommended structure example:
 <div class="supply-list-box">
   <ul>
     <li><a href="https://www.amazon.com/dp/[ASIN]?tag=craftwithmomm-20"
-      rel="nofollow sponsored" target="_blank">[Product name]</a>
-      — [short practical note]</li>
+      rel="nofollow sponsored" target="_blank">[Product name]</a>,
+      [short practical note]</li>
     <li><a href="https://www.amazon.com/dp/[ASIN]?tag=craftwithmomm-20"
-      rel="nofollow sponsored" target="_blank">[Product name]</a>
-      — [short practical note]</li>
-    <li>[Obvious household item] — [short practical note, no affiliate link needed]</li>
+      rel="nofollow sponsored" target="_blank">[Product name]</a>,
+      [short practical note]</li>
+    <li>[Obvious household item], [short practical note, no affiliate link needed]</li>
   </ul>
 </div>
 ```
