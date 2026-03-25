@@ -415,6 +415,49 @@ Examples:
   - Paper Plate Crafts
   - Animal Crafts
   - Christmas Crafts
+ 
+    ## Homepage Carousel
+
+After updating the collection pages, also update the homepage carousel at `/index.html`
+(this is the root index file, NOT blog/index.html).
+
+The carousel is inside:
+  <!-- LATEST CRAFTS -->
+  <div class="crafts-track" id="craftsTrack">
+
+It must always contain exactly 9 articles — the 9 most recently published.
+
+Steps:
+1. Read `/index.html` and find the `<div class="crafts-track" id="craftsTrack">` block.
+2. Count the current `<article class="craft-card">` elements inside it. There should be 9.
+3. Insert the new article as the FIRST card, immediately after the opening
+   `<div class="crafts-track" id="craftsTrack">` line.
+4. Delete the LAST `<article class="craft-card">` element (the one that becomes
+   the 10th after the insertion).
+5. Confirm the block now contains exactly 9 cards.
+
+The correct card format for this carousel is:
+
+<article class="craft-card">
+  <a href="blog/[slug].html" style="display:block;color:inherit;">
+    <div class="craft-thumb" style="background: linear-gradient(135deg, #[color1], #[color2]);">
+      <img src="blog/images/[slug]/[hero-image-filename].webp"
+           alt="[full article title]"
+           style="width:100%;height:100%;object-fit:cover;" loading="lazy">
+    </div>
+    <div class="craft-body">
+      <div class="craft-tag">[collection emoji] [collection name]</div>
+      <h3 class="craft-title">[full article title]</h3>
+      <div class="craft-meta"><span>⏱ 15 min</span><span>⭐ Beginner</span></div>
+    </div>
+  </a>
+</article>
+
+Choose a distinct pastel gradient for the new card that is not already used by
+another card currently in the carousel.
+
+Do not change anything else in `/index.html`. Do not touch the carousel CSS,
+JavaScript, structure, or any other section of the page.
 
 ## Article Title
 
