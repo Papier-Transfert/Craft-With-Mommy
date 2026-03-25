@@ -47,6 +47,21 @@ Verify all of the following:
 - final images are WEBP
 - final images are 1200 × 900
 - the article has been assigned to the correct collections
+- the homepage carousel at `/index.html` has been updated with the new article
+- the new article appears as the first `<article class="craft-card">` inside
+  `<div class="crafts-track" id="craftsTrack">`
+- the carousel contains exactly 9 cards — not 8, not 10
+- the oldest card (formerly the 9th) has been removed
+- QA fails if the carousel was not updated, or if the count is not exactly 9
+
+- no affiliate link contains an ASIN that was recalled from memory without
+  being verified in this session via WebSearch
+- every /dp/ASIN link has been confirmed: the product page title and category
+  match the intended supply item
+- QA fails if any affiliate link is broken, irrelevant, mismatched, or points
+  to a product in the wrong category
+- QA fails if a supply item has no affiliate link only because verification
+  was skipped — either verify or omit, never guess
 
   ### Image Border and Framing QA Checks
 
