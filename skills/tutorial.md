@@ -638,6 +638,26 @@ Use good judgment.
 
 Affiliate links should feel helpful, not forced. Only link items where the link is genuinely useful to the mom reading the article.
 
+## Amazon Affiliate Links
+
+Rules that cannot be broken:
+
+- Never invent or guess an ASIN. An ASIN is a 10-character Amazon product code.
+  You cannot verify what an ASIN points to without browsing Amazon directly.
+  Any ASIN recalled from training memory must be treated as unverified and potentially wrong.
+- Never use a /dp/ASIN URL unless you have actively verified — in this session,
+  using WebSearch — that the product page title matches the intended supply item exactly.
+- If you cannot verify an ASIN, do not add an affiliate link for that item.
+  Write the supply item as plain text with no link. A missing link is always
+  better than a broken or irrelevant link.
+- A link that points to the wrong product — even a plausible-looking one — is
+  an error. A link pointing to the wrong product category (e.g., a DVD instead
+  of scissors) is a critical error.
+- All affiliate links that do pass verification must include:
+  - ?tag=craftwithmomm-20
+  - rel="nofollow sponsored"
+  - target="_blank"
+
 ## Supply List Style Rules
 
 The "What You'll Need" section must feel extremely clear and scannable.
