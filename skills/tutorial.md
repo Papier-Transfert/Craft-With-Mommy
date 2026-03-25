@@ -841,6 +841,18 @@ All tutorial images must be generated with strong visual consistency, correct di
 - After cropping, resize the final image to 1200 × 900
 - Never flatten, distort, or compress the image unnaturally just to force the size
 
+ ### No Padding / No Letterboxing Rules for all the images
+
+- Final images must visually fill the full 1200 × 900 frame edge to edge
+- Never save an image with white, transparent, or empty bands at the top, bottom, left, or right just to force the size
+- Never use padding, canvas extension, or contain-style fitting to reach 1200 × 900
+- If an image has blank borders, crop them out cleanly before saving
+- Use crop-to-fill behavior, not fit-with-padding behavior
+- The craft photo must fill the whole frame like a real photo, not sit as a smaller image inside a larger blank canvas
+- Rounded corners must come from the site CSS only, so the visible image content itself must reach the edges of the frame
+- If cropping would damage the composition or cut off the craft awkwardly, regenerate the image with a better prompt instead of padding it
+- Reject any image that looks letterboxed, pillarboxed, pasted onto a blank background, or visually surrounded by empty space
+
 ## File Format Rules
 
 - Convert every final article image to WEBP.
