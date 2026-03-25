@@ -35,13 +35,23 @@ Verify all of the following:
 - the primary keyword appears in the permalink
 - the permalink is short, clear, and ideally under 75 characters
 - the search-result title includes the primary keyword clearly
-- the meta description is present and under 300 characters
+- the `<title>` tag is under 60 characters
+- the primary keyword appears in the first 50 characters of the title
+- the meta description is present and under 155 characters (Google truncates around 155)
+- a canonical URL tag is present: `<link rel="canonical" href="https://www.craft-with-mommy.com/blog/[slug].html">`
+- all six Open Graph tags are present: og:type, og:title, og:description, og:url, og:site_name, og:image
+- og:title matches the article `<title>` tag
+- og:description matches the meta description
+- og:image points to the hero image of the article
 - the article uses clean semantic HTML
 - there are no placeholders left in the final article
-- no em dashes appear anywhere
+- no em dashes appear anywhere in the article
 - bold keyword usage is natural and not excessive
-- affiliate links are real and use the tag `craftwithmomm-20`
-- affiliate links point to real, specific Amazon product pages
+- the article contains between 3 and 8 emojis total
+- every affiliate link uses the tag `craftwithmomm-20`
+- every affiliate link uses the `/dp/ASIN` format, not a generic search URL
+- ASIN accuracy cannot be verified during QA — it depends on the writing skill's ASIN verification rule having been followed during article creation. If there is reason to believe an ASIN was not verified via WebSearch at write time, flag it for manual review.
+- tutorials use HowTo JSON-LD schema; roundups use Article JSON-LD schema — QA fails if the schema type is missing or wrong for the article type
 - image filenames are descriptive and SEO-friendly
 - image alt text is descriptive and useful
 - final images are WEBP
@@ -86,6 +96,7 @@ If the article is a tutorial, verify all of the following:
 - "Why Kids Love This Craft" section is present and useful
 - secondary image matches that section
 - "What You'll Need" includes all real required materials
+- there is a short intro sentence before the supply list in "What You'll Need"
 - affiliate links are helpful and not forced
 - the tutorial includes between 5 and 10 steps
 - there is a short intro paragraph under "Step-by-Step Instructions" before Step 1
@@ -94,9 +105,12 @@ If the article is a tutorial, verify all of the following:
 - each step image matches exactly the corresponding step
 - step images are not shifted by one step
 - the craft remains visually consistent across all step images
-- "Variations to Try" is present and useful
+- "Variations to Try" is present and each variation meaningfully adapts the craft (different age, material, theme, or technique — not just a different color). If any variation is weak, it must be removed rather than kept.
 - "Final Thoughts" is warm and encouraging
 - "More Crafts You'll Love" contains exactly 2 relevant internal links
+- every internal link in "More Crafts You'll Love" points to a slug listed in `/tools/used-keywords.txt`
+- the article ends on a warm, encouraging note
+- article word count is between 1200 and 2900 words
 
 # Roundup-Specific Checks
 
@@ -119,7 +133,9 @@ If the article is a roundup, verify all of the following:
 - every idea image matches its exact idea
 - "Final Thoughts" is present
 - "More Crafts You'll Love" contains exactly 2 relevant internal links
+- every internal link in "More Crafts You'll Love" points to a slug listed in `/tools/used-keywords.txt`
 - the article ends on a warm, friendly note
+- article word count is between 1200 and 2900 words
 
   ### Listing and Collection QA Checks
 
@@ -127,6 +143,9 @@ If the article is a roundup, verify all of the following:
 - Fail if the new article does not appear on its main craft collection page
 - Fail if the article should appear in a seasonal or thematic collection but is missing there
 - Verify that the article card uses the correct title, slug, hero image, category, date, and metadata
+- Fail if the homepage carousel at `/index.html` was not updated
+- Fail if the new article is not the first `<article class="craft-card">` inside `<div class="crafts-track" id="craftsTrack">`
+- Fail if the carousel contains more or fewer than exactly 9 cards
 - Do not finalize or commit until discoverability is confirmed
 
 # Output Behavior

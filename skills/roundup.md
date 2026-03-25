@@ -22,11 +22,11 @@ A roundup article is always about a list of craft ideas, not one single craft.
 
 # Competitive Standard
 
-- Before writing, mentally benchmark the typical top-ranking articles for the keyword
-- Identify their common strengths and weaknesses
-- Make this article more practical, clearer, warmer, and more useful than the average competing article
-- The article must provide stronger real-life value, more useful craft ideas, and a stronger emotional connection for moms
-- The goal is not just to match competing roundup articles, but to outperform them in usefulness, clarity, warmth, and structure
+- If web access is available, use WebSearch to review the top-ranking articles for the keyword. Identify their common strengths and weaknesses.
+- Make this article more practical, clearer, warmer, and more useful than the average competing article.
+- The article must provide stronger real-life value, more useful craft ideas, and a stronger emotional connection for moms.
+- The goal is not just to match competing roundup articles, but to outperform them in usefulness, clarity, warmth, and structure.
+- If web access is not available, skip the benchmarking step and focus on writing with real practical depth, warmth, and a strong idea count.
 
 ------------------------------------------------------
 
@@ -189,7 +189,9 @@ It must always make her feel:
 - Be emotionally warm, but never cheesy or overdone
 - Be encouraging, but not exaggerated
 - Never sound clinical, academic, robotic, or overly optimized for SEO
-- Do not use em dashes anywhere
+- Do not use em dashes anywhere in the article body, headings, titles, breadcrumbs, or metadata
+- Do not use em dashes anywhere in this article, including the supply list.
+- In supply list bullets, use a comma to separate the product name from the practical note: `[Product name], [practical note]`.
 - Keep the article beginner-friendly from beginning to end
 - The article should feel human, warm, and practical
 - The article should feel like friendly guidance, not a lecture
@@ -246,7 +248,8 @@ It must always make her feel:
 # Search Result Title Rules
 
 - The article must have a search-result title that is optimized for Google visibility
-- The primary keyword must appear clearly in the visible Google title
+- The `<title>` tag must stay under 60 characters. Google truncates titles beyond this length in search results.
+- The primary keyword must appear in the first 50 characters of the title
 - Do not place the primary keyword so late in the title that it may be truncated in search results
 - If needed, rewrite the SEO title so the primary keyword appears earlier and more clearly
 - The Google-facing title should stay natural, compelling, and aligned with the article topic
@@ -258,14 +261,66 @@ It must always make her feel:
 
 ------------------------------------------------------
 
+# JSON-LD Schema Rules
+
+Roundup articles must use Article schema. Do not use HowTo schema for roundups.
+
+Required fields:
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "name": "[article title]",
+  "description": "[meta description text]",
+  "author": { "@type": "Organization", "name": "Craft with Mommy" },
+  "publisher": { "@type": "Organization", "name": "Craft with Mommy" },
+  "datePublished": "[YYYY-MM-DD]",
+  "url": "https://www.craft-with-mommy.com/blog/[slug].html"
+}
+```
+
+- Place the JSON-LD block inside a `<script type="application/ld+json">` tag in the `<head>`.
+
+------------------------------------------------------
+
 # Meta Description Rules
 
 - Create a meta description for every roundup article
 - The meta description can be based on the intro, but it should be polished for search results
 - It must stay clear, natural, and relevant to the article
 - It should usually include the primary keyword when natural
-- Keep it under 300 characters
+- Keep it under 155 characters. Google truncates meta descriptions at around 155 characters — anything longer will be cut off in search results.
 - It should make the article sound useful, simple, and worth clicking
+
+------------------------------------------------------
+
+# Required Head Elements
+
+Every roundup article must include the following in its `<head>`:
+
+## Canonical URL
+
+```html
+<link rel="canonical" href="https://www.craft-with-mommy.com/blog/[slug].html">
+```
+
+## Open Graph Tags
+
+```html
+<meta property="og:type" content="article">
+<meta property="og:title" content="[article title]">
+<meta property="og:description" content="[meta description text]">
+<meta property="og:url" content="https://www.craft-with-mommy.com/blog/[slug].html">
+<meta property="og:site_name" content="Craft with Mommy">
+<meta property="og:image" content="https://www.craft-with-mommy.com/blog/images/[slug]/[slug].webp">
+```
+
+Rules:
+- `og:title` must match the article `<title>` tag
+- `og:description` must match the meta description
+- `og:image` must point to the hero image of the article
+- All six tags are required. Do not omit any of them.
 
 ------------------------------------------------------
 
@@ -287,7 +342,9 @@ It must always make her feel:
 - The article must include between 10 and 30 ideas
 - Never publish fewer than 10 ideas
 - Never publish more than 30 ideas
-- Choose the number of ideas that gives the strongest quality and value
+- If the keyword includes a specific number (e.g., "top 10", "25 best"), use exactly that number
+- If the keyword does not include a number, default to 20 ideas
+- Only reduce below 20 if the theme genuinely cannot support 20 distinct, quality ideas
 - If quality would drop by adding more ideas, use fewer ideas
 - Every idea must be genuinely useful and distinct
 - Do not add filler ideas just to hit a higher number
@@ -345,6 +402,7 @@ Important:
 - Do not copy its wording, topic, or exact phrasing
 - Use it as the structural reference for layout, section order, per-idea formatting, and overall presentation quality
 - Follow its structure as closely as possible when building future roundup articles
+- If any detail in the reference article conflicts with the written rules in this skill, the written rules take precedence. The reference article is for structural inspiration only.
 
 ------------------------------------------------------
 
@@ -548,7 +606,7 @@ Rules:
 
 Display the publication date directly below the title.
 
-The publication date must follow the existing Craft with Mommy roundup article style.
+Display the publication date in this exact format: `Month Day, Year` — example: `March 25, 2026`
 
 ------------------------------------------------------
 
@@ -641,12 +699,8 @@ For roundup articles:
 - Every Amazon affiliate link must include the exact tag `craftwithmomm-20`
 - Every affiliate link must point to a specific Amazon product page, not to a generic category page, homepage, or vague search page
 - Choose products that are genuinely relevant to the exact tool or material mentioned in the article
-- Prefer highly trusted products with strong social proof
-- Each linked product should ideally have:
-  - at least 4.0 stars
-  - at least 50 customer reviews
-- Prefer products with the highest number of strong reviews when they are a good fit
-- Prioritize products that feel like best-seller, high-confidence choices for moms
+- Prefer well-known brands and products that are widely used by parents and crafters
+- Prioritize products that feel like confident, best-seller choices a mom would trust
 - The linked product must match the material or tool described in the supply list as closely as possible
 - Do not link to low-quality, weakly reviewed, or irrelevant products just to add an affiliate link
 - If no strong and relevant Amazon product is found for a specific item, do not force an affiliate link for that item
@@ -664,25 +718,15 @@ Affiliate links should feel helpful, not forced.
 
 Only link items where the link is genuinely useful to the mom reading the article.
 
-## Amazon Affiliate Links
+## ASIN Verification Requirement
 
-Rules that cannot be broken:
+This rule is critical and non-negotiable:
 
-- Never invent or guess an ASIN. An ASIN is a 10-character Amazon product code.
-  You cannot verify what an ASIN points to without browsing Amazon directly.
-  Any ASIN recalled from training memory must be treated as unverified and potentially wrong.
-- Never use a /dp/ASIN URL unless you have actively verified — in this session,
-  using WebSearch — that the product page title matches the intended supply item exactly.
-- If you cannot verify an ASIN, do not add an affiliate link for that item.
-  Write the supply item as plain text with no link. A missing link is always
-  better than a broken or irrelevant link.
-- A link that points to the wrong product — even a plausible-looking one — is
-  an error. A link pointing to the wrong product category (e.g., a DVD instead
-  of scissors) is a critical error.
-- All affiliate links that do pass verification must include:
-  - ?tag=craftwithmomm-20
-  - rel="nofollow sponsored"
-  - target="_blank"
+- Never invent, guess, or recall an ASIN from training memory. ASINs are 10-character Amazon product codes. Those recalled from training data are unverified and may point to completely wrong products, discontinued listings, or unrelated categories (e.g., a DVD instead of construction paper).
+- Before using any `/dp/ASIN` URL, use WebSearch to find the correct product on Amazon. Search for the supply item by name, navigate to the correct product page, and copy the ASIN from the live page URL.
+- Confirm that the product page title and product category exactly match the intended supply item before using the ASIN.
+- If you cannot verify an ASIN via WebSearch in this session, do not add an affiliate link for that item. List the supply item as plain text with no link instead.
+- A supply item with no affiliate link is always better than a link pointing to the wrong product.
 
 ------------------------------------------------------
 
@@ -833,6 +877,7 @@ Rules:
 - Link only to relevant articles
 - Keep this section short and clean
 - This section is for helpful internal discovery, not clutter
+- Before adding any internal link, verify that the target slug exists in `/tools/used-keywords.txt`. Only link to slugs that are listed there. Do not link from memory.
 
 Recommended structure example:
 
@@ -963,58 +1008,19 @@ Examples:
 
 ------------------------------------------------------
 
-# Final Self-Check Before Finishing
+# Final Quality Check
 
-Before considering the roundup article complete, verify all of the following:
+Before considering this article complete, run the `qa` skill.
 
-- this is truly a roundup / ideas article, not a single-craft tutorial
-- the keyword was taken from `/tools/unused-keywords.txt`
-- the keyword was not invented or reused from memory
-- once the article is fully completed, the keyword is removed from `/tools/unused-keywords.txt`
-- once the article is fully completed, the keyword is added to `/tools/used-keywords.txt`
-- the article includes between 10 and 30 ideas
-- if the title promises a specific number, the article contains exactly that number of ideas
-- the breadcrumb is present and stays on one line
-- the mobile breadcrumb title truncates with an ellipsis if too long
-- only the category pill appears at the top
-- no global age, time, or messiness pills appear at the top
-- the main craft category is accurate
-- the article is assigned to the correct craft collection
-- the article is assigned to the correct seasonal collection when relevant
-- the article is assigned to Animal Crafts when relevant
-- the title is natural and not stuffed
-- the title is the only `<h1>` on the page
-- the publication date is present
-- the hero image matches the roundup theme accurately
-- the intro is short, warm, and natural
-- the "What You'll Need" section includes useful broad supplies for most of the ideas
-- affiliate links are present where useful and omitted where unnecessary
-- every Amazon affiliate link uses the tag `craftwithmomm-20`
-- every affiliate link points to a real, specific Amazon product page
-- no fake affiliate links are used
-- no placeholders remain
-- every idea includes:
-  - a correct h3 title
-  - a useful paragraph
-  - realistic age / time / messiness badges
-  - an image
-- every image appears after the badges, not before
-- every idea image matches its exact idea
-- every image was requested in 4:3 landscape format
-- every final image was saved at 1200 × 900
-- every final image was converted to WEBP
-- every image filename is short, natural, descriptive, and SEO-friendly
-- image filenames do not use vague or generic names
-- alt text is descriptive and specific for every image
-- the primary keyword appears in the article URL / permalink
-- the permalink is short, clear, and ideally under 75 characters
-- the Google-facing title clearly includes the primary keyword
-- the primary keyword is not placed too late in the search-result title
-- a meta description is present and stays under 300 characters
-- exactly 2 internal links appear in "More Crafts You'll Love"
-- the article ends on a warm, friendly note
-- no em dashes appear anywhere
-- bold keywords are natural and only used in body text
-- the article feels like Craft with Mommy
+Do not finalize the article until it passes all checks in `qa.md`. The `qa` skill is the single source of truth for all final checks.
 
-Do not finalize the article until all of these checks pass.
+# Post-Publish Listing Requirement
+
+The article is not complete until all listing updates from the `blog-workflow` skill have been applied:
+
+1. New article card added to `/blog/index.html`
+2. New article card added to the correct craft collection page
+3. New article card added to any applicable seasonal collection page
+4. Homepage carousel at `/index.html` updated (insert new card first, remove last card, keep exactly 9)
+
+If this skill was invoked directly without `blog-workflow`, run the `blog-workflow` Post-Publish Listing Update Rules now before considering the article finished.

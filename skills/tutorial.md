@@ -14,10 +14,10 @@ Do not use this skill for roundup / ideas articles.
 
 # Competitive Standard
 
-- Before writing, mentally benchmark the typical top-ranking articles for the keyword.
-- Identify their common strengths and weaknesses.
+- If web access is available, use WebSearch to review the top-ranking articles for the keyword. Identify their common strengths and weaknesses.
 - Make this article more practical, clearer, warmer, and more useful than the average competing article.
 - The goal is not just to match competitors, but to outperform them in usefulness, clarity, warmth, and structure.
+- If web access is not available, skip the benchmarking step and focus on writing with real practical depth, warmth, and clarity.
 
 # Brand Context
 
@@ -162,7 +162,8 @@ It must always make her feel:
 - Be emotionally warm, but never cheesy or overdone.
 - Be encouraging, but not exaggerated.
 - Never sound clinical, academic, robotic, or overly optimized for SEO.
-- Do not use em dashes anywhere.
+- Do not use em dashes anywhere in the article body, headings, titles, breadcrumbs, metadata, or supply list.
+- In supply list bullets, use a comma to separate the product name from the practical note: `[Product name], [practical note]`.
 - Keep the article beginner-friendly from beginning to end.
 - The article should feel human, warm, practical, and easy to follow.
 - Avoid stiff phrasing, generic filler, or anything that sounds like a lecture, worksheet, therapist note, or SEO robot.
@@ -208,11 +209,37 @@ It must always make her feel:
 # Search Result Title Rules
 
 - The article must have a search-result title that is optimized for Google visibility.
-- The primary keyword must appear clearly in the visible Google title.
+- The `<title>` tag must stay under 60 characters. Google truncates titles beyond this length in search results.
+- The primary keyword must appear in the first 50 characters of the title.
 - Do not place the primary keyword so late in the title that it may be truncated in search results.
 - If needed, rewrite the SEO title so the primary keyword appears earlier and more clearly.
 - The Google-facing title should stay natural, compelling, and aligned with the article topic.
 - The H1 and the SEO title can be similar, but the SEO title may be adjusted for stronger search visibility.
+
+# JSON-LD Schema Rules
+
+Tutorial articles must use HowTo schema. Do not use Article schema for tutorials.
+
+Required fields:
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "[article title]",
+  "description": "[meta description text]",
+  "step": [
+    { "@type": "HowToStep", "text": "[step 1 description]" },
+    { "@type": "HowToStep", "text": "[step 2 description]" }
+  ],
+  "author": { "@type": "Organization", "name": "Craft with Mommy" },
+  "publisher": { "@type": "Organization", "name": "Craft with Mommy" }
+}
+```
+
+- Include one HowToStep entry for each written step in the tutorial.
+- The step text should match the corresponding step paragraph in the article.
+- Place the JSON-LD block inside a `<script type="application/ld+json">` tag in the `<head>`.
 
 # Meta Description Rules
 
@@ -220,8 +247,35 @@ It must always make her feel:
 - The meta description can be based on the intro, but it should be polished for search results.
 - It must stay clear, natural, and relevant to the article.
 - It should usually include the primary keyword when natural.
-- Keep it under 300 characters.
+- Keep it under 155 characters. Google truncates meta descriptions at around 155 characters — anything longer will be cut off in search results.
 - It should make the article sound useful, simple, and worth clicking.
+
+# Required Head Elements
+
+Every tutorial article must include the following in its `<head>`:
+
+## Canonical URL
+
+```html
+<link rel="canonical" href="https://www.craft-with-mommy.com/blog/[slug].html">
+```
+
+## Open Graph Tags
+
+```html
+<meta property="og:type" content="article">
+<meta property="og:title" content="[article title]">
+<meta property="og:description" content="[meta description text]">
+<meta property="og:url" content="https://www.craft-with-mommy.com/blog/[slug].html">
+<meta property="og:site_name" content="Craft with Mommy">
+<meta property="og:image" content="https://www.craft-with-mommy.com/blog/images/[slug]/[slug].webp">
+```
+
+Rules:
+- `og:title` must match the article `<title>` tag
+- `og:description` must match the meta description
+- `og:image` must point to the hero image of the article
+- All six tags are required. Do not omit any of them.
 
 # Article Length Rules
 
@@ -279,6 +333,7 @@ Important:
 - Do not copy its wording, topic, or exact phrasing.
 - Use it as the structural reference for layout, section order, top-of-article organization, and overall presentation quality.
 - Follow its structure as closely as possible when building future tutorial articles.
+- If any detail in the reference article conflicts with the written rules in this skill, the written rules take precedence. The reference article is for structural inspiration only.
 
 # Article Structure
 
@@ -355,8 +410,9 @@ Choose the category that best matches the craft shown in the article.
 Every tutorial article must be assigned to:
 
 1. one main craft collection
-2. one seasonal collection
-3. Animal Crafts as an additional thematic collection when relevant
+2. Animal Crafts as an additional thematic collection when relevant
+
+A seasonal collection is optional. Assign to a seasonal collection only when the craft has a clear seasonal or holiday theme (e.g., Christmas, Halloween, Spring). If the craft is evergreen with no obvious seasonal angle, skip the seasonal collection assignment entirely.
 
 ### Main Craft Collection
 
@@ -375,9 +431,9 @@ Rules:
 - Do not choose randomly.
 - The collection must match the actual craft shown in the article.
 
-### Seasonal Collection
+### Seasonal Collection (optional)
 
-Each article must also be assigned to the most relevant seasonal collection based on the theme of the craft.
+If the craft has a clear seasonal or holiday theme, assign it to the most relevant seasonal collection.
 
 Available seasonal collections:
 
@@ -389,10 +445,11 @@ Available seasonal collections:
 
 Rules:
 
-- Choose the season that fits the craft theme most naturally.
+- Only assign when the craft theme clearly matches a season or holiday.
 - Use the strongest thematic match.
-- Do not force an illogical seasonal category.
+- Do not force an evergreen craft into a seasonal category.
 - Christmas-themed crafts must go in Christmas Crafts.
+- If no season fits naturally, skip this collection entirely.
 
 ### Additional Thematic Collection
 
@@ -476,7 +533,7 @@ Rules:
 
 Display the publication date directly below the title.
 
-The publication date must follow the existing Craft with Mommy article style.
+Display the publication date in this exact format: `Month Day, Year` — example: `March 25, 2026`
 
 ## Hero Image
 
@@ -558,7 +615,7 @@ After the "Why Kids Love This Craft" section, place one image.
 
 Rules:
 
-- This image should usually show a mom and child at the craft table, or a child engaging with the craft naturally.
+- This image must show either a mom and child doing this specific craft together, or a child clearly engaged with the materials for this craft. A generic family photo or unrelated child photo is not acceptable here.
 - It must match the craft and the tone of the article.
 - It must feel warm, realistic, and emotionally aligned with the section.
 - It should reinforce the feeling of a sweet shared moment.
@@ -616,12 +673,8 @@ For tutorial articles:
 - Every Amazon affiliate link must include the exact tag `craftwithmomm-20`
 - Every affiliate link must point to a specific Amazon product page, not to a generic category page, homepage, or vague search page
 - Choose products that are genuinely relevant to the exact tool or material mentioned in the article
-- Prefer highly trusted products with strong social proof
-- Each linked product should ideally have:
-  - at least 4.0 stars
-  - at least 50 customer reviews
-- Prefer products with the highest number of strong reviews when they are a good fit
-- Prioritize products that feel like best-seller, high-confidence choices for moms
+- Prefer well-known brands and products that are widely used by parents and crafters
+- Prioritize products that feel like confident, best-seller choices a mom would trust
 - The linked product must match the material or tool described in the supply list as closely as possible
 - Do not link to low-quality, weakly reviewed, or irrelevant products just to add an affiliate link
 - If no strong and relevant Amazon product is found for a specific item, do not force an affiliate link for that item
@@ -638,25 +691,15 @@ Use good judgment.
 
 Affiliate links should feel helpful, not forced. Only link items where the link is genuinely useful to the mom reading the article.
 
-## Amazon Affiliate Links
+## ASIN Verification Requirement
 
-Rules that cannot be broken:
+This rule is critical and non-negotiable:
 
-- Never invent or guess an ASIN. An ASIN is a 10-character Amazon product code.
-  You cannot verify what an ASIN points to without browsing Amazon directly.
-  Any ASIN recalled from training memory must be treated as unverified and potentially wrong.
-- Never use a /dp/ASIN URL unless you have actively verified — in this session,
-  using WebSearch — that the product page title matches the intended supply item exactly.
-- If you cannot verify an ASIN, do not add an affiliate link for that item.
-  Write the supply item as plain text with no link. A missing link is always
-  better than a broken or irrelevant link.
-- A link that points to the wrong product — even a plausible-looking one — is
-  an error. A link pointing to the wrong product category (e.g., a DVD instead
-  of scissors) is a critical error.
-- All affiliate links that do pass verification must include:
-  - ?tag=craftwithmomm-20
-  - rel="nofollow sponsored"
-  - target="_blank"
+- Never invent, guess, or recall an ASIN from training memory. ASINs are 10-character Amazon product codes. Those recalled from training data are unverified and may point to completely wrong products, discontinued listings, or unrelated categories (e.g., a DVD instead of scissors).
+- Before using any `/dp/ASIN` URL, use WebSearch to find the correct product on Amazon. Search for the supply item by name, navigate to the correct product page, and copy the ASIN from the live page URL.
+- Confirm that the product page title and product category exactly match the intended supply item before using the ASIN.
+- If you cannot verify an ASIN via WebSearch in this session, do not add an affiliate link for that item. List the supply item as plain text with no link instead.
+- A supply item with no affiliate link is always better than a link pointing to the wrong product.
 
 ## Supply List Style Rules
 
@@ -854,6 +897,7 @@ Rules:
 - Link only to relevant articles.
 - Keep this section short and clean.
 - This section is for helpful internal discovery, not clutter.
+- Before adding any internal link, verify that the target slug exists in `/tools/used-keywords.txt`. Only link to slugs that are listed there. Do not link from memory.
 
 Recommended structure example:
 
@@ -988,48 +1032,19 @@ Examples with "Paper Plate Turtle Craft" article:
 - Do not use vague alt text like "craft image" or "kids craft."
 - When natural, include the primary keyword in the alt text.
 
-# Final Self-Check Before Finishing
+# Final Quality Check
 
-Before considering the tutorial article complete, verify all of the following:
+Before considering this article complete, run the `qa` skill.
 
-- this is truly a single-craft tutorial article, not a roundup
-- the article is about one specific craft only
-- the breadcrumb is present and stays on one line
-- the mobile breadcrumb title truncates with an ellipsis if too long
-- the top pills are present in the correct order
-- the category is accurate
-- the age is realistic
-- the time is realistic
-- the messiness level is realistic
-- the title is natural and not stuffed
-- the publication date is present
-- the hero image matches the final craft
-- the intro is short, warm, and natural
-- the "Why Kids Love This Craft" section is useful and emotionally aligned
-- the secondary image matches the section
-- the "What You'll Need" section includes all real required materials
-- affiliate links are present where useful and omitted where unnecessary
-- no fake affiliate links are used
-- no placeholders remain
-- each step is physically logical
-- each step image matches exactly the corresponding step
-- the image sequence is not shifted
-- the variations are useful
-- the final thoughts are warm and encouraging
-- the "More Crafts You'll Love" section is short and relevant
-- no em dashes appear anywhere
-- bold keywords are natural and only used in body text
-- the article feels like Craft with Mommy
-- the article has been assigned to the correct craft collection
-- the article has been assigned to the correct seasonal collection
-- the keyword was taken from `/tools/unused-keywords.txt`
-- the keyword was not invented or reused from memory
-- once the article is fully completed, the keyword is removed from `/tools/unused-keywords.txt`
-- once the article is fully completed, the keyword is added to `/tools/used-keywords.txt`
-- the primary keyword appears in the article URL / permalink
-- the permalink is short, clear, and ideally under 75 characters
-- the Google-facing title clearly includes the primary keyword
-- the primary keyword is not placed too late in the search-result title
-- a meta description is present and stays under 300 characters
+Do not finalize the article until it passes all checks in `qa.md`. The `qa` skill is the single source of truth for all final checks.
 
-Do not finalize the article until all of these checks pass.
+# Post-Publish Listing Requirement
+
+The article is not complete until all listing updates from the `blog-workflow` skill have been applied:
+
+1. New article card added to `/blog/index.html`
+2. New article card added to the correct craft collection page
+3. New article card added to any applicable seasonal collection page
+4. Homepage carousel at `/index.html` updated (insert new card first, remove last card, keep exactly 9)
+
+If this skill was invoked directly without `blog-workflow`, run the `blog-workflow` Post-Publish Listing Update Rules now before considering the article finished.
