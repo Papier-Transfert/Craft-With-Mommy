@@ -56,6 +56,7 @@ Verify all of the following:
 - Fail if an image looks like a smaller picture placed on a blank canvas instead of filling the frame naturally
 - If this happens, crop or regenerate the image before finalizing the article
 
+
 # Tutorial-Specific Checks
 
 If the article is a tutorial, verify all of the following:
@@ -104,6 +105,14 @@ If the article is a roundup, verify all of the following:
 - "Final Thoughts" is present
 - "More Crafts You'll Love" contains exactly 2 relevant internal links
 - the article ends on a warm, friendly note
+
+  ### Listing and Collection QA Checks
+
+- Fail if the new article does not appear on `/blog/`
+- Fail if the new article does not appear on its main craft collection page
+- Fail if the article should appear in a seasonal or thematic collection but is missing there
+- Verify that the article card uses the correct title, slug, hero image, category, date, and metadata
+- Do not finalize or commit until discoverability is confirmed
 
 # Output Behavior
 
