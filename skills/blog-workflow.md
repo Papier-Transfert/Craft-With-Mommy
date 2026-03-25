@@ -85,6 +85,9 @@ Follow this order exactly:
    git commit -m "Add [article type]: [keyword]"
    ```
 10. Push to GitHub: `git push origin main` — Vercel auto-deploys from GitHub. The article goes live after ~60 seconds.
+11. Verify deployment: After pushing, wait ~90 seconds then use WebFetch to confirm the article URL returns HTTP 200 (not 404). Fetch `https://www.craft-with-mommy.com/blog/[slug].html` and confirm the page loads with the correct title.
+12. Verify listings: Also fetch `https://www.craft-with-mommy.com/` and confirm the new article appears as the first card in the Latest Crafts carousel. Fetch `https://www.craft-with-mommy.com/blog/` and confirm the article appears at the top of the listing.
+13. Report to user: Once all three checks pass, send the user: (a) confirmation the deployment is live, (b) the live article URL. Do not report success until WebFetch confirms the page loads correctly.
 
 # Keyword Completion Rules
 
@@ -106,6 +109,9 @@ Before finishing, verify:
 - all four listing updates were done (blog listing, collection page, seasonal page if applicable, homepage carousel)
 - only then was the keyword moved from unused to used
 - all files were committed and pushed to GitHub
+- deployment confirmed live via WebFetch (article URL returns 200, not 404)
+- article appears in homepage carousel and blog listing on the live site
+- live URL reported to user
 
 ### Post-Publish Listing Update Rules
 
