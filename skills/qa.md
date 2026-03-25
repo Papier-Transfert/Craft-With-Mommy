@@ -48,6 +48,14 @@ Verify all of the following:
 - final images are 1200 × 900
 - the article has been assigned to the correct collections
 
+  ### Image Border and Framing QA Checks
+
+- Fail if any article image shows visible white or transparent padding around the photo
+- Fail if any image looks letterboxed or pillarboxed
+- Fail if the actual photo content does not reach the rounded corners visually
+- Fail if an image looks like a smaller picture placed on a blank canvas instead of filling the frame naturally
+- If this happens, crop or regenerate the image before finalizing the article
+
 # Tutorial-Specific Checks
 
 If the article is a tutorial, verify all of the following:
