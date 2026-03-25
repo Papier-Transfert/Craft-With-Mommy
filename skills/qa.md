@@ -1,193 +1,108 @@
-# qa.md
-# Craft with Mommy — Quality Assurance Skill
-# Run this skill on every article before committing and pushing.
-# An article that fails any item below must be fixed before it goes live.
+*Run a final quality-assurance audit on completed Craft with Mommy blog articles.*
 
----
+# Purpose
 
-## HOW TO RUN THIS QA
+This skill performs the final QA check for Craft with Mommy blog articles.
 
-1. Read the article HTML file from top to bottom
-2. Check every item in this list
-3. Fix every failure before moving on
-4. Only commit when all items pass
+It does not choose the keyword and does not replace the writing skills. It audits the completed article before it is considered finished.
 
----
+Do not consider the article complete until all checks pass. If any issue is found, fix it before finalizing the article.
 
-## SECTION A — STRUCTURE
+# Article Type Detection
 
-### A1. Article type is correct
-- If the keyword is a single craft → the article uses tutorial structure (Why Kids Love, What You'll Need, Step-by-Step, Variations)
-- If the keyword promises multiple ideas → the article uses roundup structure (intro, supplies, numbered ideas, conclusion)
-- The two structures must never be mixed
+First, determine which article type you are auditing:
 
-### A2. All required sections are present
-**Tutorial:** Intro → Why Kids Love → What You'll Need → Step-by-Step Instructions → Variations to Try → Conclusion → More Crafts You'll Love
+## Tutorial article
 
-**Roundup:** Intro → What You'll Need → [N] Numbered Ideas → Conclusion → More Crafts You'll Love
+A tutorial article teaches one specific craft step by step.
 
-### A3. Section order is correct
-Verify the sections appear in the exact order listed above. No sections are out of place or missing.
+## Roundup article
 
-### A4. More Crafts You'll Love
-- Maximum 2 internal links
-- No intro paragraph before the list
-- Both links point to real existing articles on the site
+A roundup article presents multiple craft ideas in one article.
 
----
+Use the correct checklist based on the actual article type.
 
-## SECTION B — IDEA BLOCKS (roundup only)
+# Common QA Checks
 
-### B1. Every idea has exactly one idea-meta div
-- No idea has zero idea-meta divs
-- No idea has two idea-meta divs
+Verify all of the following:
 
-### B2. Idea block order is correct for every idea
-Order must be: `<h3>` → `<p>` → `<div class="idea-meta">` → `<figure>`
-- idea-meta comes AFTER the paragraph
-- figure comes AFTER idea-meta
-- Nothing comes between idea-meta and figure except whitespace
+- the primary keyword came from `/tools/unused-keywords.txt`
+- the keyword was not invented or reused from memory
+- once the article is fully completed, the keyword is removed from `/tools/unused-keywords.txt`
+- once the article is fully completed, the keyword is added to `/tools/used-keywords.txt`
+- the article type was chosen correctly
+- the article uses the correct skill structure for its type
+- the primary keyword appears in the permalink
+- the permalink is short, clear, and ideally under 75 characters
+- the search-result title includes the primary keyword clearly
+- the meta description is present and under 300 characters
+- the article uses clean semantic HTML
+- there are no placeholders left in the final article
+- no em dashes appear anywhere
+- bold keyword usage is natural and not excessive
+- affiliate links are real and use the tag `craftwithmomm-20`
+- affiliate links point to real, specific Amazon product pages
+- image filenames are descriptive and SEO-friendly
+- image alt text is descriptive and useful
+- final images are WEBP
+- final images are 1200 × 900
+- the article has been assigned to the correct collections
 
-### B3. Every idea has an image
-- Count the ideas (h3 tags with numbers)
-- Count the article-step-img figures in the body
-- Every idea must have exactly one figure
-- Zero ideas without an image is the target
+# Tutorial-Specific Checks
 
-### B4. Badge format is correct
-Each idea-meta div must contain exactly 3 badges in this order:
-```html
-<span class="badge">👶 Ages X+</span>
-<span class="badge">⏱ X min</span>
-<span class="badge">💧 Mess: Low/Medium/High</span>
-```
-- No plain text age/time/mess lines (no `<p><em>Age: 3+ | Time: 10 min</em></p>`)
-- No missing badges
-- No extra badges
+If the article is a tutorial, verify all of the following:
 
----
+- breadcrumb is present and stays on one line
+- mobile breadcrumb title truncates with an ellipsis if too long
+- top pills include category, age, time, and messiness in the correct order
+- the title is the only `<h1>` on the page
+- publication date is present
+- hero image matches the finished craft
+- intro is short, warm, and natural
+- "Why Kids Love This Craft" section is present and useful
+- secondary image matches that section
+- "What You'll Need" includes all real required materials
+- affiliate links are helpful and not forced
+- the tutorial includes between 5 and 10 steps
+- there is a short intro paragraph under "Step-by-Step Instructions" before Step 1
+- tips appear selectively, not in every step
+- each step is physically logical and easy to follow
+- each step image matches exactly the corresponding step
+- step images are not shifted by one step
+- the craft remains visually consistent across all step images
+- "Variations to Try" is present and useful
+- "Final Thoughts" is warm and encouraging
+- "More Crafts You'll Love" contains exactly 2 relevant internal links
 
-## SECTION C — STEPS (tutorial only)
+# Roundup-Specific Checks
 
-### C1. Every step has an image
-- Count the h3 step headings
-- Count the article-step-img figures
-- Every step must have exactly one figure
+If the article is a roundup, verify all of the following:
 
-### C2. Step images match their step text
-- Read each step's text, then look at its image src and alt
-- The alt text must describe the action happening in that step
-- The image must not show what the next or previous step describes
-- Step image filenames must be descriptive: step1-folding.webp, not step1.webp
+- breadcrumb is present and stays on one line
+- mobile breadcrumb title truncates with an ellipsis if too long
+- only the category pill appears at the top
+- no global age, time, or messiness pills appear at the top
+- the title is the only `<h1>` on the page
+- publication date is present
+- hero image matches the roundup theme accurately
+- intro is short, warm, and natural
+- "What You'll Need" includes useful broad supplies for most of the ideas
+- there is a short intro sentence under "What You'll Need"
+- the article includes between 10 and 30 ideas
+- if the title promises a specific number, the article contains exactly that number of ideas
+- every idea includes an h3 title, a useful paragraph, realistic badges, and an image
+- every image appears after the badges, not before
+- every idea image matches its exact idea
+- "Final Thoughts" is present
+- "More Crafts You'll Love" contains exactly 2 relevant internal links
+- the article ends on a warm, friendly note
 
-### C3. Step image sequence is logical
-- Step 1 image shows the starting action
-- Each subsequent step image shows the craft in a more advanced state
-- No visual regression (step 3 image cannot look earlier in the process than step 2)
+# Output Behavior
 
----
+After the QA pass:
 
-## SECTION D — SUPPLIES
+- if all checks pass, the article can be considered complete
+- if any important issue is found, fix it before finalizing the article
+- do not mark an article as done if core structure, SEO, image, affiliate, or keyword-queue rules are still broken
 
-### D1. Every supply item has an Amazon affiliate link
-- Open the supply-list-box
-- Every `<li>` must contain an `<a>` tag
-- Every `<a>` href must contain: `tag=craftwithmomm-20`
-- No placeholder links ([LINK HERE], amazon.com without an ASIN, etc.)
-
-### D2. No placeholder ASINs
-- Links must use real ASINs (format: /dp/B00XXXXXXX) or real search URLs
-- Do not leave template ASINs like B00000000 or XXXXXXXXXX
-
----
-
-## SECTION E — SEO & COPY
-
-### E1. Primary keyword is present and bolded
-- The primary keyword appears in the intro paragraph
-- It is wrapped in `<strong>` tags at least once in body text
-- It is NOT bolded inside an h2, h3, or idea-meta div
-
-### E2. LSI variants are bolded
-- 2 to 3 related keyword variants are bolded across the article body
-- Max 1 bold instance per 100 words
-
-### E3. No em dashes
-- Search the file for — (em dash character)
-- Zero instances allowed anywhere in the article
-
-### E4. No placeholder text
-Search for and confirm zero instances of:
-- [Your Name]
-- [LINK HERE]
-- [IMAGE]
-- [ROUNDUP_IMAGE_PLACEHOLDER]
-- [ADD IMAGE]
-- ASIN in all caps
-- Any text inside square brackets [ ]
-
-### E5. Tone is correct
-- Read the intro and conclusion out loud mentally
-- Does it sound like a warm friend talking to another mom?
-- Is there any clinical, instructional, or robotic language?
-- Are there any sentences that feel generic or copy-paste-ish?
-
----
-
-## SECTION F — IMAGES
-
-### F1. Hero image is present
-- The article-main-img figure is present near the top
-- src points to ../blog/images/[article-slug]/[article-slug].webp
-- loading="eager" (not lazy)
-
-### F2. All body images exist on disk
-- Every src in an article-step-img figure must point to a file that exists in /var/www/craft-with-mommy/blog/images/[article-slug]/
-- No broken image paths
-
-### F3. All images are the correct format and size
-- All image files are .webp
-- All images are 1200 × 900 px
-
-### F4. Alt texts are descriptive and specific
-- No alt text is generic ("image of a craft")
-- No alt text is empty
-- Each alt describes the specific craft or action shown in that image
-
----
-
-## SECTION G — TECHNICAL
-
-### G1. HTML is valid
-- No unclosed tags
-- No nested `<a>` inside `<a>`
-- No `<figure>` outside of the article body
-
-### G2. Meta tags are present and correct
-- `<title>` — contains the article title and "Craft with Mommy"
-- `<meta name="description">` — 150-160 characters, contains the primary keyword
-- `<link rel="canonical">` — points to the correct URL
-- `<meta property="og:title">` — present
-- `<meta property="og:image">` — points to the hero image
-
-### G3. JSON-LD schema is correct
-- Roundup articles: `"@type": "Article"`
-- Tutorial articles: `"@type": "HowTo"`
-- No placeholder values inside the schema
-
-### G4. Nav is correct
-- Full navigation is present
-- The article's collection is highlighted correctly in the nav if applicable
-
----
-
-## QA PASS CRITERIA
-
-The article passes QA when:
-- Every item above is checked
-- Every failure has been fixed
-- A final read-through confirms the article reads naturally from top to bottom
-
-Only after passing QA:
-→ Update the keyword queue
-→ Commit and push
+*This skill is intentionally simple. Its job is to audit the finished article, catch mistakes, and block final completion until everything is correct.*
