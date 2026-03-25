@@ -1,9 +1,8 @@
 # unused-keywords.txt
 # Keywords not yet used — available for future articles on craft-with-mommy.com
-# Total: 264 keywords across 4 collections
+# Total: 263 keywords across 4 collections
 
-# --- PAPER CRAFTS (73 keywords) ---
-paper halloween crafts
+# --- PAPER CRAFTS (72 keywords) ---
 paper mache crafts
 paper turkey craft
 tissue paper flower craft
