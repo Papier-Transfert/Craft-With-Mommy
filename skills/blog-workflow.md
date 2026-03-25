@@ -89,3 +89,14 @@ Before finishing, verify:
 - the correct skill was used
 - the article was fully completed
 - only then was the keyword moved from unused to used
+
+### Post-Publish Listing Update Rules
+
+- After creating a new article, update every page or data source that lists articles on the site
+- At minimum, the new article must appear on:
+  - `/blog/`
+  - its main craft collection page
+  - any relevant seasonal or thematic collection page when applicable
+- If the site uses a card array, manifest, JSON file, template include, or other source of truth for article listings, update that source as part of the workflow
+- The article is not considered fully published if it exists at its direct URL but does not appear in the site listings
+- Do not treat publish as complete until the article is discoverable from the site’s main listing and the correct collection page
