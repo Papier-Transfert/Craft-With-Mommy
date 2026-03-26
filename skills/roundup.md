@@ -739,6 +739,8 @@ Rules:
 - Organize the ideas clearly and logically
 - Keep the pacing friendly and easy to scan
 
+Before writing any article HTML, decide all image filenames for every idea upfront. Use short, descriptive, slugified names (e.g. `paper-mache-balloon-globe.webp`, `paper-mache-dinosaur-egg.webp`). Write the actual `<figure>` tag in the HTML using that planned filename from the start. The Python image generation script must use the exact same filenames you wrote in the HTML. Never use `[ROUNDUP_IMAGE_PLACEHOLDER]` or any other placeholder text anywhere in the article. There are no exceptions to this rule.
+
 Each idea must follow this exact structure:
 
 ```html
@@ -759,6 +761,8 @@ and naturally keyword-aware when relevant.]</p>
     width="1200" height="900" loading="lazy">
 </figure>
 ```
+
+This structure is mandatory. The `<div class="idea-meta">` block with `<span class="badge">` elements is the only acceptable format for age, time, and messiness. Do not use plain text, italic text, `<em>` tags, pipe separators (`|`), or any other format. The order is fixed and cannot change: paragraph first, then badges, then image.
 
 ### Idea Paragraph Rules
 
@@ -790,7 +794,8 @@ and naturally keyword-aware when relevant.]</p>
 
 - Every idea must have an image with no exceptions
 - Each image must show the finished craft for that exact idea
-- Do not leave placeholder text such as `[ROUNDUP_IMAGE_PLACEHOLDER]`
+- Never use `[ROUNDUP_IMAGE_PLACEHOLDER]` or any placeholder text — write the real `<figure>` tag directly, using the filename you planned before writing the article
+- The image filename must be decided before writing the HTML and must match exactly what the image generation script will produce
 - The image must match the title, paragraph, and badges of that idea
 - The image must feel realistic, handmade, warm, and family-friendly
 - The image must not feel generic or disconnected from the idea
