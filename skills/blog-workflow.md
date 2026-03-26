@@ -145,6 +145,3 @@ Collection page card format (use this exact structure for all three listing upda
   </a>
 </article>
 ```
-
-Rules:
-- Include the publication date only. Do not add duration (⏱) or difficulty (⭐) to collection page cards.
