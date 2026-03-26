@@ -1,6 +1,7 @@
-# tutorial
-
-Generate a complete Craft with Mommy single-craft tutorial blog article.
+---
+name: tutorial
+description: Use when creating a single-craft tutorial blog article for Craft with Mommy. Covers the full workflow from keyword selection to final HTML output, including article structure, writing, SEO, affiliate links, image generation, and post-publish listing updates. Do not use for roundup or ideas articles.
+---
 
 # Purpose
 
