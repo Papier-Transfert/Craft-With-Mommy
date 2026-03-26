@@ -129,6 +129,8 @@ If the article is a roundup, verify all of the following:
 - every idea includes an h3 title, a useful paragraph, realistic badges, and an image
 - every image appears after the badges, not before
 - every idea image matches its exact idea
+- QA fails immediately if the text `[ROUNDUP_IMAGE_PLACEHOLDER]` appears anywhere in the article — this means images were not generated. Do not commit. Generate the missing images and replace every placeholder with a real `<figure>` tag before proceeding.
+- badges must use `<div class="idea-meta">` with `<span class="badge">` elements — plain text, `<em>` tags, or pipe separators are a QA failure
 - "Final Thoughts" is present
 - "More Crafts You'll Love" contains exactly 2 relevant internal links
 - every internal link in "More Crafts You'll Love" points to a slug listed in `/tools/used-keywords.txt`
