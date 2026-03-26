@@ -1,4 +1,7 @@
-*Run the Craft with Mommy daily blog workflow.*
+---
+name: blog-workflow
+description: Use when running the Craft with Mommy daily blog publishing workflow. Triggers include any request to run the blog workflow, publish the next article, or process the keyword queue. This skill orchestrates keyword selection, article type routing, and post-publish listing updates. Do not use for writing or auditing articles directly.
+---
 
 # Purpose
 
