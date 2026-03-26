@@ -129,6 +129,27 @@ Add the new article card to the correct craft collection page (e.g., `/blog/pape
 **3. Seasonal or thematic collection page**
 If the article belongs to a seasonal or thematic collection (e.g., Christmas Crafts, Animal Crafts), add the card to that page too, immediately after `<!-- ARTICLE_CARDS_START -->`.
 
+Collection page card format (use this exact structure for all three listing updates above):
+```html
+<article class="blog-card">
+  <a href="/blog/[slug].html">
+    <div class="blog-card-thumb">
+      <img src="../blog/images/[slug]/[hero-image-filename].webp" alt="[full article title]" loading="lazy">
+    </div>
+    <div class="blog-card-body">
+      <div class="blog-card-tag">[collection emoji] [Collection Name]</div>
+      <h3 class="blog-card-title">[full article title]</h3>
+      <div class="blog-card-meta">
+        <span>📅 [Publication Date]</span>
+      </div>
+    </div>
+  </a>
+</article>
+```
+
+Rules:
+- Include the publication date only. Do not add duration (⏱) or difficulty (⭐) to collection page cards.
+
 **4. Homepage carousel**
 Update the "Latest Crafts" carousel at `/index.html` - this is the root homepage file, NOT `/blog/index.html`.
 
