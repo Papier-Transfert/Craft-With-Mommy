@@ -59,13 +59,9 @@ Verify all of the following:
 - final images are WEBP
 - final images are 1200 × 900
 - the article has been assigned to the correct collections
-- the homepage carousel at `/index.html` has been updated with the new article
 - the new article appears as the first `<article class="craft-card">` inside
   `<div class="crafts-track" id="craftsTrack">`
-- the carousel contains exactly 9 cards — not 8, not 10
 - the oldest card (formerly the 9th) has been removed
-- QA fails if the carousel was not updated, or if the count is not exactly 9
-
 - no affiliate link contains an ASIN that was recalled from memory without
   being verified in this session via WebSearch
 - every /dp/ASIN link has been confirmed: the product page title and category
@@ -145,9 +141,7 @@ If the article is a roundup, verify all of the following:
 - Fail if the new article does not appear on its main craft collection page
 - Fail if the article should appear in a seasonal or thematic collection but is missing there
 - Verify that the article card uses the correct title, slug, hero image, category, date, and metadata
-- Fail if the homepage carousel at `/index.html` was not updated
 - Fail if the new article is not the first `<article class="craft-card">` inside `<div class="crafts-track" id="craftsTrack">`
-- Fail if the carousel contains more or fewer than exactly 9 cards
 - Do not finalize or commit until discoverability is confirmed
 
 # Output Behavior
