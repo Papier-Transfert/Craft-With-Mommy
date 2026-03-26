@@ -1,5 +1,7 @@
-*Run a final quality-assurance audit on completed Craft with Mommy blog articles.*
-
+---
+name: qa
+description: Use when a Craft with Mommy blog article is fully written and needs a final quality-assurance audit before publishing. Triggers include any request to check, audit, validate, or QA a completed tutorial or roundup article. Do not use during the writing phase.
+---
 # Purpose
 
 This skill performs the final QA check for Craft with Mommy blog articles.
