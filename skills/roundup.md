@@ -975,6 +975,5 @@ The article is not complete until all listing updates from the `blog-workflow` s
 1. New article card added to `/blog/index.html`
 2. New article card added to the correct craft collection page
 3. New article card added to any applicable seasonal collection page
-4. Homepage carousel at `/index.html` updated (insert new card first, remove last card, keep exactly 9)
 
 If this skill was invoked directly without `blog-workflow`, run the `blog-workflow` Post-Publish Listing Update Rules now before considering the article finished.
