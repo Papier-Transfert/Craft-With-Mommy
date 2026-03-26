@@ -89,8 +89,7 @@ Follow this order exactly:
    ```
 10. Push to GitHub: `git push origin main` — Vercel auto-deploys from GitHub. The article goes live after ~60 seconds.
 11. Verify deployment: After pushing, wait ~90 seconds then use WebFetch to confirm the article URL returns HTTP 200 (not 404). Fetch `https://www.craft-with-mommy.com/blog/[slug].html` and confirm the page loads with the correct title.
-12. Verify listings: Also fetch `https://www.craft-with-mommy.com/` and confirm the new article appears as the first card in the Latest Crafts carousel. Fetch `https://www.craft-with-mommy.com/blog/` and confirm the article appears at the top of the listing.
-13. Report to user: Once all three checks pass, send the user: (a) confirmation the deployment is live, (b) the live article URL. Do not report success until WebFetch confirms the page loads correctly.
+12. Report to user: Once all three checks pass, send the user: (a) confirmation the deployment is live, (b) the live article URL. Do not report success until WebFetch confirms the page loads correctly.
 
 # Keyword Completion Rules
 
@@ -109,11 +108,11 @@ Before finishing, verify:
 - the article type was chosen correctly
 - the correct skill was used
 - the article was fully completed
-- all four listing updates were done (blog listing, collection page, seasonal page if applicable, homepage carousel)
+- all four listing updates were done (blog listing, collection page, seasonal page if applicable)
 - only then was the keyword moved from unused to used
 - all files were committed and pushed to GitHub
 - deployment confirmed live via WebFetch (article URL returns 200, not 404)
-- article appears in homepage carousel and blog listing on the live site
+- article appears in the blog listing on the live site
 - live URL reported to user
 
 ### Post-Publish Listing Update Rules
@@ -149,39 +148,3 @@ Collection page card format (use this exact structure for all three listing upda
 
 Rules:
 - Include the publication date only. Do not add duration (⏱) or difficulty (⭐) to collection page cards.
-
-**4. Homepage carousel**
-Update the "Latest Crafts" carousel at `/index.html` - this is the root homepage file, NOT `/blog/index.html`.
-
-The carousel is inside this section:
-```
-<!-- LATEST CRAFTS -->
-<div class="crafts-track" id="craftsTrack">
-```
-
-Rules:
-- The carousel must always contain exactly 9 articles at all times.
-- Insert the new article as the FIRST `<article class="craft-card">` immediately after the opening `<div class="crafts-track" id="craftsTrack">` line.
-- Delete the LAST `<article class="craft-card">` element (which becomes the 10th after insertion) so the total stays at exactly 9.
-- Confirm the carousel contains exactly 9 cards after the edit.
-
-Carousel card format:
-```html
-<article class="craft-card">
-  <a href="blog/[slug].html" style="display:block;color:inherit;">
-    <div class="craft-thumb" style="background: linear-gradient(135deg, #[color1], #[color2]);">
-      <img src="blog/images/[slug]/[hero-image-filename].webp"
-           alt="[full article title]"
-           style="width:100%;height:100%;object-fit:cover;" loading="lazy">
-    </div>
-    <div class="craft-body">
-      <div class="craft-tag">[collection emoji] [Collection Name]</div>
-      <h3 class="craft-title">[full article title]</h3>
-      <div class="craft-meta"><span>⏱ 15 min</span><span>⭐ Beginner</span></div>
-    </div>
-  </a>
-</article>
-```
-
-- Choose a distinct pastel gradient for the new card that is not already used by another card currently in the carousel.
-- Do not change anything else in `/index.html`. Do not touch the carousel CSS, JavaScript, dots, or any other section of the page.
