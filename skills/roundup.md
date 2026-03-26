@@ -1,10 +1,7 @@
-**Craft with Mommy** · roundup / ideas blog article skill
-
-# roundup
-
-Generate a complete Craft with Mommy roundup / ideas blog article.
-
-------------------------------------------------------
+---
+name: roundup
+description: Use when creating a roundup or ideas blog article for Craft with Mommy. Triggers include any request to write a craft ideas list, a themed craft collection, or a multi-idea article. Do not use for single-craft tutorials.
+---
 
 # Purpose
 
