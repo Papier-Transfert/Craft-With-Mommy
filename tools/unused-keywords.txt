@@ -1,9 +1,8 @@
 # unused-keywords.txt
 # Keywords not yet used — available for future articles on craft-with-mommy.com
-# Total: 263 keywords across 4 collections
+# Total: 262 keywords across 4 collections
 
-# --- PAPER CRAFTS (72 keywords) ---
-paper mache crafts
+# --- PAPER CRAFTS (71 keywords) ---
 paper turkey craft
 tissue paper flower craft
 3d paper craft
@@ -43,7 +42,7 @@ paper house craft
 paper snake craft
 thanksgiving paper crafts
 cat paper craft
-easy paper crafts for kids
+easy paper crafts for$kids
 heart shape paper craft
 paper crafts for teens
 paper dragon puppet craft
@@ -260,7 +259,7 @@ toilet paper roll halloween crafts
 toilet paper roll turkey craft
 fall toilet paper roll crafts
 gingerbread house paper bag craft
-paper bag crafts for kids
+paper bag crafts for$kids
 toilet paper roll crafts for 5 year olds
 toilet paper roll crafts for 3 year olds
 paper bag owl craft
@@ -269,4 +268,3 @@ paper bag crafts for kindergarten
 paper straw crafts
 reindeer craft with paper bag
 snowman craft with toilet paper roll
-
