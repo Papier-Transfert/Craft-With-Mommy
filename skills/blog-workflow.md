@@ -84,7 +84,7 @@ Follow this order exactly:
 8. Only if the article is fully completed successfully, remove the keyword from `/tools/unused-keywords.txt` and add it to `/tools/used-keywords.txt`
 9. Commit all new and changed files:
    ```
-   git add blog/[slug].html blog/images/[slug]/ blog/index.html blog/[collection].html index.html tools/unused-keywords.txt tools/used-keywords.txt
+   git add blog/[slug].html blog/images/[slug]/ blog/index.html blog/[collection].html tools/unused-keywords.txt tools/used-keywords.txt
    git commit -m "Add [article type]: [keyword]"
    ```
 10. Push to GitHub: `git push origin main` — Vercel auto-deploys from GitHub. The article goes live after ~60 seconds.
@@ -108,7 +108,7 @@ Before finishing, verify:
 - the article type was chosen correctly
 - the correct skill was used
 - the article was fully completed
-- all four listing updates were done (blog listing, collection page, seasonal page if applicable)
+- all three listing updates were done (blog listing, collection page, seasonal page if applicable)
 - only then was the keyword moved from unused to used
 - all files were committed and pushed to GitHub
 - deployment confirmed live via WebFetch (article URL returns 200, not 404)
@@ -117,7 +117,7 @@ Before finishing, verify:
 
 ### Post-Publish Listing Update Rules
 
-After creating a new article, update all four of the following. The article is not considered fully published until all four are done.
+After creating a new article, update all three of the following. The article is not considered fully published until all three are done.
 
 **1. Blog listing page**
 Add the new article card to `/blog/index.html` immediately after `<!-- ARTICLE_CARDS_START -->`.
@@ -145,3 +145,4 @@ Collection page card format (use this exact structure for all three listing upda
   </a>
 </article>
 ```
+
