@@ -100,6 +100,12 @@
       .footer-top { grid-template-columns: 1fr; gap: 28px; }
       .footer-bottom { flex-direction: column; align-items: flex-start; }
     }
+  
+    /* Pagination */
+    .pagination { display: flex; justify-content: center; align-items: center; gap: 8px; margin-top: 48px; flex-wrap: wrap; }
+    .pagination a { display: inline-flex; align-items: center; justify-content: center; min-width: 40px; height: 40px; padding: 0 14px; border-radius: 12px; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.9rem; color: #666; border: 1px solid #F0ECE7; background: #fff; cursor: pointer; transition: background 0.15s, color 0.15s, border-color 0.15s; text-decoration: none; }
+    .pagination a:hover { background: #FEF0EC; color: #E8856A; border-color: #E8856A; }
+    .pagination a.active { background: #E8856A; color: #fff; border-color: #E8856A; pointer-events: none; }
   </style>
 </head>
 <body>
@@ -645,5 +651,60 @@
     })();
   </script>
 
+
+  <script>
+  (function(){
+    var PER_PAGE = 15;
+    var grid = document.querySelector('.blog-grid');
+    if (!grid) return;
+    var cards = Array.from(grid.querySelectorAll('article.blog-card'));
+    if (cards.length <= PER_PAGE) return;
+    var total = Math.ceil(cards.length / PER_PAGE);
+
+    function currentPage() {
+      var m = window.location.hash.match(/[?&]?page=(\d+)/);
+      var p = m ? parseInt(m[1]) : 1;
+      return Math.max(1, Math.min(p, total));
+    }
+
+    function render() {
+      var p = currentPage();
+      var from = (p - 1) * PER_PAGE;
+      var to = from + PER_PAGE;
+      cards.forEach(function(c, i) { c.style.display = (i >= from && i < to) ? '' : 'none'; });
+
+      var old = document.getElementById('cwm-pagination');
+      if (old) old.remove();
+
+      var nav = document.createElement('nav');
+      nav.id = 'cwm-pagination';
+      nav.className = 'pagination';
+      nav.setAttribute('aria-label', 'Articles navigation');
+
+      function link(href, text, cls) {
+        var a = document.createElement('a');
+        a.href = href;
+        a.textContent = text;
+        if (cls) a.className = cls;
+        return a;
+      }
+
+      if (p > 1) nav.appendChild(link('#page=' + (p - 1), '← Prev'));
+      for (var i = 1; i <= total; i++) {
+        nav.appendChild(link('#page=' + i, String(i), i === p ? 'active' : ''));
+      }
+      if (p < total) nav.appendChild(link('#page=' + (p + 1), 'Next →'));
+
+      grid.parentNode.appendChild(nav);
+    }
+
+    render();
+    window.addEventListener('hashchange', function() {
+      render();
+      var sec = document.querySelector('.blog-grid-section');
+      if (sec) window.scrollTo({ top: sec.offsetTop - 90, behavior: 'smooth' });
+    });
+  })();
+  </script>
 </body>
 </html>
