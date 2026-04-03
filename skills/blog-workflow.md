@@ -82,14 +82,41 @@ Follow this order exactly:
 6. Use the correct skill: `tutorial` or `roundup`
 7. Generate the full article
 8. Only if the article is fully completed successfully, remove the keyword from `/tools/unused-keywords.txt` and add it to `/tools/used-keywords.txt`
-9. Commit all new and changed files:
+9. Update sitemap.xml — run this Python snippet to regenerate it with all current articles:
+   ```python
+   import os, re
+   BASE_URL = "https://www.craft-with-mommy.com"
+   BLOG_DIR = "/var/www/craft-with-mommy/blog"
+   COLLECTION_PAGES = {"index.html","paper-crafts.html","paper-plate-crafts.html","handprint-crafts.html","recycled-crafts.html","animal-crafts.html","spring-crafts.html","summer-crafts.html","fall-crafts.html","winter-crafts.html","christmas-crafts.html"}
+   SKIP_PAGES = {"crafts.html","seasons.html"}
+   DATE_PAT = re.compile(r'Published on (January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{1,2}),\s+(\d{4})')
+   MONTH_MAP = {"January":"01","February":"02","March":"03","April":"04","May":"05","June":"06","July":"07","August":"08","September":"09","October":"10","November":"11","December":"12"}
+   def get_date(f):
+       try:
+           m = DATE_PAT.search(open(f,encoding='utf-8').read(20000))
+           return f"{m.group(3)}-{MONTH_MAP[m.group(1)]}-{m.group(2).zfill(2)}" if m else "2026-03-20"
+       except: return "2026-03-20"
+   lines = ['<?xml version="1.0" encoding="UTF-8"?>','<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">','','  <!-- Static pages -->','  <url><loc>https://www.craft-with-mommy.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>','  <url><loc>https://www.craft-with-mommy.com/blog/</loc><changefreq>daily</changefreq><priority>0.9</priority></url>','  <url><loc>https://www.craft-with-mommy.com/about.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>','  <url><loc>https://www.craft-with-mommy.com/legal.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>','  <url><loc>https://www.craft-with-mommy.com/privacy.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>','','  <!-- Collection pages -->']
+   for fname in sorted(os.listdir(BLOG_DIR)):
+       if fname.endswith('.html') and fname in COLLECTION_PAGES and fname != "index.html":
+           lines.append(f'  <url><loc>{BASE_URL}/blog/{fname}</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>')
+   lines += ['','  <!-- Article pages -->']
+   for fname in sorted(os.listdir(BLOG_DIR)):
+       if fname.endswith('.html') and fname not in COLLECTION_PAGES and fname not in SKIP_PAGES:
+           d = get_date(os.path.join(BLOG_DIR,fname))
+           lines += [f'  <url>',f'    <loc>{BASE_URL}/blog/{fname}</loc>',f'    <lastmod>{d}</lastmod>',f'    <changefreq>monthly</changefreq>',f'    <priority>0.7</priority>',f'  </url>']
+   lines.append('</urlset>')
+   open('/var/www/craft-with-mommy/sitemap.xml','w').write('\n'.join(lines))
+   print("sitemap.xml updated")
    ```
-   git add blog/[slug].html blog/images/[slug]/ blog/index.html blog/[collection].html tools/unused-keywords.txt tools/used-keywords.txt
+10. Commit all new and changed files:
+   ```
+   git add blog/[slug].html blog/images/[slug]/ blog/index.html blog/[collection].html tools/unused-keywords.txt tools/used-keywords.txt sitemap.xml
    git commit -m "Add [article type]: [keyword]"
    ```
-10. Push to GitHub: `git push origin main` — Vercel auto-deploys from GitHub. The article goes live after ~60 seconds.
-11. Verify deployment: After pushing, wait ~90 seconds then use WebFetch to confirm the article URL returns HTTP 200 (not 404). Fetch `https://www.craft-with-mommy.com/blog/[slug].html` and confirm the page loads with the correct title.
-12. Report to user: Once all three checks pass, send the user: (a) confirmation the deployment is live, (b) the live article URL. Do not report success until WebFetch confirms the page loads correctly.
+11. Push to GitHub: `git push origin main` — Vercel auto-deploys from GitHub. The article goes live after ~60 seconds.
+12. Verify deployment: After pushing, wait ~90 seconds then use WebFetch to confirm the article URL returns HTTP 200 (not 404). Fetch `https://www.craft-with-mommy.com/blog/[slug].html` and confirm the page loads with the correct title.
+13. Report to user: Once all three checks pass, send the user: (a) confirmation the deployment is live, (b) the live article URL. Do not report success until WebFetch confirms the page loads correctly.
 
 # Keyword Completion Rules
 
@@ -110,6 +137,7 @@ Before finishing, verify:
 - the article was fully completed
 - all three listing updates were done (blog listing, collection page, seasonal page if applicable)
 - only then was the keyword moved from unused to used
+- sitemap.xml was regenerated and included in the commit
 - all files were committed and pushed to GitHub
 - deployment confirmed live via WebFetch (article URL returns 200, not 404)
 - article appears in the blog listing on the live site
