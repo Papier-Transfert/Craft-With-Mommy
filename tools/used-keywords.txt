@@ -47,5 +47,6 @@ paper airplane craft | paper-crafts | paper-airplane-craft.html
 paper craft butterfly | paper-crafts | paper-craft-butterfly.html
 paper doll craft | paper-crafts | paper-doll-craft.html
 paper fish craft | paper-crafts | paper-fish-craft.html
+paper heart craft | paper-crafts | paper-heart-craft.html
 
-# Total used: 38 articles published
+# Total used: 39 articles published
