@@ -2,8 +2,7 @@
 # Keywords not yet used — available for future articles on craft-with-mommy.com
 # Total: 416 keywords across 4 collections
 
-# --- PAPER CRAFTS (175 keywords) ---
-paper boat craft
+# --- PAPER CRAFTS (174 keywords) ---
 paper fan craft
 paper star craft
 paper tree craft
