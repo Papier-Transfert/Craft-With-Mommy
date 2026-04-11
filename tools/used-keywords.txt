@@ -56,5 +56,6 @@ paper boat craft | paper-crafts | paper-boat-craft.html
 paper fan craft | paper-crafts | paper-fan-craft.html
 paper star craft | paper-crafts | paper-star-craft.html
 paper tree craft | paper-crafts | paper-tree-craft.html
+snowman paper craft | paper-crafts | snowman-paper-craft.html
 
-# Total used: 46 articles published
+# Total used: 47 articles published
