@@ -55,5 +55,6 @@ mother's day paper crafts | paper-crafts | mothers-day-paper-crafts.html
 paper boat craft | paper-crafts | paper-boat-craft.html
 paper fan craft | paper-crafts | paper-fan-craft.html
 paper star craft | paper-crafts | paper-star-craft.html
+paper tree craft | paper-crafts | paper-tree-craft.html
 
-# Total used: 45 articles published
+# Total used: 46 articles published
