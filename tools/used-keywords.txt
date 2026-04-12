@@ -57,5 +57,6 @@ paper fan craft | paper-crafts | paper-fan-craft.html
 paper star craft | paper-crafts | paper-star-craft.html
 paper tree craft | paper-crafts | paper-tree-craft.html
 snowman paper craft | paper-crafts | snowman-paper-craft.html
+stained glass tissue paper craft | paper-crafts | stained-glass-tissue-paper-craft.html
 
-# Total used: 47 articles published
+# Total used: 48 articles published
