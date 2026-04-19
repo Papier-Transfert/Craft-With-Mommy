@@ -3,6 +3,7 @@
 # Format: keyword | collection | article slug
 
 # --- PAPER CRAFTS ---
+spring paper crafts | paper-crafts | spring-paper-crafts.html
 paper flower craft | paper-crafts | paper-flower-craft.html
 craft using paper | paper-crafts | craft-using-paper.html
 christmas paper crafts | paper-crafts | christmas-paper-crafts.html
