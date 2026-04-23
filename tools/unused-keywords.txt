@@ -2,8 +2,7 @@
 # Keywords not yet used — available for future articles on craft-with-mommy.com
 # Total: 416 keywords across 4 collections
 
-# --- PAPER CRAFTS (168 keywords) ---
-paper animals craft
+# --- PAPER CRAFTS (167 keywords) ---
 paper basket craft
 paper craft dog
 paper crown craft
