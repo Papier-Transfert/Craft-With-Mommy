@@ -1,9 +1,8 @@
 # unused-keywords.txt
 # Keywords not yet used — available for future articles on craft-with-mommy.com
-# Total: 416 keywords across 4 collections
+# Total: 415 keywords across 4 collections
 
-# --- PAPER CRAFTS (166 keywords) ---
-penguin paper craft
+# --- PAPER CRAFTS (165 keywords) ---
 preschool paper crafts
 pumpkin construction paper crafts
 dragon paper craft
