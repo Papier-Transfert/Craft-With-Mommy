@@ -87,5 +87,6 @@ paper craft dog | paper-crafts | paper-craft-dog.html
 paper crown craft | paper-crafts | paper-crown-craft.html
 paper doily crafts | paper-crafts | paper-doily-crafts.html
 paper ship craft | paper-crafts | paper-ship-craft.html
+paper rocket craft | paper-crafts | paper-rocket-craft.html
 
-# Total used: 74 articles published
+# Total used: 75 articles published
