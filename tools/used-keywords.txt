@@ -3,6 +3,7 @@
 # Format: keyword | collection | article slug
 
 # --- PAPER CRAFTS ---
+dragon paper craft | paper-crafts | dragon-paper-craft.html
 pumpkin construction paper crafts | paper-crafts | pumpkin-construction-paper-crafts.html
 book paper craft | paper-crafts | book-paper-craft.html
 spring paper crafts | paper-crafts | spring-paper-crafts.html
