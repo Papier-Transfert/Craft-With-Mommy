@@ -3,6 +3,7 @@
 # Format: keyword | collection | article slug
 
 # --- PAPER CRAFTS ---
+paper craft birds | paper-crafts | paper-craft-birds.html
 dragon paper craft | paper-crafts | dragon-paper-craft.html
 pumpkin construction paper crafts | paper-crafts | pumpkin-construction-paper-crafts.html
 book paper craft | paper-crafts | book-paper-craft.html
@@ -93,4 +94,4 @@ paper rocket craft | paper-crafts | paper-rocket-craft.html
 penguin paper craft | paper-crafts | penguin-paper-craft.html
 preschool paper crafts | paper-crafts | preschool-paper-crafts.html
 
-# Total used: 77 articles published
+# Total used: 78 articles published
