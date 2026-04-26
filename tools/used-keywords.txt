@@ -96,3 +96,4 @@ preschool paper crafts | paper-crafts | preschool-paper-crafts.html
 paper craft egg | paper-crafts | paper-craft-egg.html
 
 # Total used: 79 articles published
+paper craft spider | paper-crafts | paper-craft-spider.html
