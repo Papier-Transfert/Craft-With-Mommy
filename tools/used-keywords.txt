@@ -93,5 +93,6 @@ paper ship craft | paper-crafts | paper-ship-craft.html
 paper rocket craft | paper-crafts | paper-rocket-craft.html
 penguin paper craft | paper-crafts | penguin-paper-craft.html
 preschool paper crafts | paper-crafts | preschool-paper-crafts.html
+paper craft egg | paper-crafts | paper-craft-egg.html
 
-# Total used: 78 articles published
+# Total used: 79 articles published
