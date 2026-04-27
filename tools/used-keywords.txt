@@ -98,5 +98,6 @@ paper craft egg | paper-crafts | paper-craft-egg.html
 paper craft spider | paper-crafts | paper-craft-spider.html
 paper spinner craft | paper-crafts | paper-spinner-craft.html
 spooky paper crafts | paper-crafts | spooky-paper-crafts.html
+kawaii paper crafts | paper-crafts | kawaii-paper-crafts.html
 
-# Total used: 81 articles published
+# Total used: 82 articles published
