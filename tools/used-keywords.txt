@@ -100,5 +100,6 @@ paper spinner craft | paper-crafts | paper-spinner-craft.html
 spooky paper crafts | paper-crafts | spooky-paper-crafts.html
 kawaii paper crafts | paper-crafts | kawaii-paper-crafts.html
 crepe paper crafts | paper-crafts | crepe-paper-crafts.html
+cricut paper crafts | paper-crafts | cricut-paper-crafts.html
 
-# Total used: 83 articles published
+# Total used: 84 articles published
