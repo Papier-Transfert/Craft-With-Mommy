@@ -105,5 +105,6 @@ dinosaur paper craft | paper-crafts | dinosaur-paper-craft.html
 foil paper craft | paper-crafts | foil-paper-craft.html
 food crafts with paper | paper-crafts | food-crafts-with-paper.html
 owl paper craft | paper-crafts | owl-paper-craft.html
+paper jellyfish craft | paper-crafts | paper-jellyfish-craft.html
 
-# Total used: 88 articles published
+# Total used: 89 articles published
