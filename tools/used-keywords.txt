@@ -107,5 +107,6 @@ food crafts with paper | paper-crafts | food-crafts-with-paper.html
 owl paper craft | paper-crafts | owl-paper-craft.html
 paper jellyfish craft | paper-crafts | paper-jellyfish-craft.html
 bee craft paper | paper-crafts | bee-craft-paper.html
+craft paper bunny | paper-crafts | craft-paper-bunny.html
 
-# Total used: 90 articles published
+# Total used: 91 articles published
