@@ -111,5 +111,6 @@ paper jellyfish craft | paper-crafts | paper-jellyfish-craft.html
 bee craft paper | paper-crafts | bee-craft-paper.html
 craft paper bunny | paper-crafts | craft-paper-bunny.html
 craft patterned paper | paper-crafts | craft-patterned-paper.html
+ladybug paper craft | paper-crafts | ladybug-paper-craft.html
 
-# Total used: 92 articles published
+# Total used: 93 articles published
