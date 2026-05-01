@@ -3,6 +3,7 @@
 # Format: keyword | collection | article slug
 
 # --- PAPER CRAFTS ---
+paper pizza craft | paper-crafts | paper-pizza-craft.html
 japanese paper craft | paper-crafts | japanese-paper-craft.html
 fortune teller paper craft | paper-crafts | fortune-teller-paper-craft.html
 paper craft birds | paper-crafts | paper-craft-birds.html
