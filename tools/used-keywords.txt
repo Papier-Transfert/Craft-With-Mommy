@@ -114,5 +114,6 @@ craft paper bunny | paper-crafts | craft-paper-bunny.html
 craft patterned paper | paper-crafts | craft-patterned-paper.html
 ladybug paper craft | paper-crafts | ladybug-paper-craft.html
 paper leaves for crafts | paper-crafts | paper-leaves-for-crafts.html
+paper reindeer craft | paper-crafts | paper-reindeer-craft.html
 
-# Total used: 94 articles published
+# Total used: 95 articles published
