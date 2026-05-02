@@ -116,5 +116,6 @@ ladybug paper craft | paper-crafts | ladybug-paper-craft.html
 paper leaves for crafts | paper-crafts | paper-leaves-for-crafts.html
 paper reindeer craft | paper-crafts | paper-reindeer-craft.html
 paper roses craft | paper-crafts | paper-roses-craft.html
+paper weave craft | paper-crafts | paper-weave-craft.html
 
 # Total used: 95 articles published
