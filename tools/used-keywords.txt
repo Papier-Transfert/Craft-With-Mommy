@@ -119,5 +119,6 @@ paper roses craft | paper-crafts | paper-roses-craft.html
 paper weave craft | paper-crafts | paper-weave-craft.html
 paper turtle craft | paper-crafts | paper-turtle-craft.html
 pokemon craft paper | paper-crafts | pokemon-craft-paper.html
+rainbow paper craft | paper-crafts | rainbow-paper-craft.html
 
-# Total used: 97 articles published
+# Total used: 98 articles published
