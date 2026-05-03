@@ -3,6 +3,7 @@
 # Format: keyword | collection | article slug
 
 # --- PAPER CRAFTS ---
+chinese lanterns paper craft | paper-crafts | chinese-lanterns-paper-craft.html
 caterpillar paper craft | paper-crafts | caterpillar-paper-craft.html
 paper pizza craft | paper-crafts | paper-pizza-craft.html
 japanese paper craft | paper-crafts | japanese-paper-craft.html
@@ -122,4 +123,4 @@ paper turtle craft | paper-crafts | paper-turtle-craft.html
 pokemon craft paper | paper-crafts | pokemon-craft-paper.html
 rainbow paper craft | paper-crafts | rainbow-paper-craft.html
 
-# Total used: 98 articles published
+# Total used: 99 articles published
