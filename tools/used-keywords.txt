@@ -3,6 +3,7 @@
 # Format: keyword | collection | article slug
 
 # --- PAPER CRAFTS ---
+glitter paper craft | paper-crafts | glitter-paper-craft.html
 duck paper craft | paper-crafts | duck-paper-craft.html
 colorful paper crafts | paper-crafts | colorful-paper-crafts.html
 chinese lanterns paper craft | paper-crafts | chinese-lanterns-paper-craft.html
