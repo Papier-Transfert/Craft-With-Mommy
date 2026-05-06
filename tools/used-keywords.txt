@@ -3,6 +3,7 @@
 # Format: keyword | collection | article slug
 
 # --- PAPER CRAFTS ---
+ice cream paper craft | paper-crafts | ice-cream-paper-craft.html
 glitter paper craft | paper-crafts | glitter-paper-craft.html
 duck paper craft | paper-crafts | duck-paper-craft.html
 colorful paper crafts | paper-crafts | colorful-paper-crafts.html
@@ -131,4 +132,4 @@ craft using paper cups | paper-crafts | craft-using-paper-cups.html
 easy paper fruit craft | paper-crafts | easy-paper-fruit-craft.html
 gingerbread house paper craft | paper-crafts | gingerbread-house-paper-craft.html
 
-# Total used: 104 articles published
+# Total used: 105 articles published
