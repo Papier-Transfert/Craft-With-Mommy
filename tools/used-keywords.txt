@@ -131,5 +131,6 @@ crafts using paper napkins | paper-crafts | crafts-using-paper-napkins.html
 craft using paper cups | paper-crafts | craft-using-paper-cups.html
 easy paper fruit craft | paper-crafts | easy-paper-fruit-craft.html
 gingerbread house paper craft | paper-crafts | gingerbread-house-paper-craft.html
+leaf craft paper | paper-crafts | leaf-craft-paper.html
 
-# Total used: 105 articles published
+# Total used: 106 articles published
