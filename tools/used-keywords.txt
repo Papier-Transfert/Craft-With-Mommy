@@ -3,6 +3,7 @@
 # Format: keyword | collection | article slug
 
 # --- PAPER CRAFTS ---
+paper elephant craft | paper-crafts | paper-elephant-craft.html
 paper craft banners | paper-crafts | paper-craft-banners.html
 paper car craft | paper-crafts | paper-car-craft.html
 ice cream paper craft | paper-crafts | ice-cream-paper-craft.html
@@ -138,4 +139,4 @@ miniature paper craft | paper-crafts | miniature-paper-craft.html
 paper angels craft | paper-crafts | paper-angels-craft.html
 paper camera craft | paper-crafts | paper-camera-craft.html
 
-# Total used: 109 articles published
+# Total used: 110 articles published
