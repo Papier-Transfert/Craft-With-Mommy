@@ -3,6 +3,7 @@
 # Format: keyword | collection | article slug
 
 # --- PAPER CRAFTS ---
+paper craft banners | paper-crafts | paper-craft-banners.html
 paper car craft | paper-crafts | paper-car-craft.html
 ice cream paper craft | paper-crafts | ice-cream-paper-craft.html
 glitter paper craft | paper-crafts | glitter-paper-craft.html
