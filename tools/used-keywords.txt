@@ -141,5 +141,6 @@ paper camera craft | paper-crafts | paper-camera-craft.html
 paper hat craft | paper-crafts | paper-hat-craft.html
 paper robot craft | paper-crafts | paper-robot-craft.html
 paper umbrella craft | paper-crafts | paper-umbrella-craft.html
+shredded paper crafts | paper-crafts | shredded-paper-crafts.html
 
-# Total used: 112 articles published
+# Total used: 113 articles published
