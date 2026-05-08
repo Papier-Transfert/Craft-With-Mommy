@@ -138,5 +138,6 @@ leaf craft paper | paper-crafts | leaf-craft-paper.html
 miniature paper craft | paper-crafts | miniature-paper-craft.html
 paper angels craft | paper-crafts | paper-angels-craft.html
 paper camera craft | paper-crafts | paper-camera-craft.html
+paper hat craft | paper-crafts | paper-hat-craft.html
 
 # Total used: 110 articles published
