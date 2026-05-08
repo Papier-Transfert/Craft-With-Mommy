@@ -139,5 +139,6 @@ miniature paper craft | paper-crafts | miniature-paper-craft.html
 paper angels craft | paper-crafts | paper-angels-craft.html
 paper camera craft | paper-crafts | paper-camera-craft.html
 paper hat craft | paper-crafts | paper-hat-craft.html
+paper robot craft | paper-crafts | paper-robot-craft.html
 
-# Total used: 110 articles published
+# Total used: 111 articles published
