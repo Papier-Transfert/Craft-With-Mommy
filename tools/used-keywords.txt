@@ -140,5 +140,6 @@ paper angels craft | paper-crafts | paper-angels-craft.html
 paper camera craft | paper-crafts | paper-camera-craft.html
 paper hat craft | paper-crafts | paper-hat-craft.html
 paper robot craft | paper-crafts | paper-robot-craft.html
+paper umbrella craft | paper-crafts | paper-umbrella-craft.html
 
-# Total used: 111 articles published
+# Total used: 112 articles published
