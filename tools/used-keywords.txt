@@ -3,6 +3,7 @@
 # Format: keyword | collection | article slug
 
 # --- PAPER CRAFTS ---
+quilling paper craft | paper-crafts | quilling-paper-craft.html
 paper elephant craft | paper-crafts | paper-elephant-craft.html
 paper craft banners | paper-crafts | paper-craft-banners.html
 paper car craft | paper-crafts | paper-car-craft.html
