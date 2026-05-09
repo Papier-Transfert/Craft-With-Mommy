@@ -3,6 +3,7 @@
 # Format: keyword | collection | article slug
 
 # --- PAPER CRAFTS ---
+st patrick's day paper crafts | paper-crafts | st-patricks-day-paper-crafts.html
 snow globe paper craft | paper-crafts | snow-globe-paper-craft.html
 quilling paper craft | paper-crafts | quilling-paper-craft.html
 paper elephant craft | paper-crafts | paper-elephant-craft.html
