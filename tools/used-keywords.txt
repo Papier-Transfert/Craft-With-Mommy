@@ -148,5 +148,6 @@ paper robot craft | paper-crafts | paper-robot-craft.html
 paper umbrella craft | paper-crafts | paper-umbrella-craft.html
 shredded paper crafts | paper-crafts | shredded-paper-crafts.html
 giraffe craft paper | paper-crafts | giraffe-craft-paper.html
+holiday craft paper | paper-crafts | holiday-craft-paper.html
 
-# Total used: 114 articles published
+# Total used: 115 articles published
