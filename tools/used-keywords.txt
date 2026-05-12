@@ -3,6 +3,7 @@
 # Format: keyword | collection | article slug
 
 # --- PAPER CRAFTS ---
+paper cones for crafts | paper-crafts | paper-cones-for-crafts.html
 marshmallow paper craft | paper-crafts | marshmallow-paper-craft.html
 mario paper craft | paper-crafts | mario-paper-craft.html
 lion craft paper | paper-crafts | lion-craft-paper.html
