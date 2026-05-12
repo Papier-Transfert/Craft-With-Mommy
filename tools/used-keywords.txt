@@ -3,6 +3,7 @@
 # Format: keyword | collection | article slug
 
 # --- PAPER CRAFTS ---
+mario paper craft | paper-crafts | mario-paper-craft.html
 lion craft paper | paper-crafts | lion-craft-paper.html
 hot air balloon paper craft | paper-crafts | hot-air-balloon-paper-craft.html
 honeycomb craft paper | paper-crafts | honeycomb-craft-paper.html
