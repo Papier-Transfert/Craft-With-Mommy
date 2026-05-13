@@ -3,6 +3,7 @@
 # Format: keyword | collection | article slug
 
 # --- PAPER CRAFTS ---
+paper craft pinwheel | paper-crafts | paper-craft-pinwheel.html
 paper craft tank | paper-crafts | paper-craft-tank.html
 paper cones for crafts | paper-crafts | paper-cones-for-crafts.html
 marshmallow paper craft | paper-crafts | marshmallow-paper-craft.html
