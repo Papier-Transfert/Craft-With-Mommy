@@ -3,6 +3,7 @@
 # Format: keyword | collection | article slug
 
 # --- PAPER CRAFTS ---
+target craft paper | paper-crafts | target-craft-paper.html
 santa claus paper craft | paper-crafts | santa-claus-paper-craft.html
 paper toys craft | paper-crafts | paper-toys-craft.html
 paper scarecrow craft | paper-crafts | paper-scarecrow-craft.html
@@ -166,4 +167,4 @@ kite craft paper | paper-crafts | kite-craft-paper.html
 paper ornament craft | paper-crafts | paper-ornament-craft.html
 paper stocking craft | paper-crafts | paper-stocking-craft.html
 
-# Total used: 119 articles published
+# Total used: 120 articles published
