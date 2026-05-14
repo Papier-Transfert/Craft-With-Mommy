@@ -3,6 +3,7 @@
 # Format: keyword | collection | article slug
 
 # --- PAPER CRAFTS ---
+santa claus paper craft | paper-crafts | santa-claus-paper-craft.html
 paper toys craft | paper-crafts | paper-toys-craft.html
 paper scarecrow craft | paper-crafts | paper-scarecrow-craft.html
 paper shark craft | paper-crafts | paper-shark-craft.html
