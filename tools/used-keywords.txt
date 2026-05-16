@@ -3,6 +3,7 @@
 # Format: keyword | collection | article slug
 
 # --- PAPER CRAFTS ---
+spongebob paper crafts | paper-crafts | spongebob-paper-crafts.html
 american craft paper | paper-crafts | american-craft-paper.html
 acorn paper crafts | paper-crafts | acorn-paper-crafts.html
 target craft paper | paper-crafts | target-craft-paper.html
