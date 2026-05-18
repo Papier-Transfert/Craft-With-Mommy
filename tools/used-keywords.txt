@@ -3,6 +3,7 @@
 # Format: keyword | collection | article slug
 
 # --- PAPER CRAFTS ---
+craft paper flower bouquet | paper-crafts | craft-paper-flower-bouquet.html
 cake paper craft | paper-crafts | cake-paper-craft.html
 box craft paper | paper-crafts | box-craft-paper.html
 bow craft paper | paper-crafts | bow-craft-paper.html
