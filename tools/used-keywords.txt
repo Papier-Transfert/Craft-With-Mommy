@@ -3,6 +3,7 @@
 # Format: keyword | collection | article slug
 
 # --- PAPER CRAFTS ---
+father's day paper craft | paper-crafts | fathers-day-paper-craft.html
 craft paper wall hanging | paper-crafts | craft-paper-wall-hanging.html
 craft paper flower bouquet | paper-crafts | craft-paper-flower-bouquet.html
 cake paper craft | paper-crafts | cake-paper-craft.html
