@@ -3,6 +3,7 @@
 # Format: keyword | collection | article slug
 
 # --- PAPER CRAFTS ---
+hello kitty paper craft | paper-crafts | hello-kitty-paper-craft.html
 gift paper craft | paper-crafts | gift-paper-craft.html
 fox paper craft | paper-crafts | fox-paper-craft.html
 father's day paper craft | paper-crafts | fathers-day-paper-craft.html
