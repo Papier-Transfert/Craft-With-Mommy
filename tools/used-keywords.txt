@@ -3,6 +3,7 @@
 # Format: keyword | collection | article slug
 
 # --- PAPER CRAFTS ---
+paper mosaic craft | paper-crafts | paper-mosaic-craft.html
 paper craft ambulance | paper-crafts | paper-craft-ambulance.html
 paper candle craft | paper-crafts | paper-candle-craft.html
 octopus paper craft | paper-crafts | octopus-paper-craft.html
