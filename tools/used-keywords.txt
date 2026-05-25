@@ -186,5 +186,6 @@ paper stocking craft | paper-crafts | paper-stocking-craft.html
 paper chick craft | paper-crafts | paper-chick-craft.html
 paper person craft | paper-crafts | paper-person-craft.html
 paper poinsettia craft | paper-crafts | paper-poinsettia-craft.html
+paper windmill craft | paper-crafts | paper-windmill-craft.html
 
-# Total used: 123 articles published
+# Total used: 124 articles published

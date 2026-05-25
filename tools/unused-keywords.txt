@@ -1,9 +1,8 @@
 # unused-keywords.txt
 # Keywords not yet used — available for future articles on craft-with-mommy.com
-# Total: 407 keywords across 4 collections
+# Total: 406 keywords across 4 collections
 
-# --- PAPER CRAFTS (121 keywords) ---
-paper windmill craft
+# --- PAPER CRAFTS (120 keywords) ---
 radio paper craft
 police paper craft
 birthday paper craft
