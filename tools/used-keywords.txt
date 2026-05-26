@@ -187,5 +187,6 @@ paper chick craft | paper-crafts | paper-chick-craft.html
 paper person craft | paper-crafts | paper-person-craft.html
 paper poinsettia craft | paper-crafts | paper-poinsettia-craft.html
 paper windmill craft | paper-crafts | paper-windmill-craft.html
+radio paper craft | paper-crafts | radio-paper-craft.html
 
-# Total used: 124 articles published
+# Total used: 125 articles published
