@@ -191,5 +191,6 @@ paper person craft | paper-crafts | paper-person-craft.html
 paper poinsettia craft | paper-crafts | paper-poinsettia-craft.html
 paper windmill craft | paper-crafts | paper-windmill-craft.html
 radio paper craft | paper-crafts | radio-paper-craft.html
+helicopter paper craft | paper-crafts | helicopter-paper-craft.html
 
-# Total used: 125 articles published
+# Total used: 126 articles published
