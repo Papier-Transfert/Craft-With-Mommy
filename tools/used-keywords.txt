@@ -3,6 +3,7 @@
 # Format: keyword | collection | article slug
 
 # --- PAPER CRAFTS ---
+nutcracker paper craft | paper-crafts | nutcracker-paper-craft.html
 lettuce paper craft | paper-crafts | lettuce-paper-craft.html
 candy corn paper craft | paper-crafts | candy-corn-paper-craft.html
 birthday paper craft | paper-crafts | birthday-paper-craft.html
