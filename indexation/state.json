@@ -1,5 +1,55 @@
 {
-  "last_run": null,
-  "stats": {},
-  "articles": {}
+  "last_run": "2026-05-30T15:43:54+00:00",
+  "stats": {
+    "total_sitemap_urls": 198,
+    "total_seen": 3,
+    "indexed": 0,
+    "not_indexed": 0,
+    "unknown": 3,
+    "with_problems": 0
+  },
+  "articles": {
+    "https://www.craft-with-mommy.com/blog/": {
+      "first_seen": "2026-05-30",
+      "title": "All Craft Ideas — Craft with Mommy",
+      "last_checked": "2026-05-30T15:43:52+00:00",
+      "http_status": 200,
+      "noindex": false,
+      "canonical_ok": true,
+      "canonical_url": "https://www.craft-with-mommy.com/blog/",
+      "in_sitemap": true,
+      "gsc_indexed": "unknown",
+      "problem": null,
+      "indexing_api_last_push": "2026-05-30",
+      "indexnow_last_push": "2026-05-30"
+    },
+    "https://www.craft-with-mommy.com/blog/3d-paper-craft.html": {
+      "first_seen": "2026-05-30",
+      "title": "3D Paper Craft for Kids: Beautiful Paper Flower",
+      "last_checked": "2026-05-30T15:43:53+00:00",
+      "http_status": 200,
+      "noindex": false,
+      "canonical_ok": true,
+      "canonical_url": "https://www.craft-with-mommy.com/blog/3d-paper-craft.html",
+      "in_sitemap": true,
+      "gsc_indexed": "unknown",
+      "problem": null,
+      "indexing_api_last_push": "2026-05-30",
+      "indexnow_last_push": "2026-05-30"
+    },
+    "https://www.craft-with-mommy.com/blog/5-minute-crafts-with-paper-easy.html": {
+      "first_seen": "2026-05-30",
+      "title": "15 Adorable 5 Minute Crafts with Paper Easy Enough for Toddlers and Preschoolers — Craft with Mommy",
+      "last_checked": "2026-05-30T15:43:54+00:00",
+      "http_status": 200,
+      "noindex": false,
+      "canonical_ok": true,
+      "canonical_url": "https://www.craft-with-mommy.com/blog/5-minute-crafts-with-paper-easy.html",
+      "in_sitemap": true,
+      "gsc_indexed": "unknown",
+      "problem": null,
+      "indexing_api_last_push": "2026-05-30",
+      "indexnow_last_push": "2026-05-30"
+    }
+  }
 }
