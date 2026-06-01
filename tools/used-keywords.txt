@@ -199,5 +199,6 @@ helicopter paper craft | paper-crafts | helicopter-paper-craft.html
 paper bugs craft | paper-crafts | paper-bugs-craft.html
 paper aquarium craft ideas | paper-crafts | paper-aquarium-craft-ideas.html
 paper craft ant | paper-crafts | paper-craft-ant.html
+paper poppy craft | paper-crafts | paper-poppy-craft.html
 
-# Total used: 129 articles published
+# Total used: 130 articles published
