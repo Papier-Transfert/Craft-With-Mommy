@@ -1,14 +1,14 @@
-# Indexation Report — 2026-06-01
+# Indexation Report — 2026-06-02
 
-**Last run:** `2026-06-01T03:00:11+00:00`
+**Last run:** `2026-06-02T03:00:11+00:00`
 
 ## Stats globales
 
-- Total URLs sitemap : **201**
-- URLs déjà traitées (au moins une fois) : **23**
+- Total URLs sitemap : **202**
+- URLs déjà traitées (au moins une fois) : **33**
 - Indexées (à vérifier manuellement dans GSC) : 0
 - Non indexées : 0
-- État inconnu : 23
+- État inconnu : 33
 - Avec problème technique : **0**
 
 ## Run du jour — 10 URLs traitées
@@ -20,16 +20,16 @@
 
 | URL | Titre | HTTP | Tech | Indexing API | IndexNow | Problème | GSC |
 |---|---|---|---|---|---|---|---|
-| [/blog/capybara-paper-craft.html](https://www.craft-with-mommy.com/blog/capybara-paper-craft.html) | Capybara Paper Craft: Easy Tutorial for Kids | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fcapybara-paper-craft.html) |
-| [/blog/cat-paper-craft.html](https://www.craft-with-mommy.com/blog/cat-paper-craft.html) | Easy Cat Paper Craft for Kids (Step by Step) | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fcat-paper-craft.html) |
-| [/blog/caterpillar-paper-craft.html](https://www.craft-with-mommy.com/blog/caterpillar-paper-craft.html) | Easy Caterpillar Paper Craft for Kids (6 Steps!) | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fcaterpillar-paper-craft.html) |
-| [/blog/childrens-paper-craft-ideas.html](https://www.craft-with-mommy.com/blog/childrens-paper-craft-ideas.html) | 20 Children's Paper Craft Ideas Kids Will Love | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fchildrens-paper-craft-ideas.html) |
-| [/blog/chinese-lanterns-paper-craft.html](https://www.craft-with-mommy.com/blog/chinese-lanterns-paper-craft.html) | Easy Chinese Lanterns Paper Craft for Kids (6 Step | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fchinese-lanterns-paper-craft.html) |
-| [/blog/christmas-crafts.html](https://www.craft-with-mommy.com/blog/christmas-crafts.html) | Christmas Crafts — Craft with Mommy | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fchristmas-crafts.html) |
-| [/blog/christmas-paper-crafts-for-kindergarten.html](https://www.craft-with-mommy.com/blog/christmas-paper-crafts-for-kindergarten.html) | 20 Christmas Paper Crafts for Kindergarten | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fchristmas-paper-crafts-for-kindergarten.html) |
-| [/blog/christmas-paper-crafts.html](https://www.craft-with-mommy.com/blog/christmas-paper-crafts.html) | 25 Adorable Christmas Paper Crafts Kids Will Beg t | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fchristmas-paper-crafts.html) |
-| [/blog/cinnamoroll-paper-crafts.html](https://www.craft-with-mommy.com/blog/cinnamoroll-paper-crafts.html) | 20 Cinnamoroll Paper Crafts Kids Will Love to Make | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fcinnamoroll-paper-crafts.html) |
-| [/blog/colorful-paper-crafts.html](https://www.craft-with-mommy.com/blog/colorful-paper-crafts.html) | 20 Colorful Paper Crafts Kids Will Love to Make | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fcolorful-paper-crafts.html) |
+| [/blog/cool-paper-crafts.html](https://www.craft-with-mommy.com/blog/cool-paper-crafts.html) | 25 Super Cool Paper Crafts for Kids That Will Blow | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fcool-paper-crafts.html) |
+| [/blog/craft-paper-bunny.html](https://www.craft-with-mommy.com/blog/craft-paper-bunny.html) | Easy Craft Paper Bunny Tutorial for Kids (7 Steps! | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fcraft-paper-bunny.html) |
+| [/blog/craft-paper-flower-bouquet.html](https://www.craft-with-mommy.com/blog/craft-paper-flower-bouquet.html) | Easy Craft Paper Flower Bouquet: Cute DIY for Kids | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fcraft-paper-flower-bouquet.html) |
+| [/blog/craft-paper-pumpkin.html](https://www.craft-with-mommy.com/blog/craft-paper-pumpkin.html) | Adorable Craft Paper Pumpkin Kids Will Beg to Make | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fcraft-paper-pumpkin.html) |
+| [/blog/craft-paper-wall-hanging.html](https://www.craft-with-mommy.com/blog/craft-paper-wall-hanging.html) | Easy Craft Paper Wall Hanging: Cute DIY for Kids | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fcraft-paper-wall-hanging.html) |
+| [/blog/craft-patterned-paper.html](https://www.craft-with-mommy.com/blog/craft-patterned-paper.html) | 15 Easy Craft Patterned Paper Ideas Kids Will Love | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fcraft-patterned-paper.html) |
+| [/blog/craft-using-paper-cups.html](https://www.craft-with-mommy.com/blog/craft-using-paper-cups.html) | Craft Using Paper Cups: Easy Flower Bouquet (6 Ste | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fcraft-using-paper-cups.html) |
+| [/blog/craft-using-paper.html](https://www.craft-with-mommy.com/blog/craft-using-paper.html) | 20-Minute Craft Using Paper That Kids Will Beg to  | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fcraft-using-paper.html) |
+| [/blog/crafts-for-christmas-with-construction-paper.html](https://www.craft-with-mommy.com/blog/crafts-for-christmas-with-construction-paper.html) | 20 Crafts for Christmas with Construction Paper | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fcrafts-for-christmas-with-construction-paper.html) |
+| [/blog/crafts-using-paper-napkins.html](https://www.craft-with-mommy.com/blog/crafts-using-paper-napkins.html) | 20 Crafts Using Paper Napkins Kids Will Love to Ma | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fcrafts-using-paper-napkins.html) |
 
 ## 🔍 URLs à inspecter manuellement dans GSC (priorité)
 
