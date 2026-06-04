@@ -1,14 +1,14 @@
-# Indexation Report — 2026-06-03
+# Indexation Report — 2026-06-04
 
-**Last run:** `2026-06-03T03:00:12+00:00`
+**Last run:** `2026-06-04T03:00:12+00:00`
 
 ## Stats globales
 
 - Total URLs sitemap : **202**
-- URLs déjà traitées (au moins une fois) : **43**
+- URLs déjà traitées (au moins une fois) : **53**
 - Indexées (à vérifier manuellement dans GSC) : 0
 - Non indexées : 0
-- État inconnu : 43
+- État inconnu : 53
 - Avec problème technique : **0**
 
 ## Run du jour — 10 URLs traitées
@@ -20,16 +20,16 @@
 
 | URL | Titre | HTTP | Tech | Indexing API | IndexNow | Problème | GSC |
 |---|---|---|---|---|---|---|---|
-| [/blog/creative-craft-paper.html](https://www.craft-with-mommy.com/blog/creative-craft-paper.html) | 20 Creative Craft Paper Ideas for Kids | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fcreative-craft-paper.html) |
-| [/blog/crepe-paper-crafts.html](https://www.craft-with-mommy.com/blog/crepe-paper-crafts.html) | 20 Easy Crepe Paper Crafts Kids Will Love | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fcrepe-paper-crafts.html) |
-| [/blog/cricut-paper-crafts.html](https://www.craft-with-mommy.com/blog/cricut-paper-crafts.html) | 20 Easy Cricut Paper Crafts to Make With Kids | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fcricut-paper-crafts.html) |
-| [/blog/cute-crafts-with-paper.html](https://www.craft-with-mommy.com/blog/cute-crafts-with-paper.html) | 20 Cute Crafts with Paper Kids Will Love | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fcute-crafts-with-paper.html) |
-| [/blog/dinosaur-paper-craft.html](https://www.craft-with-mommy.com/blog/dinosaur-paper-craft.html) | Easy Dinosaur Paper Craft for Kids in 6 Simple Ste | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fdinosaur-paper-craft.html) |
-| [/blog/diy-crafts-with-paper.html](https://www.craft-with-mommy.com/blog/diy-crafts-with-paper.html) | 20 Easy DIY Crafts with Paper for Kids | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fdiy-crafts-with-paper.html) |
-| [/blog/dragon-paper-craft.html](https://www.craft-with-mommy.com/blog/dragon-paper-craft.html) | Dragon Paper Craft: Easy Step-by-Step for Kids | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fdragon-paper-craft.html) |
-| [/blog/duck-paper-craft.html](https://www.craft-with-mommy.com/blog/duck-paper-craft.html) | Duck Paper Craft: Cute Yellow Duck (6 Easy Steps!) | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fduck-paper-craft.html) |
-| [/blog/easter-paper-crafts.html](https://www.craft-with-mommy.com/blog/easter-paper-crafts.html) | 20 Easy Easter Paper Crafts for Kids | Craft with  | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Feaster-paper-crafts.html) |
-| [/blog/easy-crafts-to-do-at-home-with-paper.html](https://www.craft-with-mommy.com/blog/easy-crafts-to-do-at-home-with-paper.html) | 20 Easy Crafts to Do at Home with Paper | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Feasy-crafts-to-do-at-home-with-paper.html) |
+| [/blog/easy-crafts-using-construction-paper.html](https://www.craft-with-mommy.com/blog/easy-crafts-using-construction-paper.html) | 20 Easy Crafts Using Construction Paper for Kids | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Feasy-crafts-using-construction-paper.html) |
+| [/blog/easy-paper-craft-ideas.html](https://www.craft-with-mommy.com/blog/easy-paper-craft-ideas.html) | 20 Easy Paper Craft Ideas Kids Will Love | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Feasy-paper-craft-ideas.html) |
+| [/blog/easy-paper-crafts-for-kids.html](https://www.craft-with-mommy.com/blog/easy-paper-crafts-for-kids.html) | 20 Easy Paper Crafts for Kids | Craft with Mommy | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Feasy-paper-crafts-for-kids.html) |
+| [/blog/easy-paper-fruit-craft.html](https://www.craft-with-mommy.com/blog/easy-paper-fruit-craft.html) | Easy Paper Fruit Craft: Sweet Paper Apple in 6 Ste | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Feasy-paper-fruit-craft.html) |
+| [/blog/easy-paper-plate-butterfly-craft-for-preschoolers.html](https://www.craft-with-mommy.com/blog/easy-paper-plate-butterfly-craft-for-preschoolers.html) | Easy Paper Plate Butterfly Craft for Preschoolers  | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Feasy-paper-plate-butterfly-craft-for-preschoolers.html) |
+| [/blog/easy-paper-plate-ladybug-craft-for-toddlers.html](https://www.craft-with-mommy.com/blog/easy-paper-plate-ladybug-craft-for-toddlers.html) | Easy Paper Plate Ladybug Craft for Toddlers – Fun  | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Feasy-paper-plate-ladybug-craft-for-toddlers.html) |
+| [/blog/easy-paper-plate-rainbow-fish-craft-for-toddlers.html](https://www.craft-with-mommy.com/blog/easy-paper-plate-rainbow-fish-craft-for-toddlers.html) | Easy Paper Plate Rainbow Fish Craft for Toddlers ( | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Feasy-paper-plate-rainbow-fish-craft-for-toddlers.html) |
+| [/blog/easy-paper-plate-turtle-craft-for-preschoolers.html](https://www.craft-with-mommy.com/blog/easy-paper-plate-turtle-craft-for-preschoolers.html) | Easy Paper Plate Turtle Craft for Preschoolers (5  | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Feasy-paper-plate-turtle-craft-for-preschoolers.html) |
+| [/blog/fall-construction-paper-crafts.html](https://www.craft-with-mommy.com/blog/fall-construction-paper-crafts.html) | 20 Easy Fall Construction Paper Crafts for Kids | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Ffall-construction-paper-crafts.html) |
+| [/blog/fall-crafts.html](https://www.craft-with-mommy.com/blog/fall-crafts.html) | Fall Crafts — Craft with Mommy | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Ffall-crafts.html) |
 
 ## 🔍 URLs à inspecter manuellement dans GSC (priorité)
 
