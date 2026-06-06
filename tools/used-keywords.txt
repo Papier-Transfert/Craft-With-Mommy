@@ -200,5 +200,6 @@ paper bugs craft | paper-crafts | paper-bugs-craft.html
 paper aquarium craft ideas | paper-crafts | paper-aquarium-craft-ideas.html
 paper craft ant | paper-crafts | paper-craft-ant.html
 paper poppy craft | paper-crafts | paper-poppy-craft.html
+paper popsicle craft | paper-crafts | paper-popsicle-craft.html
 
-# Total used: 130 articles published
+# Total used: 131 articles published
