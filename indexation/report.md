@@ -1,14 +1,14 @@
-# Indexation Report — 2026-06-05
+# Indexation Report — 2026-06-06
 
-**Last run:** `2026-06-05T03:00:12+00:00`
+**Last run:** `2026-06-06T03:00:12+00:00`
 
 ## Stats globales
 
 - Total URLs sitemap : **202**
-- URLs déjà traitées (au moins une fois) : **63**
+- URLs déjà traitées (au moins une fois) : **73**
 - Indexées (à vérifier manuellement dans GSC) : 0
 - Non indexées : 0
-- État inconnu : 63
+- État inconnu : 73
 - Avec problème technique : **0**
 
 ## Run du jour — 10 URLs traitées
@@ -20,16 +20,16 @@
 
 | URL | Titre | HTTP | Tech | Indexing API | IndexNow | Problème | GSC |
 |---|---|---|---|---|---|---|---|
-| [/blog/fall-paper-crafts.html](https://www.craft-with-mommy.com/blog/fall-paper-crafts.html) | 20 Fun Fall Paper Crafts for Kids | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Ffall-paper-crafts.html) |
-| [/blog/fathers-day-paper-craft.html](https://www.craft-with-mommy.com/blog/fathers-day-paper-craft.html) | Easy Father's Day Paper Craft: Cute Shirt Card for | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Ffathers-day-paper-craft.html) |
-| [/blog/foil-paper-craft.html](https://www.craft-with-mommy.com/blog/foil-paper-craft.html) | Easy Foil Paper Craft: Sparkly Fish for Kids | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Ffoil-paper-craft.html) |
-| [/blog/foldable-paper-crafts.html](https://www.craft-with-mommy.com/blog/foldable-paper-crafts.html) | 20 Foldable Paper Crafts for Kids | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Ffoldable-paper-crafts.html) |
-| [/blog/food-crafts-with-paper.html](https://www.craft-with-mommy.com/blog/food-crafts-with-paper.html) | 20 Easy Food Crafts with Paper for Kids | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Ffood-crafts-with-paper.html) |
-| [/blog/fortune-teller-paper-craft.html](https://www.craft-with-mommy.com/blog/fortune-teller-paper-craft.html) | Easy Fortune Teller Paper Craft for Kids (8 Steps! | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Ffortune-teller-paper-craft.html) |
-| [/blog/fox-paper-craft.html](https://www.craft-with-mommy.com/blog/fox-paper-craft.html) | Easy Fox Paper Craft: Cute Folded Fox Card for Kid | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Ffox-paper-craft.html) |
-| [/blog/fun-paper-crafts.html](https://www.craft-with-mommy.com/blog/fun-paper-crafts.html) | 20 Fun Paper Crafts Kids Will Love | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Ffun-paper-crafts.html) |
-| [/blog/gift-paper-craft.html](https://www.craft-with-mommy.com/blog/gift-paper-craft.html) | Easy Gift Paper Craft: Cute Wrapped Present Card | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fgift-paper-craft.html) |
-| [/blog/gingerbread-house-paper-craft.html](https://www.craft-with-mommy.com/blog/gingerbread-house-paper-craft.html) | Gingerbread House Paper Craft: Cute and Easy in 6  | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fgingerbread-house-paper-craft.html) |
+| [/blog/giraffe-craft-paper.html](https://www.craft-with-mommy.com/blog/giraffe-craft-paper.html) | Giraffe Craft Paper: Easy Tutorial for Kids | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fgiraffe-craft-paper.html) |
+| [/blog/glitter-paper-craft.html](https://www.craft-with-mommy.com/blog/glitter-paper-craft.html) | Glitter Paper Craft: Sparkly Rainbow Card (6 Steps | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fglitter-paper-craft.html) |
+| [/blog/halloween-construction-paper-crafts.html](https://www.craft-with-mommy.com/blog/halloween-construction-paper-crafts.html) | 20 Halloween Construction Paper Crafts for Kids | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fhalloween-construction-paper-crafts.html) |
+| [/blog/halloween-crafts-using-construction-paper.html](https://www.craft-with-mommy.com/blog/halloween-crafts-using-construction-paper.html) | 13 Adorably Spooky Halloween Crafts Using Construc | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fhalloween-crafts-using-construction-paper.html) |
+| [/blog/handprint-crafts.html](https://www.craft-with-mommy.com/blog/handprint-crafts.html) | Handprint Crafts — Craft with Mommy | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fhandprint-crafts.html) |
+| [/blog/heart-shape-paper-craft.html](https://www.craft-with-mommy.com/blog/heart-shape-paper-craft.html) | Heart Shape Paper Craft Kids Will Love | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fheart-shape-paper-craft.html) |
+| [/blog/helicopter-paper-craft.html](https://www.craft-with-mommy.com/blog/helicopter-paper-craft.html) | Easy Helicopter Paper Craft With Spinning Blades | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fhelicopter-paper-craft.html) |
+| [/blog/hello-kitty-paper-craft.html](https://www.craft-with-mommy.com/blog/hello-kitty-paper-craft.html) | Easy Hello Kitty Paper Craft for Kids (Step by Ste | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fhello-kitty-paper-craft.html) |
+| [/blog/holiday-craft-paper.html](https://www.craft-with-mommy.com/blog/holiday-craft-paper.html) | 20 Holiday Craft Paper Ideas for Kids | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fholiday-craft-paper.html) |
+| [/blog/homemade-paper-craft-ideas-for-wall-decoration.html](https://www.craft-with-mommy.com/blog/homemade-paper-craft-ideas-for-wall-decoration.html) | 20 Homemade Paper Craft Ideas for Wall Decoration | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fhomemade-paper-craft-ideas-for-wall-decoration.html) |
 
 ## 🔍 URLs à inspecter manuellement dans GSC (priorité)
 
