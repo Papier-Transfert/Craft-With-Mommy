@@ -202,5 +202,6 @@ paper craft ant | paper-crafts | paper-craft-ant.html
 paper poppy craft | paper-crafts | paper-poppy-craft.html
 paper popsicle craft | paper-crafts | paper-popsicle-craft.html
 paper skeleton craft | paper-crafts | paper-skeleton-craft.html
+paper squirrel craft | paper-crafts | paper-squirrel-craft.html
 
-# Total used: 132 articles published
+# Total used: 133 articles published
