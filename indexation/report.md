@@ -1,14 +1,14 @@
-# Indexation Report — 2026-06-07
+# Indexation Report — 2026-06-08
 
-**Last run:** `2026-06-07T03:00:12+00:00`
+**Last run:** `2026-06-08T03:00:11+00:00`
 
 ## Stats globales
 
-- Total URLs sitemap : **203**
-- URLs déjà traitées (au moins une fois) : **83**
+- Total URLs sitemap : **205**
+- URLs déjà traitées (au moins une fois) : **93**
 - Indexées (à vérifier manuellement dans GSC) : 0
 - Non indexées : 0
-- État inconnu : 83
+- État inconnu : 93
 - Avec problème technique : **0**
 
 ## Run du jour — 10 URLs traitées
@@ -20,16 +20,16 @@
 
 | URL | Titre | HTTP | Tech | Indexing API | IndexNow | Problème | GSC |
 |---|---|---|---|---|---|---|---|
-| [/blog/honeycomb-craft-paper.html](https://www.craft-with-mommy.com/blog/honeycomb-craft-paper.html) | Honeycomb Craft Paper: Easy Bee Tutorial for Kids | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fhoneycomb-craft-paper.html) |
-| [/blog/hot-air-balloon-paper-craft.html](https://www.craft-with-mommy.com/blog/hot-air-balloon-paper-craft.html) | Hot Air Balloon Paper Craft: Easy Kids Tutorial | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fhot-air-balloon-paper-craft.html) |
-| [/blog/ice-cream-paper-craft.html](https://www.craft-with-mommy.com/blog/ice-cream-paper-craft.html) | Ice Cream Paper Craft: Sweet Cone in 6 Easy Steps | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fice-cream-paper-craft.html) |
-| [/blog/japanese-paper-craft.html](https://www.craft-with-mommy.com/blog/japanese-paper-craft.html) | 20 Easy Japanese Paper Craft Ideas Kids Will Love | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fjapanese-paper-craft.html) |
-| [/blog/kawaii-paper-crafts.html](https://www.craft-with-mommy.com/blog/kawaii-paper-crafts.html) | 20 Adorable Kawaii Paper Crafts Kids Will Love | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fkawaii-paper-crafts.html) |
-| [/blog/kite-craft-paper.html](https://www.craft-with-mommy.com/blog/kite-craft-paper.html) | Kite Craft Paper: Easy Diamond Kite for Kids | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fkite-craft-paper.html) |
-| [/blog/ladybug-paper-craft.html](https://www.craft-with-mommy.com/blog/ladybug-paper-craft.html) | Easy Ladybug Paper Craft for Kids (6 Steps!) | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fladybug-paper-craft.html) |
-| [/blog/leaf-craft-paper.html](https://www.craft-with-mommy.com/blog/leaf-craft-paper.html) | Leaf Craft Paper: Pretty Fall Leaves in 6 Steps | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fleaf-craft-paper.html) |
-| [/blog/lettuce-paper-craft.html](https://www.craft-with-mommy.com/blog/lettuce-paper-craft.html) | Easy Lettuce Paper Craft: Cute Veggie for Kids | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Flettuce-paper-craft.html) |
-| [/blog/lion-craft-paper.html](https://www.craft-with-mommy.com/blog/lion-craft-paper.html) | Easy Lion Craft Paper for Kids (7 Simple Steps!) | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Flion-craft-paper.html) |
+| [/blog/mario-paper-craft.html](https://www.craft-with-mommy.com/blog/mario-paper-craft.html) | Easy Mario Paper Craft for Kids (7 Simple Steps!) | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fmario-paper-craft.html) |
+| [/blog/marshmallow-paper-craft.html](https://www.craft-with-mommy.com/blog/marshmallow-paper-craft.html) | Easy Marshmallow Paper Craft for Kids (6 Simple St | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fmarshmallow-paper-craft.html) |
+| [/blog/miniature-paper-craft.html](https://www.craft-with-mommy.com/blog/miniature-paper-craft.html) | Miniature Paper Craft: Cute Tiny Mushrooms in 7 St | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fminiature-paper-craft.html) |
+| [/blog/mothers-day-paper-crafts.html](https://www.craft-with-mommy.com/blog/mothers-day-paper-crafts.html) | 20 Sweet Mother's Day Paper Crafts Kids Will Love | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fmothers-day-paper-crafts.html) |
+| [/blog/nutcracker-paper-craft.html](https://www.craft-with-mommy.com/blog/nutcracker-paper-craft.html) | Easy Nutcracker Paper Craft for Christmas Fun | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fnutcracker-paper-craft.html) |
+| [/blog/octopus-paper-craft.html](https://www.craft-with-mommy.com/blog/octopus-paper-craft.html) | Easy Octopus Paper Craft for Kids (Step by Step) | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Foctopus-paper-craft.html) |
+| [/blog/origami-paper-craft.html](https://www.craft-with-mommy.com/blog/origami-paper-craft.html) | Origami Paper Craft for Kids: Make a Paper Crane | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Forigami-paper-craft.html) |
+| [/blog/owl-paper-craft.html](https://www.craft-with-mommy.com/blog/owl-paper-craft.html) | Owl Paper Craft: Easy Step-by-Step for Kids | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fowl-paper-craft.html) |
+| [/blog/paper-airplane-craft.html](https://www.craft-with-mommy.com/blog/paper-airplane-craft.html) | Paper Airplane Craft for Kids | Craft with Mommy | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fpaper-airplane-craft.html) |
+| [/blog/paper-angels-craft.html](https://www.craft-with-mommy.com/blog/paper-angels-craft.html) | Paper Angels Craft for Kids: Easy Cone Tutorial | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fpaper-angels-craft.html) |
 
 ## 🔍 URLs à inspecter manuellement dans GSC (priorité)
 
