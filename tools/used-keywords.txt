@@ -205,5 +205,6 @@ paper popsicle craft | paper-crafts | paper-popsicle-craft.html
 paper skeleton craft | paper-crafts | paper-skeleton-craft.html
 paper squirrel craft | paper-crafts | paper-squirrel-craft.html
 paper tent craft | paper-crafts | paper-tent-craft.html
+paper watermelon craft | paper-crafts | paper-watermelon-craft.html
 
-# Total used: 134 articles published
+# Total used: 135 articles published
