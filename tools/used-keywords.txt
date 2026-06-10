@@ -3,6 +3,7 @@
 # Format: keyword | collection | article slug
 
 # --- PAPER CRAFTS ---
+banana craft paper | paper-crafts | banana-craft-paper.html
 shamrock paper craft | paper-crafts | shamrock-paper-craft.html
 paper tulip craft | paper-crafts | paper-tulip-craft.html
 paper craft monkey | paper-crafts | paper-craft-monkey.html
