@@ -1,14 +1,14 @@
-# Indexation Report — 2026-06-09
+# Indexation Report — 2026-06-10
 
-**Last run:** `2026-06-09T03:00:13+00:00`
+**Last run:** `2026-06-10T03:00:12+00:00`
 
 ## Stats globales
 
-- Total URLs sitemap : **207**
-- URLs déjà traitées (au moins une fois) : **103**
+- Total URLs sitemap : **209**
+- URLs déjà traitées (au moins une fois) : **113**
 - Indexées (à vérifier manuellement dans GSC) : 0
 - Non indexées : 0
-- État inconnu : 103
+- État inconnu : 113
 - Avec problème technique : **0**
 
 ## Run du jour — 10 URLs traitées
@@ -20,16 +20,16 @@
 
 | URL | Titre | HTTP | Tech | Indexing API | IndexNow | Problème | GSC |
 |---|---|---|---|---|---|---|---|
-| [/blog/paper-animals-craft.html](https://www.craft-with-mommy.com/blog/paper-animals-craft.html) | 20 Paper Animals Craft Ideas Kids Will Love | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fpaper-animals-craft.html) |
-| [/blog/paper-aquarium-craft-ideas.html](https://www.craft-with-mommy.com/blog/paper-aquarium-craft-ideas.html) | 20 Paper Aquarium Craft Ideas for Kids | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fpaper-aquarium-craft-ideas.html) |
-| [/blog/paper-arts-and-crafts.html](https://www.craft-with-mommy.com/blog/paper-arts-and-crafts.html) | 20 Adorable Paper Arts and Crafts Kids Will Beg to | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fpaper-arts-and-crafts.html) |
-| [/blog/paper-basket-craft.html](https://www.craft-with-mommy.com/blog/paper-basket-craft.html) | Paper Basket Craft: Easy DIY Kids Can Make in 30 M | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fpaper-basket-craft.html) |
-| [/blog/paper-boat-craft.html](https://www.craft-with-mommy.com/blog/paper-boat-craft.html) | Paper Boat Craft for Kids (Easy Step-by-Step!) | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fpaper-boat-craft.html) |
-| [/blog/paper-bugs-craft.html](https://www.craft-with-mommy.com/blog/paper-bugs-craft.html) | Easy Paper Bugs Craft for Cute Spring Fun | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fpaper-bugs-craft.html) |
-| [/blog/paper-camera-craft.html](https://www.craft-with-mommy.com/blog/paper-camera-craft.html) | Paper Camera Craft: Easy Pretend Camera for Kids | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fpaper-camera-craft.html) |
-| [/blog/paper-campfire-craft.html](https://www.craft-with-mommy.com/blog/paper-campfire-craft.html) | Easy Paper Campfire Craft for Kids in 6 Simple Ste | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fpaper-campfire-craft.html) |
-| [/blog/paper-candle-craft.html](https://www.craft-with-mommy.com/blog/paper-candle-craft.html) | Easy Paper Candle Craft for Kids (Step by Step) | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fpaper-candle-craft.html) |
-| [/blog/paper-car-craft.html](https://www.craft-with-mommy.com/blog/paper-car-craft.html) | Paper Car Craft: Easy Tutorial for Kids | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fpaper-car-craft.html) |
+| [/blog/paper-chain-craft.html](https://www.craft-with-mommy.com/blog/paper-chain-craft.html) | Paper Chain Craft for Kids: Easy Step-by-Step Guid | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fpaper-chain-craft.html) |
+| [/blog/paper-chick-craft.html](https://www.craft-with-mommy.com/blog/paper-chick-craft.html) | Paper Chick Craft: Cute Spring Chick (6 Easy Steps | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fpaper-chick-craft.html) |
+| [/blog/paper-christmas-tree-craft.html](https://www.craft-with-mommy.com/blog/paper-christmas-tree-craft.html) | Paper Christmas Tree Craft for Kids | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fpaper-christmas-tree-craft.html) |
+| [/blog/paper-cones-for-crafts.html](https://www.craft-with-mommy.com/blog/paper-cones-for-crafts.html) | 20 Easy Paper Cones for Crafts Kids Will Love | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fpaper-cones-for-crafts.html) |
+| [/blog/paper-craft-ambulance.html](https://www.craft-with-mommy.com/blog/paper-craft-ambulance.html) | Paper Craft Ambulance for Kids (6 Easy Steps!) | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fpaper-craft-ambulance.html) |
+| [/blog/paper-craft-ant.html](https://www.craft-with-mommy.com/blog/paper-craft-ant.html) | Easy Paper Craft Ant for Kids in 6 Simple Steps | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fpaper-craft-ant.html) |
+| [/blog/paper-craft-banners.html](https://www.craft-with-mommy.com/blog/paper-craft-banners.html) | Paper Craft Banners: Easy Tutorial for Kids | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fpaper-craft-banners.html) |
+| [/blog/paper-craft-birds.html](https://www.craft-with-mommy.com/blog/paper-craft-birds.html) | 20 Easy Paper Craft Birds for Kids | Craft with Mo | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fpaper-craft-birds.html) |
+| [/blog/paper-craft-butterfly.html](https://www.craft-with-mommy.com/blog/paper-craft-butterfly.html) | Paper Craft Butterfly for Kids: Easy Tutorial | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fpaper-craft-butterfly.html) |
+| [/blog/paper-craft-dog.html](https://www.craft-with-mommy.com/blog/paper-craft-dog.html) | Paper Craft Dog: Easy Step-by-Step Tutorial for Ki | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fpaper-craft-dog.html) |
 
 ## 🔍 URLs à inspecter manuellement dans GSC (priorité)
 
