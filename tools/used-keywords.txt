@@ -209,5 +209,6 @@ paper squirrel craft | paper-crafts | paper-squirrel-craft.html
 paper tent craft | paper-crafts | paper-tent-craft.html
 paper watermelon craft | paper-crafts | paper-watermelon-craft.html
 fireplace craft paper | paper-crafts | fireplace-craft-paper.html
+fish tank paper craft | paper-crafts | fish-tank-paper-craft.html
 
-# Total used: 136 articles published
+# Total used: 137 articles published
