@@ -211,4 +211,7 @@ paper watermelon craft | paper-crafts | paper-watermelon-craft.html
 fireplace craft paper | paper-crafts | fireplace-craft-paper.html
 fish tank paper craft | paper-crafts | fish-tank-paper-craft.html
 
-# Total used: 137 articles published
+# --- RECYCLED CRAFTS ---
+paper sack crafts | recycled-crafts | paper-sack-crafts.html
+
+# Total used: 138 articles published

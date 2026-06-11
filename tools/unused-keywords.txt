@@ -1,9 +1,8 @@
 # unused-keywords.txt
 # Keywords not yet used — available for future articles on craft-with-mommy.com
-# Total: 404 keywords across 4 collections
+# Total: 403 keywords across 4 collections
 
-# --- PAPER CRAFTS (117 keywords) ---
-paper sack crafts
+# --- PAPER CRAFTS (116 keywords) ---
 
 # --- HANDPRINT CRAFTS (99 keywords) ---
 christmas handprint crafts
