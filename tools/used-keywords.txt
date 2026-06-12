@@ -216,5 +216,6 @@ paper sack crafts | recycled-crafts | paper-sack-crafts.html
 
 # --- HANDPRINT CRAFTS ---
 christmas handprint crafts | handprint-crafts | christmas-handprint-crafts.html
+father's day handprint craft | handprint-crafts | fathers-day-handprint-craft.html
 
-# Total used: 139 articles published
+# Total used: 140 articles published
