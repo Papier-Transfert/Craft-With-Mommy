@@ -1,14 +1,14 @@
-# Indexation Report — 2026-06-11
+# Indexation Report — 2026-06-12
 
-**Last run:** `2026-06-11T03:00:11+00:00`
+**Last run:** `2026-06-12T03:00:12+00:00`
 
 ## Stats globales
 
-- Total URLs sitemap : **211**
-- URLs déjà traitées (au moins une fois) : **123**
+- Total URLs sitemap : **213**
+- URLs déjà traitées (au moins une fois) : **133**
 - Indexées (à vérifier manuellement dans GSC) : 0
 - Non indexées : 0
-- État inconnu : 123
+- État inconnu : 133
 - Avec problème technique : **0**
 
 ## Run du jour — 10 URLs traitées
@@ -20,16 +20,16 @@
 
 | URL | Titre | HTTP | Tech | Indexing API | IndexNow | Problème | GSC |
 |---|---|---|---|---|---|---|---|
-| [/blog/banana-craft-paper.html](https://www.craft-with-mommy.com/blog/banana-craft-paper.html) | Banana Craft Paper: Easy Peel-and-Reveal for Kids | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fbanana-craft-paper.html) |
-| [/blog/fireplace-craft-paper.html](https://www.craft-with-mommy.com/blog/fireplace-craft-paper.html) | Fireplace Craft Paper: Cozy Fireplace for Kids | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Ffireplace-craft-paper.html) |
-| [/blog/paper-craft-egg.html](https://www.craft-with-mommy.com/blog/paper-craft-egg.html) | Paper Craft Egg: Cute and Easy Tutorial for Kids | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fpaper-craft-egg.html) |
-| [/blog/paper-craft-monkey.html](https://www.craft-with-mommy.com/blog/paper-craft-monkey.html) | Easy Paper Craft Monkey for Kids (Step by Step) | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fpaper-craft-monkey.html) |
-| [/blog/paper-craft-pinwheel.html](https://www.craft-with-mommy.com/blog/paper-craft-pinwheel.html) | Easy Paper Craft Pinwheel for Kids (7 Simple Steps | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fpaper-craft-pinwheel.html) |
-| [/blog/paper-craft-spider.html](https://www.craft-with-mommy.com/blog/paper-craft-spider.html) | Cute Paper Craft Spider for Kids (5 Easy Steps!) | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fpaper-craft-spider.html) |
-| [/blog/paper-craft-tank.html](https://www.craft-with-mommy.com/blog/paper-craft-tank.html) | Easy Paper Craft Tank for Kids (7 Simple Steps!) | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fpaper-craft-tank.html) |
-| [/blog/paper-crafts-for-teens.html](https://www.craft-with-mommy.com/blog/paper-crafts-for-teens.html) | 20 Paper Crafts for Teens | Craft with Mommy | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fpaper-crafts-for-teens.html) |
-| [/blog/paper-crafts-ideas.html](https://www.craft-with-mommy.com/blog/paper-crafts-ideas.html) | 20 Easy Paper Crafts Ideas for Kids | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fpaper-crafts-ideas.html) |
-| [/blog/paper-crafts.html](https://www.craft-with-mommy.com/blog/paper-crafts.html) | Paper Crafts — Craft with Mommy | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fpaper-crafts.html) |
+| [/blog/fish-tank-paper-craft.html](https://www.craft-with-mommy.com/blog/fish-tank-paper-craft.html) | Fish Tank Paper Craft: Easy Paper Aquarium for Kid | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Ffish-tank-paper-craft.html) |
+| [/blog/paper-crown-craft.html](https://www.craft-with-mommy.com/blog/paper-crown-craft.html) | Paper Crown Craft: Easy DIY for Kids in 25 Minutes | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fpaper-crown-craft.html) |
+| [/blog/paper-doily-crafts.html](https://www.craft-with-mommy.com/blog/paper-doily-crafts.html) | 20 Sweet Paper Doily Crafts Kids Will Adore | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fpaper-doily-crafts.html) |
+| [/blog/paper-doll-craft.html](https://www.craft-with-mommy.com/blog/paper-doll-craft.html) | Paper Doll Craft for Kids: Easy Tutorial | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fpaper-doll-craft.html) |
+| [/blog/paper-dragon-puppet-craft.html](https://www.craft-with-mommy.com/blog/paper-dragon-puppet-craft.html) | Paper Dragon Puppet Craft for Kids (Step by Step) | 200 | ✅ | ✅ today | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fpaper-dragon-puppet-craft.html) |
+| [/blog/paper-elephant-craft.html](https://www.craft-with-mommy.com/blog/paper-elephant-craft.html) | Paper Elephant Craft: Easy Tutorial for Kids | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fpaper-elephant-craft.html) |
+| [/blog/paper-fan-craft.html](https://www.craft-with-mommy.com/blog/paper-fan-craft.html) | Paper Fan Craft for Kids | Easy Step-by-Step Guide | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fpaper-fan-craft.html) |
+| [/blog/paper-fish-craft.html](https://www.craft-with-mommy.com/blog/paper-fish-craft.html) | Easy Paper Fish Craft for Kids (6 Simple Steps!) | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fpaper-fish-craft.html) |
+| [/blog/paper-flower-craft-ideas.html](https://www.craft-with-mommy.com/blog/paper-flower-craft-ideas.html) | 20 Paper Flower Craft Ideas for Kids | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fpaper-flower-craft-ideas.html) |
+| [/blog/paper-flower-craft.html](https://www.craft-with-mommy.com/blog/paper-flower-craft.html) | Gorgeous Paper Flower Craft for Kids — So Easy Eve | 200 | ✅ | – | ✅ today | – | [Inspect](https://search.google.com/search-console/inspect?resource_id=https%3A%2F%2Fwww.craft-with-mommy.com%2F&id=https%3A%2F%2Fwww.craft-with-mommy.com%2Fblog%2Fpaper-flower-craft.html) |
 
 ## 🔍 URLs à inspecter manuellement dans GSC (priorité)
 
