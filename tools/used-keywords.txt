@@ -214,4 +214,7 @@ fish tank paper craft | paper-crafts | fish-tank-paper-craft.html
 # --- RECYCLED CRAFTS ---
 paper sack crafts | recycled-crafts | paper-sack-crafts.html
 
-# Total used: 138 articles published
+# --- HANDPRINT CRAFTS ---
+christmas handprint crafts | handprint-crafts | christmas-handprint-crafts.html
+
+# Total used: 139 articles published
